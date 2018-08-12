@@ -14,12 +14,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author: wangsy
  * @date: 2018/8/12 21:07
  */
-/*@Configuration
+@Configuration
 @EnableSwagger2
 public class SwaggerConfig {
 
     @Bean
-    Docket myApi() {
+    Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
@@ -37,4 +37,4 @@ public class SwaggerConfig {
                 .version("v1.0")
                 .build();
     }
-}*/
+}
