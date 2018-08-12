@@ -1,0 +1,14 @@
+package ${package_name}.service;
+
+import wang.smile.common.base.BaseService;
+import ${package_name}.dao.model.${model};
+import ${package_name}.dao.model.${model}Example;
+
+/**
+* ${modelname}
+* @Author wangsy
+* @Date ${ctime}.
+*/
+public interface ${model}Service extends BaseService<${model}, ${model}Example> {
+
+}
