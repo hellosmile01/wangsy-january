@@ -72,8 +72,7 @@ public class Generator {
                 service_vm,
                 serviceMock_vm,
                 serviceImpl_vm,
-                map,
-                false
+                map
         );
     }
 

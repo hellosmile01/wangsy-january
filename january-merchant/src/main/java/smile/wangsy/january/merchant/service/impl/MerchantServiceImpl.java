@@ -2,9 +2,9 @@ package smile.wangsy.january.merchant.service.impl;
 
 import wang.smile.common.annotation.BaseService;
 import wang.smile.common.base.BaseServiceImpl;
-import smile.wangsy.january.merchant.dao.mapper.MerchantMapper;
-import smile.wangsy.january.merchant.dao.model.Merchant;
-import smile.wangsy.january.merchant.dao.model.MerchantExample;
+import smile.wangsy.january.merchant.mapper.MerchantMapper;
+import smile.wangsy.january.merchant.model.Merchant;
+import smile.wangsy.january.merchant.model.MerchantExample;
 import smile.wangsy.january.merchant.service.MerchantService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
-* 商户
+* ${modelname}
 * @Author wangsy
 * @Date 2018/8/12.
 */

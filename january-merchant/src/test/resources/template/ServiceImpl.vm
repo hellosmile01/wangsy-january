@@ -2,9 +2,9 @@ package ${package_name}.service.impl;
 
 import wang.smile.common.annotation.BaseService;
 import wang.smile.common.base.BaseServiceImpl;
-import ${package_name}.dao.mapper.${model}Mapper;
-import ${package_name}.dao.model.${model};
-import ${package_name}.dao.model.${model}Example;
+import ${package_name}.mapper.${model}Mapper;
+import ${package_name}.model.${model};
+import ${package_name}.model.${model}Example;
 import ${package_name}.service.${model}Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

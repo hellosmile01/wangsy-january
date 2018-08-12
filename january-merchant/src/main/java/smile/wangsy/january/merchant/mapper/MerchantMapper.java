@@ -1,9 +1,9 @@
-package smile.wangsy.january.merchant.dao.mapper;
+package smile.wangsy.january.merchant.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import smile.wangsy.january.merchant.dao.model.Merchant;
-import smile.wangsy.january.merchant.dao.model.MerchantExample;
+import smile.wangsy.january.merchant.model.Merchant;
+import smile.wangsy.january.merchant.model.MerchantExample;
 
 public interface MerchantMapper {
     long countByExample(MerchantExample example);

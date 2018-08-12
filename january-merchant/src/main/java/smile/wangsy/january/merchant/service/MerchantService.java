@@ -1,8 +1,8 @@
 package smile.wangsy.january.merchant.service;
 
 import wang.smile.common.base.BaseService;
-import smile.wangsy.january.merchant.dao.model.Merchant;
-import smile.wangsy.january.merchant.dao.model.MerchantExample;
+import smile.wangsy.january.merchant.model.Merchant;
+import smile.wangsy.january.merchant.model.MerchantExample;
 
 /**
 * ${modelname}

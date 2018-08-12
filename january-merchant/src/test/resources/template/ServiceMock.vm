@@ -1,9 +1,9 @@
 package ${package_name}.service;
 
 import wang.smile.common.base.BaseServiceMock;
-import ${package_name}.dao.mapper.${model}Mapper;
-import ${package_name}.dao.model.${model};
-import ${package_name}.dao.model.${model}Example;
+import ${package_name}.mapper.${model}Mapper;
+import ${package_name}.model.${model};
+import ${package_name}.model.${model}Example;
 
 /**
 * ${modelname}

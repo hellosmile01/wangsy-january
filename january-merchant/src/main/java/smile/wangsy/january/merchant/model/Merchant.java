@@ -1,4 +1,4 @@
-package smile.wangsy.january.merchant.dao.model;
+package smile.wangsy.january.merchant.model;
 
 import java.io.Serializable;
 import java.util.Date;

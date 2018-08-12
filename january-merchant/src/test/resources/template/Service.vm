@@ -1,8 +1,8 @@
 package ${package_name}.service;
 
 import wang.smile.common.base.BaseService;
-import ${package_name}.dao.model.${model};
-import ${package_name}.dao.model.${model}Example;
+import ${package_name}.model.${model};
+import ${package_name}.model.${model}Example;
 
 /**
 * ${modelname}

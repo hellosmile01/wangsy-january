@@ -52,13 +52,13 @@
                         password="666666" />
 
         <!-- model生成 -->
-        <javaModelGenerator targetPackage="smile.wangsy.january.merchant.dao.model" targetProject="E:/workspace/wangsy-january/january-merchant/src/main/java" />
+        <javaModelGenerator targetPackage="smile.wangsy.january.merchant.model" targetProject="E:/workspace/wangsy-january/january-merchant/src/main/java" />
 
         <!-- MapperXML生成 -->
         <sqlMapGenerator targetPackage="mapper" targetProject="E:/workspace/wangsy-january/january-merchant/src/main/resources" />
 
         <!-- Mapper接口生成 -->
-        <javaClientGenerator targetPackage="smile.wangsy.january.merchant.dao.mapper" targetProject="E:/workspace/wangsy-january/january-merchant/src/main/java" type="XMLMAPPER" />
+        <javaClientGenerator targetPackage="smile.wangsy.january.merchant.mapper" targetProject="E:/workspace/wangsy-january/january-merchant/src/main/java" type="XMLMAPPER" />
 
         <!-- 需要映射的表 -->
                                     <table tableName="merchant" domainObjectName="Merchant">
