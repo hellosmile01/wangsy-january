@@ -1,6 +1,8 @@
 package smile.wangsy.january.merchant.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import smile.wangsy.january.merchant.model.Merchant;
 import smile.wangsy.january.merchant.model.MerchantExample;

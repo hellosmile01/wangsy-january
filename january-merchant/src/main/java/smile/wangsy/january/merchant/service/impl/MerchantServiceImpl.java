@@ -27,4 +27,8 @@ public class MerchantServiceImpl extends BaseServiceImpl<MerchantMapper, Merchan
     @Autowired
     MerchantMapper merchantMapper;
 
+    public MerchantServiceImpl() {
+        super();
+        initMapper();
+    }
 }
