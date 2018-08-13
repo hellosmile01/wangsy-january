@@ -1,286 +1,501 @@
 package smile.wangsy.january.merchant.model;
 
-import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.*;
 
-public class Merchant implements Serializable {
-    private Long id;
+public class Merchant {
+    /**
+     * 主键id
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
 
     /**
      * 商户名称
-     *
-     * @mbg.generated
      */
     private String name;
 
     /**
-     * 数据入库时间
-     *
-     * @mbg.generated
+     * 联系人姓名
      */
-    private Date insertTime;
+    @Column(name = "contact_name")
+    private String contactName;
 
     /**
-     * 数据最后一次更新时间
-     *
-     * @mbg.generated
+     * 联系人电话
      */
-    private Date updateTime;
+    @Column(name = "contact_mobile")
+    private String contactMobile;
 
     /**
-     * 是否已删除
-     *
-     * @mbg.generated
+     * 营业时间(开始时间）
      */
-    private Boolean beenDeleted;
+    @Column(name = "start_hours")
+    private Date startHours;
 
     /**
-     * 删除时间
-     *
-     * @mbg.generated
+     * 营业时间(结束时间)
      */
-    private Date deleteTime;
+    @Column(name = "end_hours")
+    private String endHours;
 
     /**
-     * 是否有效
-     *
-     * @mbg.generated
+     * 所属省份（000001）
      */
-    private Boolean isValid;
+    private String province;
 
     /**
-     * 商户地址
-     *
-     * @mbg.generated
+     * 所属市（000001001）
+     */
+    private String city;
+
+    /**
+     * 所属区（000001001001）
+     */
+    private String area;
+
+    /**
+     * 详细地址
      */
     private String address;
 
     /**
-     * 联系电话
-     *
-     * @mbg.generated
+     * 门店Logo（图片url，单张）
      */
-    private String mobile;
+    private String logo;
 
     /**
-     * 负责人
-     *
-     * @mbg.generated
+     * 门店外景照片（图片url,url,url）
      */
-    private String principalName;
+    @Column(name = "out_image")
+    private String outImage;
 
     /**
-     * 负责人电话
-     *
-     * @mbg.generated
+     * 门店内景照片（url,url,url,url）
      */
-    private String principalMobile;
+    @Column(name = "inner_image")
+    private String innerImage;
 
     /**
-     * 描述
-     *
-     * @mbg.generated
+     * 身份证正面照
      */
-    private String description;
+    @Column(name = "id_card_front_image")
+    private String idCardFrontImage;
 
     /**
-     * 登陆账号
-     *
-     * @mbg.generated
+     * 身份证反面照
      */
-    private String loginAccount;
+    @Column(name = "id_card_back_image")
+    private String idCardBackImage;
 
     /**
-     * 登陆密码
-     *
-     * @mbg.generated
+     * 营业执照（图片上传）
+     */
+    @Column(name = "business_license")
+    private String businessLicense;
+
+    /**
+     * 行业许可证
+     */
+    @Column(name = "industry_license")
+    private String industryLicense;
+
+    /**
+     * 审核状态（0：未审核，1：通过；2：不通过）
+     */
+    private Integer state;
+
+    /**
+     * 经度
+     */
+    private Double longitude;
+
+    /**
+     * 纬度
+     */
+    private Double latitude;
+
+    /**
+     * 密码
      */
     private String password;
 
-    private static final long serialVersionUID = 1L;
-
-    public Long getId() {
+    /**
+     * 获取主键id
+     *
+     * @return id - 主键id
+     */
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    /**
+     * 设置主键id
+     *
+     * @param id 主键id
+     */
+    public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * 获取商户名称
+     *
+     * @return name - 商户名称
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * 设置商户名称
+     *
+     * @param name 商户名称
+     */
     public void setName(String name) {
         this.name = name;
     }
 
-    public Date getInsertTime() {
-        return insertTime;
+    /**
+     * 获取联系人姓名
+     *
+     * @return contact_name - 联系人姓名
+     */
+    public String getContactName() {
+        return contactName;
     }
 
-    public void setInsertTime(Date insertTime) {
-        this.insertTime = insertTime;
+    /**
+     * 设置联系人姓名
+     *
+     * @param contactName 联系人姓名
+     */
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    /**
+     * 获取联系人电话
+     *
+     * @return contact_mobile - 联系人电话
+     */
+    public String getContactMobile() {
+        return contactMobile;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    /**
+     * 设置联系人电话
+     *
+     * @param contactMobile 联系人电话
+     */
+    public void setContactMobile(String contactMobile) {
+        this.contactMobile = contactMobile;
     }
 
-    public Boolean getBeenDeleted() {
-        return beenDeleted;
+    /**
+     * 获取营业时间(开始时间）
+     *
+     * @return start_hours - 营业时间(开始时间）
+     */
+    public Date getStartHours() {
+        return startHours;
     }
 
-    public void setBeenDeleted(Boolean beenDeleted) {
-        this.beenDeleted = beenDeleted;
+    /**
+     * 设置营业时间(开始时间）
+     *
+     * @param startHours 营业时间(开始时间）
+     */
+    public void setStartHours(Date startHours) {
+        this.startHours = startHours;
     }
 
-    public Date getDeleteTime() {
-        return deleteTime;
+    /**
+     * 获取营业时间(结束时间)
+     *
+     * @return end_hours - 营业时间(结束时间)
+     */
+    public String getEndHours() {
+        return endHours;
     }
 
-    public void setDeleteTime(Date deleteTime) {
-        this.deleteTime = deleteTime;
+    /**
+     * 设置营业时间(结束时间)
+     *
+     * @param endHours 营业时间(结束时间)
+     */
+    public void setEndHours(String endHours) {
+        this.endHours = endHours;
     }
 
-    public Boolean getIsValid() {
-        return isValid;
+    /**
+     * 获取所属省份（000001）
+     *
+     * @return province - 所属省份（000001）
+     */
+    public String getProvince() {
+        return province;
     }
 
-    public void setIsValid(Boolean isValid) {
-        this.isValid = isValid;
+    /**
+     * 设置所属省份（000001）
+     *
+     * @param province 所属省份（000001）
+     */
+    public void setProvince(String province) {
+        this.province = province;
     }
 
+    /**
+     * 获取所属市（000001001）
+     *
+     * @return city - 所属市（000001001）
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * 设置所属市（000001001）
+     *
+     * @param city 所属市（000001001）
+     */
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    /**
+     * 获取所属区（000001001001）
+     *
+     * @return area - 所属区（000001001001）
+     */
+    public String getArea() {
+        return area;
+    }
+
+    /**
+     * 设置所属区（000001001001）
+     *
+     * @param area 所属区（000001001001）
+     */
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    /**
+     * 获取详细地址
+     *
+     * @return address - 详细地址
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * 设置详细地址
+     *
+     * @param address 详细地址
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
-    public String getMobile() {
-        return mobile;
+    /**
+     * 获取门店Logo（图片url，单张）
+     *
+     * @return logo - 门店Logo（图片url，单张）
+     */
+    public String getLogo() {
+        return logo;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    /**
+     * 设置门店Logo（图片url，单张）
+     *
+     * @param logo 门店Logo（图片url，单张）
+     */
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
-    public String getPrincipalName() {
-        return principalName;
+    /**
+     * 获取门店外景照片（图片url,url,url）
+     *
+     * @return out_image - 门店外景照片（图片url,url,url）
+     */
+    public String getOutImage() {
+        return outImage;
     }
 
-    public void setPrincipalName(String principalName) {
-        this.principalName = principalName;
+    /**
+     * 设置门店外景照片（图片url,url,url）
+     *
+     * @param outImage 门店外景照片（图片url,url,url）
+     */
+    public void setOutImage(String outImage) {
+        this.outImage = outImage;
     }
 
-    public String getPrincipalMobile() {
-        return principalMobile;
+    /**
+     * 获取门店内景照片（url,url,url,url）
+     *
+     * @return inner_image - 门店内景照片（url,url,url,url）
+     */
+    public String getInnerImage() {
+        return innerImage;
     }
 
-    public void setPrincipalMobile(String principalMobile) {
-        this.principalMobile = principalMobile;
+    /**
+     * 设置门店内景照片（url,url,url,url）
+     *
+     * @param innerImage 门店内景照片（url,url,url,url）
+     */
+    public void setInnerImage(String innerImage) {
+        this.innerImage = innerImage;
     }
 
-    public String getDescription() {
-        return description;
+    /**
+     * 获取身份证正面照
+     *
+     * @return id_card_front_image - 身份证正面照
+     */
+    public String getIdCardFrontImage() {
+        return idCardFrontImage;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 设置身份证正面照
+     *
+     * @param idCardFrontImage 身份证正面照
+     */
+    public void setIdCardFrontImage(String idCardFrontImage) {
+        this.idCardFrontImage = idCardFrontImage;
     }
 
-    public String getLoginAccount() {
-        return loginAccount;
+    /**
+     * 获取身份证反面照
+     *
+     * @return id_card_back_image - 身份证反面照
+     */
+    public String getIdCardBackImage() {
+        return idCardBackImage;
     }
 
-    public void setLoginAccount(String loginAccount) {
-        this.loginAccount = loginAccount;
+    /**
+     * 设置身份证反面照
+     *
+     * @param idCardBackImage 身份证反面照
+     */
+    public void setIdCardBackImage(String idCardBackImage) {
+        this.idCardBackImage = idCardBackImage;
     }
 
+    /**
+     * 获取营业执照（图片上传）
+     *
+     * @return business_license - 营业执照（图片上传）
+     */
+    public String getBusinessLicense() {
+        return businessLicense;
+    }
+
+    /**
+     * 设置营业执照（图片上传）
+     *
+     * @param businessLicense 营业执照（图片上传）
+     */
+    public void setBusinessLicense(String businessLicense) {
+        this.businessLicense = businessLicense;
+    }
+
+    /**
+     * 获取行业许可证
+     *
+     * @return industry_license - 行业许可证
+     */
+    public String getIndustryLicense() {
+        return industryLicense;
+    }
+
+    /**
+     * 设置行业许可证
+     *
+     * @param industryLicense 行业许可证
+     */
+    public void setIndustryLicense(String industryLicense) {
+        this.industryLicense = industryLicense;
+    }
+
+    /**
+     * 获取审核状态（0：未审核，1：通过；2：不通过）
+     *
+     * @return state - 审核状态（0：未审核，1：通过；2：不通过）
+     */
+    public Integer getState() {
+        return state;
+    }
+
+    /**
+     * 设置审核状态（0：未审核，1：通过；2：不通过）
+     *
+     * @param state 审核状态（0：未审核，1：通过；2：不通过）
+     */
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    /**
+     * 获取经度
+     *
+     * @return longitude - 经度
+     */
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    /**
+     * 设置经度
+     *
+     * @param longitude 经度
+     */
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    /**
+     * 获取纬度
+     *
+     * @return latitude - 纬度
+     */
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    /**
+     * 设置纬度
+     *
+     * @param latitude 纬度
+     */
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    /**
+     * 获取密码
+     *
+     * @return password - 密码
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * 设置密码
+     *
+     * @param password 密码
+     */
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", insertTime=").append(insertTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", beenDeleted=").append(beenDeleted);
-        sb.append(", deleteTime=").append(deleteTime);
-        sb.append(", isValid=").append(isValid);
-        sb.append(", address=").append(address);
-        sb.append(", mobile=").append(mobile);
-        sb.append(", principalName=").append(principalName);
-        sb.append(", principalMobile=").append(principalMobile);
-        sb.append(", description=").append(description);
-        sb.append(", loginAccount=").append(loginAccount);
-        sb.append(", password=").append(password);
-        sb.append("]");
-        return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object that) {
-        if (this == that) {
-            return true;
-        }
-        if (that == null) {
-            return false;
-        }
-        if (getClass() != that.getClass()) {
-            return false;
-        }
-        Merchant other = (Merchant) that;
-        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getInsertTime() == null ? other.getInsertTime() == null : this.getInsertTime().equals(other.getInsertTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getBeenDeleted() == null ? other.getBeenDeleted() == null : this.getBeenDeleted().equals(other.getBeenDeleted()))
-            && (this.getDeleteTime() == null ? other.getDeleteTime() == null : this.getDeleteTime().equals(other.getDeleteTime()))
-            && (this.getIsValid() == null ? other.getIsValid() == null : this.getIsValid().equals(other.getIsValid()))
-            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
-            && (this.getMobile() == null ? other.getMobile() == null : this.getMobile().equals(other.getMobile()))
-            && (this.getPrincipalName() == null ? other.getPrincipalName() == null : this.getPrincipalName().equals(other.getPrincipalName()))
-            && (this.getPrincipalMobile() == null ? other.getPrincipalMobile() == null : this.getPrincipalMobile().equals(other.getPrincipalMobile()))
-            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
-            && (this.getLoginAccount() == null ? other.getLoginAccount() == null : this.getLoginAccount().equals(other.getLoginAccount()))
-            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()));
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getInsertTime() == null) ? 0 : getInsertTime().hashCode());
-        result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getBeenDeleted() == null) ? 0 : getBeenDeleted().hashCode());
-        result = prime * result + ((getDeleteTime() == null) ? 0 : getDeleteTime().hashCode());
-        result = prime * result + ((getIsValid() == null) ? 0 : getIsValid().hashCode());
-        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
-        result = prime * result + ((getMobile() == null) ? 0 : getMobile().hashCode());
-        result = prime * result + ((getPrincipalName() == null) ? 0 : getPrincipalName().hashCode());
-        result = prime * result + ((getPrincipalMobile() == null) ? 0 : getPrincipalMobile().hashCode());
-        result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
-        result = prime * result + ((getLoginAccount() == null) ? 0 : getLoginAccount().hashCode());
-        result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
-        return result;
     }
 }

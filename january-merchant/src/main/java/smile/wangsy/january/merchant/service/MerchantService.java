@@ -1,14 +1,11 @@
 package smile.wangsy.january.merchant.service;
-
-import wang.smile.common.base.BaseService;
 import smile.wangsy.january.merchant.model.Merchant;
-import smile.wangsy.january.merchant.model.MerchantExample;
+import wang.smile.common.base.Service;
+
 
 /**
-* ${modelname}
-* @Author wangsy
-* @Date 2018/8/12.
-*/
-public interface MerchantService extends BaseService<Merchant, MerchantExample> {
+ * Created by wangsy on 2018/08/13.
+ */
+public interface MerchantService extends Service<Merchant> {
 
 }

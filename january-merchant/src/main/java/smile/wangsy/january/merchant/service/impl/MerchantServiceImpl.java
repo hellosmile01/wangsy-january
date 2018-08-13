@@ -1,34 +1,22 @@
 package smile.wangsy.january.merchant.service.impl;
 
-import wang.smile.common.annotation.BaseService;
-import wang.smile.common.base.BaseServiceImpl;
 import smile.wangsy.january.merchant.mapper.MerchantMapper;
 import smile.wangsy.january.merchant.model.Merchant;
-import smile.wangsy.january.merchant.model.MerchantExample;
 import smile.wangsy.january.merchant.service.MerchantService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import wang.smile.common.base.BaseService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+
+
 /**
-* ${modelname}
-* @Author wangsy
-* @Date 2018/8/12.
-*/
+ * Created by wangsy on 2018/08/13.
+ */
 @Service
 @Transactional
-@BaseService
-public class MerchantServiceImpl extends BaseServiceImpl<MerchantMapper, Merchant, MerchantExample> implements MerchantService {
+public class MerchantServiceImpl extends BaseService<Merchant> implements MerchantService {
+    @Resource
+    private MerchantMapper merchantMapper;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MerchantServiceImpl.class);
-
-    @Autowired
-    MerchantMapper merchantMapper;
-
-    public MerchantServiceImpl() {
-        super();
-        initMapper();
-    }
 }

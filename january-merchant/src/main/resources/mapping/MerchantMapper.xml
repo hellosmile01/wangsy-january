@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smile.wangsy.january.merchant.mapper.MerchantMapper">
+  <resultMap id="BaseResultMap" type="smile.wangsy.january.merchant.model.Merchant">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="contact_name" jdbcType="VARCHAR" property="contactName" />
+    <result column="contact_mobile" jdbcType="VARCHAR" property="contactMobile" />
+    <result column="start_hours" jdbcType="TIME" property="startHours" />
+    <result column="end_hours" jdbcType="VARCHAR" property="endHours" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="out_image" jdbcType="VARCHAR" property="outImage" />
+    <result column="inner_image" jdbcType="VARCHAR" property="innerImage" />
+    <result column="id_card_front_image" jdbcType="VARCHAR" property="idCardFrontImage" />
+    <result column="id_card_back_image" jdbcType="VARCHAR" property="idCardBackImage" />
+    <result column="business_license" jdbcType="VARCHAR" property="businessLicense" />
+    <result column="industry_license" jdbcType="VARCHAR" property="industryLicense" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="longitude" jdbcType="DOUBLE" property="longitude" />
+    <result column="latitude" jdbcType="DOUBLE" property="latitude" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+</mapper>

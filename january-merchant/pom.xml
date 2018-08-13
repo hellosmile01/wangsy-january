@@ -47,6 +47,18 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+
         <!-- myBatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
