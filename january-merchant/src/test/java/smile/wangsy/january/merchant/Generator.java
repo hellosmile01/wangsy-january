@@ -4,9 +4,6 @@ package smile.wangsy.january.merchant;
 import wang.smile.common.util.PropertiesFileUtil;
 import wang.smile.generator.util.MybatisGeneratorUtil;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author wangsy
  * @Date 2018/5/25.
@@ -39,7 +36,8 @@ public class Generator {
      */
     public static void main(String[] args) {
         MybatisGeneratorUtil.generator(JDBC_DRIVER, JDBC_URL, JDBC_USERNAME, JDBC_PASSWORD, PROJECT_PATH,
-                MODULE, PACKAGE_NAME, null, "merchant", TEMPLATE_FILE_PATH
+                MODULE, PACKAGE_NAME, null, "merchant", TEMPLATE_FILE_PATH,
+                false, false
         );
     }
 

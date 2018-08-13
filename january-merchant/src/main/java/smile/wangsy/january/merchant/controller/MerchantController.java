@@ -3,11 +3,11 @@ package smile.wangsy.january.merchant.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import smile.wangsy.january.merchant.dto.MerchantDto;
 import smile.wangsy.january.merchant.model.Merchant;
 import smile.wangsy.january.merchant.service.MerchantService;
+import smile.wangsy.january.merchant.vo.MerchantVo;
 import wang.smile.common.base.BaseConstants;
 import wang.smile.common.base.BaseResult;
 
@@ -23,11 +23,16 @@ public class MerchantController {
     @Autowired
     private MerchantService merchantService;
 
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @PostMapping
     @ApiOperation(value = "新增", httpMethod = "POST", response = MerchantController.class, notes = "新增")
-    public BaseResult createMerchant(Merchant merchant) {
+    public BaseResult createMerchant(MerchantDto dto) {
         try {
-            merchantService.insert(merchant);
+            merchantService.insertDto(dto);
         } catch (Exception e) {
             e.printStackTrace();
             return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "ERROR");
@@ -35,4 +40,17 @@ public class MerchantController {
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public BaseResult getMerchant(@PathVariable Long id) {
+        if(id == null || id <= 0) {
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "参数错误");
+        }
+        MerchantVo merchantVo = merchantService.selectById(id);
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, merchantVo);
+    }
 }
