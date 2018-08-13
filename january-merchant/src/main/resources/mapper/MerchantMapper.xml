@@ -5,7 +5,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="id" jdbcType="VARCHAR" property="id" />
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="contact_name" jdbcType="VARCHAR" property="contactName" />
     <result column="contact_mobile" jdbcType="VARCHAR" property="contactMobile" />

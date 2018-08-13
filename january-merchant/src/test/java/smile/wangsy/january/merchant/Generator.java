@@ -16,6 +16,7 @@ public class Generator {
      * 模块名称
      */
     private static String MODULE = "january-merchant";
+
     /**
      * 包名
      */

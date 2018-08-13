@@ -9,7 +9,7 @@ public class Merchant {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     /**
      * 商户名称
@@ -126,7 +126,7 @@ public class Merchant {
      *
      * @return id - 主键id
      */
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -135,7 +135,7 @@ public class Merchant {
      *
      * @param id 主键id
      */
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
