@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import smile.wangsy.january.merchant.dto.MerchantDto;
-import smile.wangsy.january.merchant.model.Merchant;
 import smile.wangsy.january.merchant.service.MerchantService;
 import smile.wangsy.january.merchant.vo.MerchantVo;
 import wang.smile.common.base.BaseConstants;
@@ -35,7 +34,7 @@ public class MerchantController {
             merchantService.insertDto(dto);
         } catch (Exception e) {
             e.printStackTrace();
-            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "ERROR");
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "新增数据异常");
         }
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
     }
@@ -48,7 +47,7 @@ public class MerchantController {
     @GetMapping("/{id}")
     public BaseResult getMerchant(@PathVariable Long id) {
         if(id == null || id <= 0) {
-            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "参数错误");
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");
         }
         MerchantVo merchantVo = merchantService.selectById(id);
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, merchantVo);
