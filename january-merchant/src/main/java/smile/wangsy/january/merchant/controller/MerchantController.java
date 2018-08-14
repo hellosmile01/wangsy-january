@@ -39,12 +39,28 @@ public class MerchantController {
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
     }
 
+    @DeleteMapping("/{id}")
+    @ApiOperation(value = "删除", httpMethod = "DELETE", response = MerchantController.class, notes = "删除")
+    public BaseResult deleteMerchant(@PathVariable Long id) {
+        if(id == null || id <= 0) {
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");
+        }
+        try {
+            merchantService.deleteByUpdate(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "删除数据异常");
+        }
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
+    }
+
     /**
      *
      * @param id
      * @return
      */
     @GetMapping("/{id}")
+    @ApiOperation(value = "根据id查询", httpMethod = "GET", response = MerchantController.class, notes = "根据id查询")
     public BaseResult getMerchant(@PathVariable Long id) {
         if(id == null || id <= 0) {
             return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");

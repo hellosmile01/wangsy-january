@@ -10,13 +10,13 @@ CREATE TABLE `merchant` (
   `city` varchar(30) DEFAULT NULL COMMENT '所属市（000001001）',
   `area` varchar(30) DEFAULT NULL COMMENT '所属区（000001001001）',
   `address` varchar(30) DEFAULT NULL COMMENT '详细地址',
-  `logo` varchar(30) DEFAULT NULL COMMENT '门店Logo（图片url，单张）',
-  `out_image` varchar(30) DEFAULT NULL COMMENT '门店外景照片（图片url,url,url）',
-  `inner_image` varchar(30) DEFAULT NULL COMMENT '门店内景照片（url,url,url,url）',
-  `id_card_front_image` varchar(30) DEFAULT NULL COMMENT '身份证正面照',
-  `id_card_back_image` varchar(30) DEFAULT NULL COMMENT '身份证反面照',
-  `business_license` varchar(30) DEFAULT NULL COMMENT '营业执照（图片上传）',
-  `industry_license` varchar(30) DEFAULT NULL COMMENT '行业许可证',
+  `logo` text COMMENT '门店Logo（图片url，单张）',
+  `out_image` text COMMENT '门店外景照片（图片url,url,url）',
+  `inner_image` text COMMENT '门店内景照片（url,url,url,url）',
+  `id_card_front_image` text COMMENT '身份证正面照',
+  `id_card_back_image` text COMMENT '身份证反面照',
+  `business_license` text COMMENT '营业执照（图片上传）',
+  `industry_license` text COMMENT '行业许可证',
   `state` int(1) DEFAULT '0' COMMENT '审核状态（0：未审核，1：通过；2：不通过）',
   `is_valid` tinyint(1) DEFAULT NULL COMMENT '是否有效',
   `longitude` double DEFAULT '0' COMMENT '经度',
@@ -29,4 +29,4 @@ CREATE TABLE `merchant` (
   `delete_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '删除时间',
   `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='商户信息表';

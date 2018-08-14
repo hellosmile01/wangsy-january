@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * @author wangsy
@@ -25,6 +26,11 @@ public class MerchantServiceImpl extends BaseService<Merchant> implements Mercha
     @Override
     public void insertDto(MerchantDto dto) {
         Merchant merchant = new MerchantDto().transfer(dto);
+        merchant.setIsValid(true);
+        merchant.setBeenDeleted(false);
+        merchant.setInsertTime(new Date());
+        // 0: 未审核
+        merchant.setState(0);
         merchantMapper.insert(merchant);
     }
 
@@ -32,5 +38,13 @@ public class MerchantServiceImpl extends BaseService<Merchant> implements Mercha
     public MerchantVo selectById(Long id) {
         Merchant merchant = merchantMapper.selectByPrimaryKey(id);
         return new MerchantVo().transMerchantToVo(merchant);
+    }
+
+    @Override
+    public void deleteByUpdate(Long id) {
+        Merchant merchant = merchantMapper.selectByPrimaryKey(id);
+        merchant.setBeenDeleted(true);
+        merchant.setDeleteTime(new Date());
+        merchantMapper.updateByPrimaryKeySelective(merchant);
     }
 }

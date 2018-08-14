@@ -3,9 +3,6 @@ package smile.wangsy.january.merchant.model;
 import java.util.Date;
 import javax.persistence.*;
 
-/**
- * @author wangsy
- */
 public class Merchant {
     /**
      * 主键id

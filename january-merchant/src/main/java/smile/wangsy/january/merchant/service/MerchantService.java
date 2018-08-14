@@ -23,4 +23,10 @@ public interface MerchantService extends Service<Merchant> {
      * @return
      */
     MerchantVo selectById(Long id);
+
+    /**
+     * 删除（非物理删除，只是更新beenDeleted状态）
+     * @param id
+     */
+    void deleteByUpdate(Long id);
 }

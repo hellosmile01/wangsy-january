@@ -35,9 +35,19 @@ public class Generator {
      * @param args
      */
     public static void main(String[] args) {
-        MybatisGeneratorUtil.generator(JDBC_DRIVER, JDBC_URL, JDBC_USERNAME, JDBC_PASSWORD, PROJECT_PATH,
-                MODULE, PACKAGE_NAME, null, "merchant", TEMPLATE_FILE_PATH,
-                false, false
+        MybatisGeneratorUtil.generator(
+            JDBC_DRIVER,
+            JDBC_URL,
+            JDBC_USERNAME,
+            JDBC_PASSWORD,
+            PROJECT_PATH,
+            MODULE,
+            PACKAGE_NAME,
+            null,
+            "merchant",
+            TEMPLATE_FILE_PATH,
+            false,
+            false
         );
     }
 
