@@ -22,11 +22,6 @@ public class MerchantController {
     @Autowired
     private MerchantService merchantService;
 
-    /**
-     *
-     * @param dto
-     * @return
-     */
     @PostMapping
     @ApiOperation(value = "新增", httpMethod = "POST", response = MerchantController.class, notes = "新增")
     public BaseResult createMerchant(MerchantDto dto) {

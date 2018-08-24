@@ -8,8 +8,8 @@ import ${basePackage}.result.ResultCode;
 import ${basePackage}.model.${modelNameUpperCamel};
 import ${basePackage}.service.${modelNameUpperCamel}Service;
 import org.springframework.web.bind.annotation.*;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import tk.mybatis.mapper.entity.Condition;
 
 import javax.annotation.Resource;

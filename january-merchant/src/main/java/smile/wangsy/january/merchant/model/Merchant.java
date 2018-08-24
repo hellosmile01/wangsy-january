@@ -71,13 +71,13 @@ public class Merchant {
     private String logo;
 
     /**
-     * 门店外景照片（图片url,url,url）
+     * 门店外景照片（url,url,url）
      */
     @Column(name = "out_image")
     private String outImage;
 
     /**
-     * 门店内景照片（url,url,url,url）
+     * 门店内景照片（url,url,url）
      */
     @Column(name = "inner_image")
     private String innerImage;
@@ -384,36 +384,36 @@ public class Merchant {
     }
 
     /**
-     * 获取门店外景照片（图片url,url,url）
+     * 获取门店外景照片（url,url,url）
      *
-     * @return out_image - 门店外景照片（图片url,url,url）
+     * @return out_image - 门店外景照片（url,url,url）
      */
     public String getOutImage() {
         return outImage;
     }
 
     /**
-     * 设置门店外景照片（图片url,url,url）
+     * 设置门店外景照片（url,url,url）
      *
-     * @param outImage 门店外景照片（图片url,url,url）
+     * @param outImage 门店外景照片（url,url,url）
      */
     public void setOutImage(String outImage) {
         this.outImage = outImage;
     }
 
     /**
-     * 获取门店内景照片（url,url,url,url）
+     * 获取门店内景照片（url,url,url）
      *
-     * @return inner_image - 门店内景照片（url,url,url,url）
+     * @return inner_image - 门店内景照片（url,url,url）
      */
     public String getInnerImage() {
         return innerImage;
     }
 
     /**
-     * 设置门店内景照片（url,url,url,url）
+     * 设置门店内景照片（url,url,url）
      *
-     * @param innerImage 门店内景照片（url,url,url,url）
+     * @param innerImage 门店内景照片（url,url,url）
      */
     public void setInnerImage(String innerImage) {
         this.innerImage = innerImage;
