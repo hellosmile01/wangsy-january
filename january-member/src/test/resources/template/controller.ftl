@@ -87,7 +87,8 @@ public class ${modelNameUpperCamel}Controller {
         }
         List<${modelNameUpperCamel}> list = services.selectByConditions(valid);
 
+        List<${modelVoNameUpperCamel}> voList = new ${modelVoNameUpperCamel}().transModelListToVoList(list);
 
-        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, list);
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList);
     }
 }

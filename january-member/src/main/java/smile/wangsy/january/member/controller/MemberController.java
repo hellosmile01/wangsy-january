@@ -87,7 +87,8 @@ public class MemberController {
         }
         List<Member> list = services.selectByConditions(valid);
 
+        List<MemberVo> voList = new MemberVo().transModelListToVoList(list);
 
-        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, list);
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList);
     }
 }
