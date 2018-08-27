@@ -3,7 +3,7 @@ package ${basePackage}.service;
 import ${basePackage}.model.${modelNameUpperCamel};
 import ${basePackage}.dto.${modelDtoNameUpperCamel};
 import ${basePackage}.valid.${modelValidNameUpperCamel};
-import com.meiwo.cloud.common.base.Service;
+import wang.smile.common.base.Service;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public interface ${modelNameUpperCamel}Service extends Service<${modelNameUpperC
      * 修改数据
      * @param dto
      */
-    void updateByDto(StoreDto dto)  throws Exception;
+    void updateByDto(${modelDtoNameUpperCamel} dto)  throws Exception;
 
     /**
      * 非物理删除
