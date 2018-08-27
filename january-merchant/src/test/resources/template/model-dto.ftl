@@ -3,11 +3,16 @@ package ${basePackage}.dto;
 import org.springframework.beans.BeanUtils;
 import ${basePackage}.model.${modelNameUpperCamel};
 
+import java.io.Serializable;
+
+import lombok.Data;
+
 /**
  * @author ${author}
  * @date ${date}
  */
-public class ${modelDtoNameUpperCamel} {
+@Data
+public class ${modelDtoNameUpperCamel} implements Serializable {
 
     public ${modelNameUpperCamel} transfer(${modelDtoNameUpperCamel} dto) {
 

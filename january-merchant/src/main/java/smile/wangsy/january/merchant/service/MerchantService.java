@@ -1,32 +1,41 @@
 package smile.wangsy.january.merchant.service;
-import smile.wangsy.january.merchant.dto.MerchantDto;
+
 import smile.wangsy.january.merchant.model.Merchant;
-import smile.wangsy.january.merchant.vo.MerchantVo;
+import smile.wangsy.january.merchant.dto.MerchantDto;
+import smile.wangsy.january.merchant.valid.MerchantValid;
 import wang.smile.common.base.Service;
 
+import java.util.List;
 
 /**
- *
  * @author wangsy
- * @date 2018/08/13
+ * @date 2018/08/27
  */
 public interface MerchantService extends Service<Merchant> {
-    /**
-     * 插入数据：通过dot
+
+   /**
+     * 插入数据
      * @param dto
      */
     void insertDto(MerchantDto dto);
 
     /**
-     * 返回VO
+     * 非物理删除
+     * @param id
+     */
+    void deleteByUpdate(Object id);
+
+    /**
+     * 根据id查询
      * @param id
      * @return
      */
-    MerchantVo selectById(Long id);
+    Merchant selectById(Object id);
 
     /**
-     * 删除（非物理删除，只是更新beenDeleted状态）
-     * @param id
+     * 根据条件查询
+     * @param valid
+     * @return
      */
-    void deleteByUpdate(Long id);
+    List<Merchant> selectByConditions(MerchantValid valid);
 }

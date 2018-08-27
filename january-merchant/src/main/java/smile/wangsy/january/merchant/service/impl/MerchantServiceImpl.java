@@ -1,20 +1,26 @@
 package smile.wangsy.january.merchant.service.impl;
 
-import smile.wangsy.january.merchant.dto.MerchantDto;
+import org.springframework.util.StringUtils;
 import smile.wangsy.january.merchant.mapper.MerchantMapper;
 import smile.wangsy.january.merchant.model.Merchant;
 import smile.wangsy.january.merchant.service.MerchantService;
-import smile.wangsy.january.merchant.vo.MerchantVo;
+import smile.wangsy.january.merchant.dto.MerchantDto;
+import smile.wangsy.january.merchant.valid.MerchantValid;
+
 import wang.smile.common.base.BaseService;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import tk.mybatis.mapper.entity.Example;
+
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author wangsy
- * @date 2018/08/13
+ * @date 2018/08/27.
  */
 @Service
 @Transactional(rollbackFor = {Exception.class})
@@ -25,26 +31,43 @@ public class MerchantServiceImpl extends BaseService<Merchant> implements Mercha
 
     @Override
     public void insertDto(MerchantDto dto) {
-        Merchant merchant = new MerchantDto().transfer(dto);
-        merchant.setIsValid(true);
-        merchant.setBeenDeleted(false);
-        merchant.setInsertTime(new Date());
-        // 0: 未审核
-        merchant.setState(0);
-        merchantMapper.insert(merchant);
+        Merchant model = new MerchantDto().transfer(dto);
+
+        model.setBeenDeleted(false);
+        model.setInsertTime(new Date());
+
+        merchantMapper.insert(model);
     }
 
     @Override
-    public MerchantVo selectById(Long id) {
-        Merchant merchant = merchantMapper.selectByPrimaryKey(id);
-        return new MerchantVo().transMerchantToVo(merchant);
+    public Merchant selectById(Object id) {
+        Merchant model = merchantMapper.selectByPrimaryKey(id);
+        return model;
     }
 
     @Override
-    public void deleteByUpdate(Long id) {
-        Merchant merchant = merchantMapper.selectByPrimaryKey(id);
-        merchant.setBeenDeleted(true);
-        merchant.setDeleteTime(new Date());
-        merchantMapper.updateByPrimaryKeySelective(merchant);
+    public List<Merchant> selectByConditions(MerchantValid valid) {
+
+        Example example = new Example(Merchant.class);
+        Example.Criteria criteria = example.createCriteria();
+        /**
+         * 查询未被删除的数据
+         */
+        criteria.andEqualTo("beenDeleted", false);
+
+        if(!StringUtils.isEmpty(valid.getName())) {
+            criteria.andLike("name", "%"+valid.getName()+"%");
+        }
+
+        return merchantMapper.selectByCondition(example);
     }
+
+    @Override
+    public void deleteByUpdate(Object id) {
+        Merchant model = merchantMapper.selectByPrimaryKey(id);
+        model.setBeenDeleted(true);
+        model.setDeleteTime(new Date());
+        merchantMapper.updateByPrimaryKeySelective(model);
+    }
+
 }

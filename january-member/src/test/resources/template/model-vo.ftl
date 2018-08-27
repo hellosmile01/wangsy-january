@@ -4,26 +4,31 @@ import org.springframework.beans.BeanUtils;
 import ${basePackage}.model.${modelNameUpperCamel};
 
 import java.util.List;
+import java.io.Serializable;
 import java.util.stream.Collectors;
+
+import lombok.Data;
 
 /**
  * @author ${author}
  * @date ${date}.
  */
-public class ${modelVoNameUpperCamel} {
+@Data
+public class ${modelVoNameUpperCamel} implements Serializable {
 
-    public ${modelVoNameUpperCamel} transModelToVo(${modelNameUpperCamel} model) {
-        BeanUtils.copyProperties(model, this);
-        return this;
+    public static ${modelVoNameUpperCamel} transModelToVo(${modelNameUpperCamel} model) {
+        ${modelVoNameUpperCamel} vo = new ${modelVoNameUpperCamel}();
+        BeanUtils.copyProperties(model, vo);
+        return vo;
     }
 
     /**
      * 将ModelList转换为ModelVoList
-     * @param memberList
+     * @param modelList
      * @return
      */
-    public List<${modelVoNameUpperCamel}> transModelListToVoList(List<${modelNameUpperCamel}> memberList) {
-        List<${modelVoNameUpperCamel}> collect = memberList.stream().map(e -> this.transModelToVo(e)).collect(Collectors.toList());
-        return collect;
+    public static List<${modelVoNameUpperCamel}> transModelListToVoList(List<${modelNameUpperCamel}> modelList) {
+        List<${modelVoNameUpperCamel}> voList = modelList.stream().map(e -> transModelToVo(e)).collect(Collectors.toList());
+        return voList;
     }
 }

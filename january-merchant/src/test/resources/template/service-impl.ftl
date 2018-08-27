@@ -11,7 +11,6 @@ import wang.smile.common.base.BaseService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import tk.mybatis.mapper.entity.Condition;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
@@ -48,10 +47,13 @@ public class ${modelNameUpperCamel}ServiceImpl extends BaseService<${modelNameUp
     @Override
     public List<${modelNameUpperCamel}> selectByConditions(${modelValidNameUpperCamel} valid) {
 
-        Condition condition = new Condition(${modelNameUpperCamel}.class);
-        Example.Criteria criteria = condition.createCriteria();
-
-        return ${modelNameLowerCamel}Mapper.selectByCondition(criteria);
+        Example example = new Example(${modelNameUpperCamel}.class);
+        Example.Criteria criteria = example.createCriteria();
+        /**
+         * 查询未被删除的数据
+         */
+        criteria.andEqualTo("beenDeleted", false);
+        return ${modelNameLowerCamel}Mapper.selectByCondition(example);
     }
 
     @Override

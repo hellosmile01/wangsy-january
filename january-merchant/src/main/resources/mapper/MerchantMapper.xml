@@ -16,13 +16,6 @@
     <result column="city" jdbcType="VARCHAR" property="city" />
     <result column="area" jdbcType="VARCHAR" property="area" />
     <result column="address" jdbcType="VARCHAR" property="address" />
-    <result column="logo" jdbcType="VARCHAR" property="logo" />
-    <result column="out_image" jdbcType="VARCHAR" property="outImage" />
-    <result column="inner_image" jdbcType="VARCHAR" property="innerImage" />
-    <result column="id_card_front_image" jdbcType="VARCHAR" property="idCardFrontImage" />
-    <result column="id_card_back_image" jdbcType="VARCHAR" property="idCardBackImage" />
-    <result column="business_license" jdbcType="VARCHAR" property="businessLicense" />
-    <result column="industry_license" jdbcType="VARCHAR" property="industryLicense" />
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="is_valid" jdbcType="BIT" property="isValid" />
     <result column="longitude" jdbcType="DOUBLE" property="longitude" />
@@ -34,5 +27,12 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
     <result column="been_deleted" jdbcType="BIT" property="beenDeleted" />
+    <result column="logo" jdbcType="LONGVARCHAR" property="logo" />
+    <result column="out_image" jdbcType="LONGVARCHAR" property="outImage" />
+    <result column="inner_image" jdbcType="LONGVARCHAR" property="innerImage" />
+    <result column="id_card_front_image" jdbcType="LONGVARCHAR" property="idCardFrontImage" />
+    <result column="id_card_back_image" jdbcType="LONGVARCHAR" property="idCardBackImage" />
+    <result column="business_license" jdbcType="LONGVARCHAR" property="businessLicense" />
+    <result column="industry_license" jdbcType="LONGVARCHAR" property="industryLicense" />
   </resultMap>
 </mapper>

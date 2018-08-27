@@ -1,11 +1,13 @@
 package ${basePackage}.valid;
 
+import java.io.Serializable;
+import lombok.Data;
 
 /**
  * @author ${author}
  * @date ${date}
  */
-public class ${modelValidNameUpperCamel} {
-
+@Data
+public class ${modelValidNameUpperCamel} implements Serializable {
 
 }

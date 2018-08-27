@@ -46,8 +46,8 @@ public class Generator {
             null,
             "merchant",
             TEMPLATE_FILE_PATH,
-            false,
-            false
+            true,
+            true
         );
     }
 

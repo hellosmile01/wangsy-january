@@ -69,7 +69,7 @@ public class ${modelNameUpperCamel}Controller {
         }
         ${modelNameUpperCamel} model = services.selectById(id);
 
-        ${modelVoNameUpperCamel} modelVo = new ${modelVoNameUpperCamel}().transModelToVo(model);
+        ${modelVoNameUpperCamel} modelVo = ${modelVoNameUpperCamel}.transModelToVo(model);
 
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, modelVo);
     }
@@ -87,7 +87,7 @@ public class ${modelNameUpperCamel}Controller {
         }
         List<${modelNameUpperCamel}> list = services.selectByConditions(valid);
 
-        List<${modelVoNameUpperCamel}> voList = new ${modelVoNameUpperCamel}().transModelListToVoList(list);
+        List<${modelVoNameUpperCamel}> voList = ${modelVoNameUpperCamel}.transModelListToVoList(list);
 
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList);
     }

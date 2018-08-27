@@ -66,47 +66,6 @@ public class Merchant {
     private String address;
 
     /**
-     * 门店Logo（图片url，单张）
-     */
-    private String logo;
-
-    /**
-     * 门店外景照片（url,url,url）
-     */
-    @Column(name = "out_image")
-    private String outImage;
-
-    /**
-     * 门店内景照片（url,url,url）
-     */
-    @Column(name = "inner_image")
-    private String innerImage;
-
-    /**
-     * 身份证正面照
-     */
-    @Column(name = "id_card_front_image")
-    private String idCardFrontImage;
-
-    /**
-     * 身份证反面照
-     */
-    @Column(name = "id_card_back_image")
-    private String idCardBackImage;
-
-    /**
-     * 营业执照（图片上传）
-     */
-    @Column(name = "business_license")
-    private String businessLicense;
-
-    /**
-     * 行业许可证
-     */
-    @Column(name = "industry_license")
-    private String industryLicense;
-
-    /**
      * 审核状态（0：未审核，1：通过；2：不通过）
      */
     private Integer state;
@@ -166,6 +125,47 @@ public class Merchant {
      */
     @Column(name = "been_deleted")
     private Boolean beenDeleted;
+
+    /**
+     * 门店Logo（图片url，单张）
+     */
+    private String logo;
+
+    /**
+     * 门店外景照片（图片url,url,url）
+     */
+    @Column(name = "out_image")
+    private String outImage;
+
+    /**
+     * 门店内景照片（url,url,url,url）
+     */
+    @Column(name = "inner_image")
+    private String innerImage;
+
+    /**
+     * 身份证正面照
+     */
+    @Column(name = "id_card_front_image")
+    private String idCardFrontImage;
+
+    /**
+     * 身份证反面照
+     */
+    @Column(name = "id_card_back_image")
+    private String idCardBackImage;
+
+    /**
+     * 营业执照（图片上传）
+     */
+    @Column(name = "business_license")
+    private String businessLicense;
+
+    /**
+     * 行业许可证
+     */
+    @Column(name = "industry_license")
+    private String industryLicense;
 
     /**
      * 获取主键id
@@ -366,132 +366,6 @@ public class Merchant {
     }
 
     /**
-     * 获取门店Logo（图片url，单张）
-     *
-     * @return logo - 门店Logo（图片url，单张）
-     */
-    public String getLogo() {
-        return logo;
-    }
-
-    /**
-     * 设置门店Logo（图片url，单张）
-     *
-     * @param logo 门店Logo（图片url，单张）
-     */
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
-
-    /**
-     * 获取门店外景照片（url,url,url）
-     *
-     * @return out_image - 门店外景照片（url,url,url）
-     */
-    public String getOutImage() {
-        return outImage;
-    }
-
-    /**
-     * 设置门店外景照片（url,url,url）
-     *
-     * @param outImage 门店外景照片（url,url,url）
-     */
-    public void setOutImage(String outImage) {
-        this.outImage = outImage;
-    }
-
-    /**
-     * 获取门店内景照片（url,url,url）
-     *
-     * @return inner_image - 门店内景照片（url,url,url）
-     */
-    public String getInnerImage() {
-        return innerImage;
-    }
-
-    /**
-     * 设置门店内景照片（url,url,url）
-     *
-     * @param innerImage 门店内景照片（url,url,url）
-     */
-    public void setInnerImage(String innerImage) {
-        this.innerImage = innerImage;
-    }
-
-    /**
-     * 获取身份证正面照
-     *
-     * @return id_card_front_image - 身份证正面照
-     */
-    public String getIdCardFrontImage() {
-        return idCardFrontImage;
-    }
-
-    /**
-     * 设置身份证正面照
-     *
-     * @param idCardFrontImage 身份证正面照
-     */
-    public void setIdCardFrontImage(String idCardFrontImage) {
-        this.idCardFrontImage = idCardFrontImage;
-    }
-
-    /**
-     * 获取身份证反面照
-     *
-     * @return id_card_back_image - 身份证反面照
-     */
-    public String getIdCardBackImage() {
-        return idCardBackImage;
-    }
-
-    /**
-     * 设置身份证反面照
-     *
-     * @param idCardBackImage 身份证反面照
-     */
-    public void setIdCardBackImage(String idCardBackImage) {
-        this.idCardBackImage = idCardBackImage;
-    }
-
-    /**
-     * 获取营业执照（图片上传）
-     *
-     * @return business_license - 营业执照（图片上传）
-     */
-    public String getBusinessLicense() {
-        return businessLicense;
-    }
-
-    /**
-     * 设置营业执照（图片上传）
-     *
-     * @param businessLicense 营业执照（图片上传）
-     */
-    public void setBusinessLicense(String businessLicense) {
-        this.businessLicense = businessLicense;
-    }
-
-    /**
-     * 获取行业许可证
-     *
-     * @return industry_license - 行业许可证
-     */
-    public String getIndustryLicense() {
-        return industryLicense;
-    }
-
-    /**
-     * 设置行业许可证
-     *
-     * @param industryLicense 行业许可证
-     */
-    public void setIndustryLicense(String industryLicense) {
-        this.industryLicense = industryLicense;
-    }
-
-    /**
      * 获取审核状态（0：未审核，1：通过；2：不通过）
      *
      * @return state - 审核状态（0：未审核，1：通过；2：不通过）
@@ -687,5 +561,131 @@ public class Merchant {
      */
     public void setBeenDeleted(Boolean beenDeleted) {
         this.beenDeleted = beenDeleted;
+    }
+
+    /**
+     * 获取门店Logo（图片url，单张）
+     *
+     * @return logo - 门店Logo（图片url，单张）
+     */
+    public String getLogo() {
+        return logo;
+    }
+
+    /**
+     * 设置门店Logo（图片url，单张）
+     *
+     * @param logo 门店Logo（图片url，单张）
+     */
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    /**
+     * 获取门店外景照片（图片url,url,url）
+     *
+     * @return out_image - 门店外景照片（图片url,url,url）
+     */
+    public String getOutImage() {
+        return outImage;
+    }
+
+    /**
+     * 设置门店外景照片（图片url,url,url）
+     *
+     * @param outImage 门店外景照片（图片url,url,url）
+     */
+    public void setOutImage(String outImage) {
+        this.outImage = outImage;
+    }
+
+    /**
+     * 获取门店内景照片（url,url,url,url）
+     *
+     * @return inner_image - 门店内景照片（url,url,url,url）
+     */
+    public String getInnerImage() {
+        return innerImage;
+    }
+
+    /**
+     * 设置门店内景照片（url,url,url,url）
+     *
+     * @param innerImage 门店内景照片（url,url,url,url）
+     */
+    public void setInnerImage(String innerImage) {
+        this.innerImage = innerImage;
+    }
+
+    /**
+     * 获取身份证正面照
+     *
+     * @return id_card_front_image - 身份证正面照
+     */
+    public String getIdCardFrontImage() {
+        return idCardFrontImage;
+    }
+
+    /**
+     * 设置身份证正面照
+     *
+     * @param idCardFrontImage 身份证正面照
+     */
+    public void setIdCardFrontImage(String idCardFrontImage) {
+        this.idCardFrontImage = idCardFrontImage;
+    }
+
+    /**
+     * 获取身份证反面照
+     *
+     * @return id_card_back_image - 身份证反面照
+     */
+    public String getIdCardBackImage() {
+        return idCardBackImage;
+    }
+
+    /**
+     * 设置身份证反面照
+     *
+     * @param idCardBackImage 身份证反面照
+     */
+    public void setIdCardBackImage(String idCardBackImage) {
+        this.idCardBackImage = idCardBackImage;
+    }
+
+    /**
+     * 获取营业执照（图片上传）
+     *
+     * @return business_license - 营业执照（图片上传）
+     */
+    public String getBusinessLicense() {
+        return businessLicense;
+    }
+
+    /**
+     * 设置营业执照（图片上传）
+     *
+     * @param businessLicense 营业执照（图片上传）
+     */
+    public void setBusinessLicense(String businessLicense) {
+        this.businessLicense = businessLicense;
+    }
+
+    /**
+     * 获取行业许可证
+     *
+     * @return industry_license - 行业许可证
+     */
+    public String getIndustryLicense() {
+        return industryLicense;
+    }
+
+    /**
+     * 设置行业许可证
+     *
+     * @param industryLicense 行业许可证
+     */
+    public void setIndustryLicense(String industryLicense) {
+        this.industryLicense = industryLicense;
     }
 }
