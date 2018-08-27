@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-import wang.smile.common.base.BaseConstants;
-import wang.smile.common.base.BaseResult;
+import com.meiwo.cloud.common.base.BaseConstants;
+import com.meiwo.cloud.common.base.BaseResult;
 
 import java.util.List;
 
@@ -33,10 +33,22 @@ public class ${modelNameUpperCamel}Controller {
     @ApiOperation(value = "新增", httpMethod = "POST", response = ${modelNameUpperCamel}Controller.class, notes = "新增")
     public BaseResult createModel(${modelDtoNameUpperCamel} dto) {
         try {
-            services.insertDto(dto);
+            services.insertByDto(dto);
         } catch (Exception e) {
             e.printStackTrace();
             return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "新增数据异常");
+        }
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
+    }
+
+    @PutMapping
+    @ApiOperation(value = "修改", httpMethod = "PUT", response = ${modelNameUpperCamel}Controller.class, notes = "修改")
+    public BaseResult updateModel(${modelDtoNameUpperCamel} dto) {
+        try {
+            services.updateByDto(dto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "修改数据异常");
         }
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
     }

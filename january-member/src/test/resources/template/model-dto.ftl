@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 public class ${modelDtoNameUpperCamel} implements Serializable {
 
-    public ${modelNameUpperCamel} transfer(${modelDtoNameUpperCamel} dto) {
+    public static ${modelNameUpperCamel} transfer(${modelDtoNameUpperCamel} dto) {
 
         ${modelNameUpperCamel} model = new ${modelNameUpperCamel}();
         BeanUtils.copyProperties(dto, model);
