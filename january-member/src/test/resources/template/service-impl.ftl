@@ -41,6 +41,10 @@ public class ${modelNameUpperCamel}ServiceImpl extends BaseService<${modelNameUp
     @Override
     public ${modelNameUpperCamel} selectById(Object id) {
         ${modelNameUpperCamel} model = ${modelNameLowerCamel}Mapper.selectByPrimaryKey(id);
+
+        if (model!=null && model.getBeenDeleted()) {
+            return null;
+        }
         return model;
     }
 
