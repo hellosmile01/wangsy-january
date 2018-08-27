@@ -4,26 +4,31 @@ import org.springframework.beans.BeanUtils;
 import smile.wangsy.january.member.model.Member;
 
 import java.util.List;
+import java.io.Serializable;
 import java.util.stream.Collectors;
+
+import lombok.Data;
 
 /**
  * @author wangsy
- * @date 2018/08/25.
+ * @date 2018/08/27.
  */
-public class MemberVo {
+@Data
+public class MemberVo implements Serializable {
 
-    public MemberVo transModelToVo(Member model) {
-        BeanUtils.copyProperties(model, this);
-        return this;
+    public static MemberVo transModelToVo(Member model) {
+        MemberVo vo = new MemberVo();
+        BeanUtils.copyProperties(model, vo);
+        return vo;
     }
 
     /**
      * 将ModelList转换为ModelVoList
-     * @param memberList
+     * @param modelList
      * @return
      */
-    public List<MemberVo> transModelListToVoList(List<Member> memberList) {
-        List<MemberVo> collect = memberList.stream().map(e -> this.transModelToVo(e)).collect(Collectors.toList());
-        return collect;
+    public static List<MemberVo> transModelListToVoList(List<Member> modelList) {
+        List<MemberVo> voList = modelList.stream().map(e -> transModelToVo(e)).collect(Collectors.toList());
+        return voList;
     }
 }

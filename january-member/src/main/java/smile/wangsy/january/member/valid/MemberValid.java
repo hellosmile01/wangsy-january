@@ -1,11 +1,13 @@
 package smile.wangsy.january.member.valid;
 
+import java.io.Serializable;
+import lombok.Data;
 
 /**
  * @author wangsy
- * @date 2018/08/25
+ * @date 2018/08/27
  */
-public class MemberValid {
-
+@Data
+public class MemberValid implements Serializable {
 
 }

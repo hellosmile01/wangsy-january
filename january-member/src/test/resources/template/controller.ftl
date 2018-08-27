@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-import com.meiwo.cloud.common.base.BaseConstants;
-import com.meiwo.cloud.common.base.BaseResult;
+import wang.smile.common.base.BaseConstants;
+import wang.smile.common.base.BaseResult;
 
 import java.util.List;
 

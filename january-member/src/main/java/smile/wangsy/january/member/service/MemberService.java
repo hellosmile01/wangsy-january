@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author wangsy
- * @date 2018/08/25
+ * @date 2018/08/27
  */
 public interface MemberService extends Service<Member> {
 
@@ -17,7 +17,13 @@ public interface MemberService extends Service<Member> {
      * 插入数据
      * @param dto
      */
-    void insertDto(MemberDto dto);
+    void insertByDto(MemberDto dto);
+
+    /**
+     * 修改数据
+     * @param dto
+     */
+    void updateByDto(MemberDto dto)  throws Exception;
 
     /**
      * 非物理删除

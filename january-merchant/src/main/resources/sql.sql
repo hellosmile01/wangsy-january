@@ -30,3 +30,21 @@ CREATE TABLE `merchant` (
   `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='商户信息表';
+
+
+CREATE TABLE `member` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `member_name` varchar(30) DEFAULT NULL COMMENT '会员名称(登陆名称)',
+  `mobile` varchar(16) DEFAULT NULL COMMENT '联系电话',
+  `name` varchar(50) DEFAULT NULL COMMENT '真实名称(预留)',
+  `avatar` varchar(30) DEFAULT NULL COMMENT '头像（图片url，单张）',
+  `id_card_front_image` varchar(30) DEFAULT NULL COMMENT '身份证正面照',
+  `id_card_back_image` varchar(30) DEFAULT NULL COMMENT '身份证反面照',
+  `is_valid` tinyint(1) DEFAULT NULL COMMENT '是否有效',
+  `password` varchar(35) DEFAULT NULL COMMENT '密码',
+  `insert_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据入库时间',
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据最后一次更新时间',
+  `delete_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '删除时间',
+  `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='会员信息表';

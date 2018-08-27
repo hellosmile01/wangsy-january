@@ -1,6 +1,5 @@
 package smile.wangsy.january.merchant.service.impl;
 
-import org.springframework.util.StringUtils;
 import smile.wangsy.january.merchant.mapper.MerchantMapper;
 import smile.wangsy.january.merchant.model.Merchant;
 import smile.wangsy.january.merchant.service.MerchantService;
@@ -30,8 +29,8 @@ public class MerchantServiceImpl extends BaseService<Merchant> implements Mercha
     private MerchantMapper merchantMapper;
 
     @Override
-    public void insertDto(MerchantDto dto) {
-        Merchant model = new MerchantDto().transfer(dto);
+    public void insertByDto(MerchantDto dto) {
+        Merchant model = MerchantDto.transfer(dto);
 
         model.setBeenDeleted(false);
         model.setInsertTime(new Date());
@@ -40,8 +39,24 @@ public class MerchantServiceImpl extends BaseService<Merchant> implements Mercha
     }
 
     @Override
+    public void updateByDto(MerchantDto dto) throws Exception {
+        Merchant model = MerchantDto.transfer(dto);
+
+        model.setUpdateTime(new Date());
+        if(null == model.getId()) {
+            throw new Exception("id不能为空");
+        }
+
+        merchantMapper.updateByPrimaryKeySelective(model);
+    }
+
+    @Override
     public Merchant selectById(Object id) {
         Merchant model = merchantMapper.selectByPrimaryKey(id);
+
+        if (model!=null && model.getBeenDeleted()) {
+            return null;
+        }
         return model;
     }
 
@@ -54,11 +69,6 @@ public class MerchantServiceImpl extends BaseService<Merchant> implements Mercha
          * 查询未被删除的数据
          */
         criteria.andEqualTo("beenDeleted", false);
-
-        if(!StringUtils.isEmpty(valid.getName())) {
-            criteria.andLike("name", "%"+valid.getName()+"%");
-        }
-
         return merchantMapper.selectByCondition(example);
     }
 

@@ -23,7 +23,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/v1/merchant")
-@Api(value = "xx", description = "xx")
+@Api(value = "MerchantController", description = "商戶管理")
 public class MerchantController {
 
     @Autowired
@@ -33,10 +33,22 @@ public class MerchantController {
     @ApiOperation(value = "新增", httpMethod = "POST", response = MerchantController.class, notes = "新增")
     public BaseResult createModel(MerchantDto dto) {
         try {
-            services.insertDto(dto);
+            services.insertByDto(dto);
         } catch (Exception e) {
             e.printStackTrace();
             return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "新增数据异常");
+        }
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
+    }
+
+    @PutMapping
+    @ApiOperation(value = "修改", httpMethod = "PUT", response = MerchantController.class, notes = "修改")
+    public BaseResult updateModel(MerchantDto dto) {
+        try {
+            services.updateByDto(dto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "修改数据异常");
         }
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
     }

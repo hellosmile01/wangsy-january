@@ -6,7 +6,7 @@ import ${basePackage}.service.${modelNameUpperCamel}Service;
 import ${basePackage}.dto.${modelDtoNameUpperCamel};
 import ${basePackage}.valid.${modelValidNameUpperCamel};
 
-import com.meiwo.cloud.common.base.BaseService;
+import wang.smile.common.base.BaseService;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

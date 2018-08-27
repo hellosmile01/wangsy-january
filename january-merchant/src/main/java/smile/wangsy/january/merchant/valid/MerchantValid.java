@@ -12,16 +12,18 @@ import lombok.Data;
 @Data
 public class MerchantValid implements Serializable {
 
-    @ApiParam(value = "商户名称")
+    private Long id;
+
+    @ApiParam(value = "商戶名稱")
     private String name;
 
-    @ApiParam(value = "联系电话")
+    @ApiParam(value = "聯係电话")
     private String mobile;
 
-    @ApiParam(value = "负责人")
+    @ApiParam(value = "負責人")
     private String principalName;
 
-    @ApiParam(value = "负责人电话")
+    @ApiParam(value = "負責人電話")
     private String principalMobile;
 
 }

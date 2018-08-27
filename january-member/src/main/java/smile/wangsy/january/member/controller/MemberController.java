@@ -19,11 +19,11 @@ import java.util.List;
 
 /**
  * @author wangsy
- * @date 2018/08/25
+ * @date 2018/08/27
  */
 @RestController
 @RequestMapping("/v1/member")
-@Api(value = "MemberController")
+@Api(value = "MemberController", description = "會員管理")
 public class MemberController {
 
     @Autowired
@@ -33,10 +33,22 @@ public class MemberController {
     @ApiOperation(value = "新增", httpMethod = "POST", response = MemberController.class, notes = "新增")
     public BaseResult createModel(MemberDto dto) {
         try {
-            services.insertDto(dto);
+            services.insertByDto(dto);
         } catch (Exception e) {
             e.printStackTrace();
             return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "新增数据异常");
+        }
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
+    }
+
+    @PutMapping
+    @ApiOperation(value = "修改", httpMethod = "PUT", response = MemberController.class, notes = "修改")
+    public BaseResult updateModel(MemberDto dto) {
+        try {
+            services.updateByDto(dto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "修改数据异常");
         }
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
     }
@@ -69,7 +81,7 @@ public class MemberController {
         }
         Member model = services.selectById(id);
 
-        MemberVo modelVo = new MemberVo().transModelToVo(model);
+        MemberVo modelVo = MemberVo.transModelToVo(model);
 
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, modelVo);
     }
@@ -87,7 +99,7 @@ public class MemberController {
         }
         List<Member> list = services.selectByConditions(valid);
 
-        List<MemberVo> voList = new MemberVo().transModelListToVoList(list);
+        List<MemberVo> voList = MemberVo.transModelListToVoList(list);
 
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList);
     }
