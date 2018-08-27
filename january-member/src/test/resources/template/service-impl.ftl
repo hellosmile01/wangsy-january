@@ -46,7 +46,7 @@ public class ${modelNameUpperCamel}ServiceImpl extends BaseService<${modelNameUp
     }
 
     @Override
-    public List<Member> selectByConditions(${modelValidNameUpperCamel} valid) {
+    public List<${modelNameUpperCamel}> selectByConditions(${modelValidNameUpperCamel} valid) {
 
         Condition condition = new Condition(${modelNameUpperCamel}.class);
         Example.Criteria criteria = condition.createCriteria();

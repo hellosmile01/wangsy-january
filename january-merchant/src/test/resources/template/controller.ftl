@@ -1,99 +1,93 @@
 package ${basePackage}.controller;
 
-import ${basePackage}.core.BasePageSearch;
-import ${basePackage}.dto.IDValid;
-import ${basePackage}.result.PageResult;
-import ${basePackage}.result.Result;
-import ${basePackage}.result.ResultCode;
 import ${basePackage}.model.${modelNameUpperCamel};
+import ${basePackage}.dto.${modelDtoNameUpperCamel};
+import ${basePackage}.vo.${modelVoNameUpperCamel};
+import ${basePackage}.valid.${modelValidNameUpperCamel};
 import ${basePackage}.service.${modelNameUpperCamel}Service;
+
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import tk.mybatis.mapper.entity.Condition;
 
-import javax.annotation.Resource;
+import wang.smile.common.base.BaseConstants;
+import wang.smile.common.base.BaseResult;
+
 import java.util.List;
 
 /**
-* Created by ${author} on ${date}.
-*/
+ * @author ${author}
+ * @date ${date}
+ */
 @RestController
-@RequestMapping("${baseRequestMapping}")
+@RequestMapping("/v1${baseRequestMapping}")
 @Api(value = "xx", description = "xx")
 public class ${modelNameUpperCamel}Controller {
 
-    @Resource
+    @Autowired
     private ${modelNameUpperCamel}Service services;
 
-    @ApiOperation(value = "获取xx列表")
-    @RequestMapping(value = "/get_list", method = RequestMethod.POST)
-    @ResponseBody
-    public Object get_list(@RequestBody BasePageSearch<${modelNameUpperCamel}> modelValid) {
-	Condition condition = new Condition(${modelNameUpperCamel}.class);
-	Condition.Criteria criteria = condition.createCriteria();
-	//        condition.setOrderByClause("ID DESC");
-
-    ${modelNameUpperCamel} model = modelValid.getSearch() == null?new ${modelNameUpperCamel}():modelValid.getSearch();
-
-	//模型判断是否等于场景使用比如 ID = 10
-	//        List<${modelNameUpperCamel}> lists = services.selectForStartPage(model,modelValid.getPage(),modelValid.getLimit());
-		//        long total = services.count(model);
-
-		List<${modelNameUpperCamel}> lists = services.selectByConditionForStartPage(condition,modelValid.getPage(),modelValid.getLimit());
-			long total = services.countByCondition(condition);
-
-			return new Result(ResultCode.SUCCESS,lists,new PageResult(modelValid.getPage(),total));
+    @PostMapping
+    @ApiOperation(value = "新增", httpMethod = "POST", response = ${modelNameUpperCamel}Controller.class, notes = "新增")
+    public BaseResult createModel(${modelDtoNameUpperCamel} dto) {
+        try {
+            services.insertDto(dto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "新增数据异常");
+        }
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
     }
 
-    @ApiOperation(value = "获取单条xx")
-    @RequestMapping(value = "/get_one", method = RequestMethod.POST)
-    @ResponseBody
-    public Object get_one(@RequestBody IDValid valid) {
-        ${modelNameUpperCamel} model = services.selectByPrimaryKey(valid.getId());
-        return new Result(ResultCode.SUCCESS,model);
+    @DeleteMapping("/{id}")
+    @ApiOperation(value = "删除", httpMethod = "DELETE", response = ${modelNameUpperCamel}Controller.class, notes = "删除")
+    public BaseResult deleteById(@PathVariable Long id) {
+        if(id == null || id <= 0) {
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");
         }
-
-        @ApiOperation(value = "新增单条xx")
-        @RequestMapping(value = "/add_one", method = RequestMethod.POST)
-        @ResponseBody
-        public Object add_one(@RequestBody ${modelNameUpperCamel} model) {
-        services.insertSelective(model);
-        return new Result(ResultCode.SUCCESS,model.getId());
+        try {
+            services.deleteByUpdate(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "删除数据异常");
+        }
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, "SUCCESS");
     }
 
-    @ApiOperation(value = "新增多条xx")
-    @RequestMapping(value = "/add_multiple", method = RequestMethod.POST)
-    @ResponseBody
-    public Object add_multiple(@RequestBody List<${modelNameUpperCamel}> model) {
-        services.insertList(model);
-        return new Result(ResultCode.SUCCESS);
+    /**
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    @ApiOperation(value = "根据id查询", httpMethod = "GET", response = ${modelNameUpperCamel}Controller.class, notes = "根据id查询")
+    public BaseResult getById(@PathVariable Long id) {
+        if(id == null || id <= 0) {
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");
         }
+        ${modelNameUpperCamel} model = services.selectById(id);
 
-        @ApiOperation(value = "修改单条xx")
-        @RequestMapping(value = "/edit_one", method = RequestMethod.POST)
-        @ResponseBody
-        public Object edit_one(@RequestBody ${modelNameUpperCamel} model) {
-        services.updateByPrimaryKeySelective(model);
-        return new Result(ResultCode.SUCCESS);
-        }
+        ${modelVoNameUpperCamel} modelVo = new ${modelVoNameUpperCamel}().transModelToVo(model);
 
-        @ApiOperation(value = "删除单条xx")
-        @RequestMapping(value = "/delete_one", method = RequestMethod.POST)
-        @ResponseBody
-        public Object delete_one(@RequestBody IDValid valid) {
-        services.deleteByPrimaryKey(valid.getId());
-        return new Result(ResultCode.SUCCESS);
-        }
-
-        @ApiOperation(value = "删除多条xx")
-        @RequestMapping(value = "/delete_multiple", method = RequestMethod.POST)
-        @ResponseBody
-        //ids 1,2,3,4
-        public Object delete_multiple(@RequestBody String ids) {
-        services.deleteByIds(ids);
-        return new Result(ResultCode.SUCCESS);
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, modelVo);
     }
 
+    /**
+     * 根据条件查询
+     * @param valid
+     * @return
+     */
+    @GetMapping
+    @ApiOperation(value = "根据condition查询", httpMethod = "GET", response = ${modelNameUpperCamel}Controller.class, notes = "根据条件查询")
+    public BaseResult getById(${modelValidNameUpperCamel} valid) {
+        if(null == valid) {
+            return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");
+        }
+        List<${modelNameUpperCamel}> list = services.selectByConditions(valid);
 
+
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, list);
+    }
 }
