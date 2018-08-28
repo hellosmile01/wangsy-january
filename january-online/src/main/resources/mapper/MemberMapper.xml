@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smile.wangsy.january.online.mapper.MemberMapper">
+  <resultMap id="BaseResultMap" type="smile.wangsy.january.online.model.Member">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_name" jdbcType="VARCHAR" property="memberName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="id_card_front_image" jdbcType="VARCHAR" property="idCardFrontImage" />
+    <result column="id_card_back_image" jdbcType="VARCHAR" property="idCardBackImage" />
+    <result column="is_valid" jdbcType="BIT" property="isValid" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
+    <result column="been_deleted" jdbcType="BIT" property="beenDeleted" />
+  </resultMap>
+</mapper>
