@@ -1,9 +1,15 @@
 package smile.wangsy.january.merchant.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import smile.wangsy.january.merchant.service.MerchantService;
+import smile.wangsy.january.merchant.service.impl.MyUserDetailsService;
 
 /**
  * @author wangsy
@@ -14,18 +20,37 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @SuppressWarnings("all")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private MyUserDetailsService myUserDetailsService;
+
+    @Bean
+    public static NoOpPasswordEncoder passwordEncoder() {
+        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().loginPage("/login").loginProcessingUrl("/login").permitAll();
-        http.logout().logoutUrl("/logout");
-        http.csrf().disable();
 
-        http.headers().frameOptions().disable();
+        http.formLogin()                            // 当需要用户登录是使用表单提交
+                .loginPage("/login")                // 跳转到登录页面
+                .loginProcessingUrl("/authentication/form")       // 自定义的登录接口
+                .and()
+                .authorizeRequests()
+                .antMatchers(
+                        "/login",
+                        "/**/*.css",
+                        "/**/*.js",
+                        "**/swagger-resources/**",
+                        "/swagger-ui.html",
+                        "/v2/api-docs",
+                        "/webjars/**").permitAll()
+                .anyRequest()
+                .authenticated()
+        .and().csrf().disable();
+    }
 
-        http.authorizeRequests().antMatchers("/**/ui/**", "/**/*.css", "/**/*.js").permitAll();
-
-        http.authorizeRequests().antMatchers("/**").authenticated();
-
-        http.httpBasic();
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(this.myUserDetailsService);
     }
 }

@@ -1,110 +1,43 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- 引入Element样式 -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>index</title>
-
-    <style>
-        .el-row {
-            margin-bottom: 20px;
-        }
-        .el-col {
-            border-radius: 4px;
-        }
-        .bg-purple-dark {
-            background: #99a9bf;
-        }
-        .bg-purple {
-            background: #ffffff;
-        }
-        .bg-purple-light {
-            background: #e5e9f2;
-        }
-        .grid-content {
-            border-radius: 4px;
-            min-height: 60px;
-        }
-        .grid-content-main {
-            min-height: 780px;
-        }
-        .demo-input-suffix {
-            margin-top: 30px;
-            text-align: center;
-        }
-    </style>
-
 </head>
 <body>
-    <div id="login">
-        <el-container>
-            <el-header>
-                <el-row>
-                    <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-                    <el-col :span="16">
-                        <div class="grid-content bg-purple-light">
-                            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-                                <el-menu-item></el-menu-item>
-                                <el-menu-item></el-menu-item>
-                                <el-menu-item></el-menu-item>
-                                <el-menu-item index="1">首页</el-menu-item>
-                                <el-menu-item index="2">消息中心</el-menu-item>
-                                <el-menu-item index="3">订单管理</el-menu-item>
+    <h1>登录页面</h1>
 
-                                <el-menu-item index="4">登录</el-menu-item>
-                                <el-menu-item index="5">注册</el-menu-item>
-                                <el-menu-item></el-menu-item>
-                                <el-menu-item></el-menu-item>
-                                <el-menu-item></el-menu-item>
-                            </el-menu>
-                        </div>
-                    </el-col>
-                    <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-                </el-row>
-            </el-header>
-            <el-main>
-                <el-row>
-                    <el-col :span="4"><div class="grid-content-main bg-purple"></div></el-col>
-                    <el-col :span="16"><div class="grid-content bg-purple">
-                        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
-                        <el-col :span="8"><div class="grid-content bg-purple">
-                            <div class="demo-input-suffix">
-                                <el-input placeholder="请输入登录账号" v-model="loginName" label="用户名"></el-input>
-                            </div>
-                            <div class="demo-input-suffix">
-                                <el-input placeholder="请输入密码" v-model="password" label="用户名"></el-input>
-                            </div>
-                            <div class="demo-input-suffix">
-                                <el-button type="primary">登录</el-button>
-                                <el-button type="info">返回首页</el-button>
-                            </div>
-                        </div></el-col>
-                        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
-                    </div></el-col>
-                    <el-col :span="4"><div class="grid-content-main bg-purple"></div></el-col>
-                </el-row>
-            </el-main>
-            <el-footer>
-                <el-row>
-                    <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-                    <el-col :span="16"><div class="grid-content bg-purple-light">
+    <form class="form-horizontal" method="post" th:action="@{/authentication/form}">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10"><input autocomplete="off" type="text" class="form-control" name="username" /></div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="password" onfocus="this.type='password'"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label><input type="checkbox" />Remember me</label><!-- 功能暂未实现 -->
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">登录</button>
+            </div>
+        </div>
+    </form>
 
-                    </div></el-col>
-                    <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-                </el-row>
-            </el-footer>
-        </el-container>
-    </div>
-    <!-- 引入Vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-    <!-- 引入Element组件库 -->
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <script th:src="@{/js/login.js}"></script>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-<!--
-
--->

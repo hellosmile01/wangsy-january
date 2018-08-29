@@ -1,5 +1,6 @@
 package smile.wangsy.january.merchant.controller;
 
+import org.springframework.web.servlet.ModelAndView;
 import smile.wangsy.january.merchant.model.Merchant;
 import smile.wangsy.january.merchant.dto.MerchantDto;
 import smile.wangsy.january.merchant.vo.MerchantVo;
@@ -102,5 +103,11 @@ public class MerchantController {
         List<MerchantVo> voList = MerchantVo.transModelListToVoList(list);
 
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList);
+    }
+
+    @RequestMapping("/login")
+    public ModelAndView login(MerchantValid valid) {
+
+        return null;
     }
 }
