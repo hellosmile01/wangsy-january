@@ -1,4 +1,4 @@
-package smile.wangsy.january.member.web;
+package smile.wangsy.january.merchant.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @Date 2018/8/29.
  */
 @RestController
-public class WebMemberController {
+public class WebMerchantController {
 
     @RequestMapping({"/", "/index"})
     public ModelAndView index() {

@@ -1,0 +1,8 @@
+{
+  "name": "wangsy-january",
+  "version": "0.0.1",
+  "dependencies": {
+    "element-ui": "latest",
+    "vue": "^2.5.17"
+  }
+}

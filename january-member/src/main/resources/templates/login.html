@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- 引入Element样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />-->
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <div id="login">
+        {{message}}
+        <el-row>
+            <el-button>Default</el-button>
+        </el-row>
+    </div>
+    <!-- 引入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <!-- 引入Element组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script th:src="@{/js/login.js}"></script>
+</body>
+</html>
