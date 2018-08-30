@@ -36,6 +36,7 @@ public class TheAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
         if(LoginResponseType.JSON.equals(securityProperties.getLoginType())) {
             response.setContentType("application/json;charset=UTF-8");
             response.getWriter().write(objectMapper.writeValueAsString(authentication));
+            response.sendRedirect("/index");
         }
         else {
             super.onAuthenticationSuccess(request, response, authentication);

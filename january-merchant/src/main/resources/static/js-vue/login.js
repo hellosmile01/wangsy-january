@@ -13,7 +13,7 @@ new Vue({
         handleSelect(key, keyPath) {
             console.log(key, keyPath);
             if ("3"===key) {
-                window.location.href("index.html");
+                debugger;
                 /*$.ajax({
                     url: '/index',
                     data: {},
