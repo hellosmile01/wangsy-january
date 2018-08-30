@@ -4,14 +4,13 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
     <meta charset="UTF-8">
-    <title>login</title>
+    <title>Dashboard</title>
 </head>
 <body>
 <div class="container-fluid">
     <div class="row header">
         <div class="col-xs-12 col-md-12" style="padding: 0px;">
-            <nav class="navbar navbar-default" style="padding: 0px 250px 0px 250px;
-            border-radius:0px;background: #545c64;">
+            <nav class="navbar navbar-default" style="padding: 0px 250px 0px 250px;border-radius:0px;background: #545c64;">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
@@ -29,20 +28,22 @@
                             <li><a href="/personalCenter">个人中心</a></li>
                             <li><a href="/logout">退出</a></li>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
+                    </div>
+                </div>
             </nav>
         </div>
     </div>
     <div class="row body">
         <div class="col-xs-2 col-md-2"></div>
         <div class="col-xs-8 col-md-8">
-            首页
+            Dashboard
         </div>
         <div class="col-xs-2 col-md-2"></div>
     </div>
     <div class="row footer">
-        <div class="col-xs-12 col-md-12"></div>
+        <div class="col-xs-12 col-md-12" style="text-align: center;color: #fff;padding-top: 19px;font-size: 16px;">
+            @CopyRight
+        </div>
     </div>
 </div>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->

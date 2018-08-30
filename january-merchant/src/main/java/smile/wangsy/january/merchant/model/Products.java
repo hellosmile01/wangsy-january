@@ -87,6 +87,18 @@ public class Products {
     private Boolean beenDeleted;
 
     /**
+     * 分类id
+     */
+    @Column(name = "category_id")
+    private Long categoryId;
+
+    /**
+     * 分类名称
+     */
+    @Column(name = "category_name")
+    private String categoryName;
+
+    /**
      * 商品图片
      */
     private String images;
@@ -341,6 +353,42 @@ public class Products {
      */
     public void setBeenDeleted(Boolean beenDeleted) {
         this.beenDeleted = beenDeleted;
+    }
+
+    /**
+     * 获取分类id
+     *
+     * @return category_id - 分类id
+     */
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    /**
+     * 设置分类id
+     *
+     * @param categoryId 分类id
+     */
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    /**
+     * 获取分类名称
+     *
+     * @return category_name - 分类名称
+     */
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    /**
+     * 设置分类名称
+     *
+     * @param categoryName 分类名称
+     */
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     /**

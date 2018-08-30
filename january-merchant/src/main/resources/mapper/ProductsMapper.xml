@@ -19,6 +19,8 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
     <result column="been_deleted" jdbcType="BIT" property="beenDeleted" />
+    <result column="category_id" jdbcType="BIGINT" property="categoryId" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
     <result column="images" jdbcType="LONGVARCHAR" property="images" />
   </resultMap>
 </mapper>

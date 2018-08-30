@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
     <meta charset="UTF-8">
     <title>商品列表</title>
@@ -37,7 +39,32 @@
     <div class="row body">
         <div class="col-xs-2 col-md-2"></div>
         <div class="col-xs-8 col-md-8">
-            商品列表
+            <div id="toolbar">
+                <button id="new_product" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-plus"></i> 新增
+                </button>
+                <button id="update_product" class="btn btn-success" disabled>
+                    <i class="glyphicon glyphicon-circle-arrow-up"></i> 修改
+                </button>
+                <button id="remove_product" class="btn btn-danger" disabled>
+                    <i class="glyphicon glyphicon-remove"></i> Delete
+                </button>
+            </div>
+            <table id="product_list"
+                   data-toolbar="#toolbar"
+                   data-search="true"
+                   data-show-refresh="true"
+                   data-show-columns="true"
+                   data-show-export="true"
+                   data-minimum-count-columns="2"
+                   data-show-pagination-switch="true"
+                   data-pagination="true"
+                   data-id-field="id"
+                   data-page-list="[10, 25, 50, 100, ALL]"
+                   data-side-pagination="server"
+                   data-url="/v1/products"
+                   data-response-handler="responseHandler">
+            </table>
         </div>
         <div class="col-xs-2 col-md-2"></div>
     </div>
@@ -49,7 +76,12 @@
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
 <script th:src="@{/js/common.js}"></script>
-<script th:src="@{/js/index.js}"></script>
+<script th:src="@{/js/product/product_list.js}"></script>
 </body>
 </html>
