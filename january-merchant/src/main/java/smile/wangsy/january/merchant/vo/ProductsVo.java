@@ -1,20 +1,14 @@
 package smile.wangsy.january.merchant.vo;
 
+import lombok.Data;
 import org.springframework.beans.BeanUtils;
 import smile.wangsy.january.merchant.model.Products;
 
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
-import java.io.Serializable;
-import java.util.stream.Collectors;
-
-import lombok.Data;
-
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author wangsy
