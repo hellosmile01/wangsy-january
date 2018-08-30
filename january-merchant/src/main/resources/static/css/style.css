@@ -10,3 +10,14 @@
     height:60px;
     /*background-color: #ffc0cb;*/
 }
+/* 导航条样式 */
+.navbar-default .navbar-nav>li>a {
+    color: #ffffff !important;
+}
+/* 导航菜单被选中的样式 */
+.navbar-default .navbar-nav>.active>a {
+    background: #545c64 !important;
+    color: #ffd04b !important;
+    border-bottom: solid 3px;
+    border-color: #ffd04b;
+}

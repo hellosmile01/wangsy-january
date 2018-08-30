@@ -24,4 +24,12 @@ public class WebMerchantController {
         return new ModelAndView("login.html");
     }
 
+    /**
+     * 商品列表
+     */
+    @RequestMapping("/product_list")
+    public ModelAndView product_list() {
+        return new ModelAndView("product/product_list.html");
+    }
+
 }

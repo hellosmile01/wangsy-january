@@ -1,3 +1,6 @@
+/**
+  商户信息表
+ */
 CREATE TABLE `merchant` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) DEFAULT NULL COMMENT '商户名称',
@@ -31,7 +34,9 @@ CREATE TABLE `merchant` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='商户信息表';
 
-
+/**
+  会员信息表
+ */
 CREATE TABLE `member` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `member_name` varchar(30) DEFAULT NULL COMMENT '会员名称(登陆名称)',
@@ -48,3 +53,25 @@ CREATE TABLE `member` (
   `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='会员信息表';
+
+/*
+  商品信息表
+*/
+CREATE TABLE `products` (
+  `id` bigint(0) NOT NULL COMMENT '主键id',
+  `name` varchar(30) NULL COMMENT '商品名称',
+  `price` decimal(10, 2) NULL COMMENT '商品价格',
+  `images` text NULL COMMENT '商品图片',
+  `in_stocks` int(255) NULL COMMENT '商品库存',
+  `sales_volume` int(255) NULL COMMENT '销量',
+  `sales_month_volume` int(255) NULL COMMENT '月销量',
+  `description` varchar(255) NULL COMMENT '描述',
+  `state` int(1) NULL COMMENT '审核状态（0：未审核，1：通过；2：不通过）',
+  `merchant_name` varchar(30) DEFAULT NULL COMMENT '商户名称',
+	`merchant_id` bigint(20) DEFAULT NULL COMMENT '商户id',
+  `insert_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据入库时间',
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据最后一次更新时间',
+  `delete_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '删除时间',
+  `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='商品信息表';
