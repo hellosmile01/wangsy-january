@@ -8,7 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import smile.wangsy.january.merchant.service.MerchantService;
+import smile.wangsy.january.merchant.authentication.TheAuthenticationFailureHandler;
+import smile.wangsy.january.merchant.authentication.TheAuthenticationSuccessHandler;
 import smile.wangsy.january.merchant.service.impl.MyUserDetailsService;
 
 /**
@@ -23,10 +24,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyUserDetailsService myUserDetailsService;
 
+    @Autowired
+    private TheAuthenticationSuccessHandler theAuthenticationSuccessHandler;
+
+    @Autowired
+    private TheAuthenticationFailureHandler theAuthenticationFailureHandler;
+
     @Bean
     public static NoOpPasswordEncoder passwordEncoder() {
         return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }
+
+    private static final String[] AUTH_WHITELIST = {
+            "/login",
+            "/**/*.css",
+            "/**/*.js",
+            "/authentication/form",
+            // -- swagger ui
+            "/swagger-resources/**",
+            "/swagger-ui.html",
+            "/v2/api-docs",
+            "/webjars/**"
+    };
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -34,23 +53,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()                            // 当需要用户登录是使用表单提交
                 .loginPage("/login")                // 跳转到登录页面
                 .loginProcessingUrl("/authentication/form")       // 自定义的登录接口
+                .successHandler(theAuthenticationSuccessHandler)
+                .failureHandler(theAuthenticationFailureHandler)
                 .and()
                 .authorizeRequests()
-                .antMatchers(
-                        "/login",
-                        "/**/*.css",
-                        "/**/*.js",
-                        "**/swagger-resources/**",
-                        "/swagger-ui.html",
-                        "/v2/api-docs",
-                        "/webjars/**").permitAll()
+                .antMatchers(AUTH_WHITELIST).permitAll()
                 .anyRequest()
                 .authenticated()
-        .and().csrf().disable();
+                .and()
+                .csrf().disable();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(this.myUserDetailsService);
     }
+
 }

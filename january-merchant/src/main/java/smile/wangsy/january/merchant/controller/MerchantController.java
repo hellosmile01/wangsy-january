@@ -105,9 +105,4 @@ public class MerchantController {
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList);
     }
 
-    @RequestMapping("/login")
-    public ModelAndView login(MerchantValid valid) {
-
-        return null;
-    }
 }
