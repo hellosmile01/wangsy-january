@@ -101,6 +101,6 @@ public class ProductsController {
 
         List<ProductsVo> voList = ProductsVo.transModelListToVoList(list);
 
-        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList);
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList, 1);
     }
 }
