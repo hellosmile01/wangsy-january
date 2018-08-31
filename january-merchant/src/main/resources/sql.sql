@@ -56,7 +56,8 @@ CREATE TABLE `member` (
 
 /*
   商品信息表
-*/CREATE TABLE `products` (
+*/
+CREATE TABLE `products` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `name` varchar(30) DEFAULT NULL COMMENT '商品名称',
   `price` decimal(10,2) DEFAULT NULL COMMENT '商品价格',
@@ -76,3 +77,19 @@ CREATE TABLE `member` (
   `category_name` varchar(30) DEFAULT NULL COMMENT '分类名称',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品信息表';
+
+
+CREATE TABLE `product_category` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `name` varchar(30) DEFAULT NULL COMMENT '类别名称',
+  `images` text COMMENT '分类图片',
+  `description` varchar(255) DEFAULT NULL COMMENT '描述',
+  `state` int(1) DEFAULT NULL COMMENT '审核状态（0：未审核，1：通过；2：不通过）',
+  `merchant_name` varchar(30) DEFAULT NULL COMMENT '商户名称',
+  `merchant_id` bigint(20) DEFAULT NULL COMMENT '商户id',
+  `insert_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据入库时间',
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据最后一次更新时间',
+  `delete_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '删除时间',
+  `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品分类表';

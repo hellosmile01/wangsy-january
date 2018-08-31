@@ -1,12 +1,10 @@
 package smile.wangsy.january.merchant.controller;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import smile.wangsy.january.merchant.model.Products;
-import smile.wangsy.january.merchant.dto.ProductsDto;
-import smile.wangsy.january.merchant.vo.ProductsVo;
-import smile.wangsy.january.merchant.valid.ProductsValid;
-import smile.wangsy.january.merchant.service.ProductsService;
+import smile.wangsy.january.merchant.model.ProductCategory;
+import smile.wangsy.january.merchant.dto.ProductCategoryDto;
+import smile.wangsy.january.merchant.vo.ProductCategoryVo;
+import smile.wangsy.january.merchant.valid.ProductCategoryValid;
+import smile.wangsy.january.merchant.service.ProductCategoryService;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +19,19 @@ import java.util.List;
 
 /**
  * @author wangsy
- * @date 2018/08/30
+ * @date 2018/08/31
  */
 @RestController
-@RequestMapping("/v1/products")
-@Api(value = "ProductsController", description = "商品信息Api")
-public class ProductsController {
+@RequestMapping("/v1/product/category")
+@Api(value = "xx", description = "xx")
+public class ProductCategoryController {
 
     @Autowired
-    private ProductsService services;
+    private ProductCategoryService services;
 
     @PostMapping
-    @ApiOperation(value = "新增", httpMethod = "POST", response = ProductsController.class, notes = "新增")
-    public BaseResult createModel(ProductsDto dto) {
+    @ApiOperation(value = "新增", httpMethod = "POST", response = ProductCategoryController.class, notes = "新增")
+    public BaseResult createModel(ProductCategoryDto dto) {
         try {
             services.insertByDto(dto);
         } catch (Exception e) {
@@ -44,8 +42,8 @@ public class ProductsController {
     }
 
     @PutMapping
-    @ApiOperation(value = "修改", httpMethod = "PUT", response = ProductsController.class, notes = "修改")
-    public BaseResult updateModel(ProductsDto dto) {
+    @ApiOperation(value = "修改", httpMethod = "PUT", response = ProductCategoryController.class, notes = "修改")
+    public BaseResult updateModel(ProductCategoryDto dto) {
         try {
             services.updateByDto(dto);
         } catch (Exception e) {
@@ -56,7 +54,7 @@ public class ProductsController {
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation(value = "删除", httpMethod = "DELETE", response = ProductsController.class, notes = "删除")
+    @ApiOperation(value = "删除", httpMethod = "DELETE", response = ProductCategoryController.class, notes = "删除")
     public BaseResult deleteById(@PathVariable Long id) {
         if(id == null || id <= 0) {
             return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");
@@ -76,14 +74,14 @@ public class ProductsController {
      * @return
      */
     @GetMapping("/{id}")
-    @ApiOperation(value = "根据id查询", httpMethod = "GET", response = ProductsController.class, notes = "根据id查询")
+    @ApiOperation(value = "根据id查询", httpMethod = "GET", response = ProductCategoryController.class, notes = "根据id查询")
     public BaseResult getById(@PathVariable Long id) {
         if(id == null || id <= 0) {
             return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");
         }
-        Products model = services.selectById(id);
+        ProductCategory model = services.selectById(id);
 
-        ProductsVo modelVo = ProductsVo.transModelToVo(model);
+        ProductCategoryVo modelVo = ProductCategoryVo.transModelToVo(model);
 
         return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, modelVo);
     }
@@ -94,26 +92,15 @@ public class ProductsController {
      * @return
      */
     @GetMapping
-    @ApiOperation(value = "根据condition查询", httpMethod = "GET", response = ProductsController.class, notes = "根据条件查询")
-    public BaseResult getById(ProductsValid valid) {
+    @ApiOperation(value = "根据condition查询", httpMethod = "GET", response = ProductCategoryController.class, notes = "根据条件查询")
+    public BaseResult getById(ProductCategoryValid valid) {
         if(null == valid) {
             return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");
         }
+        List<ProductCategory> list = services.selectByConditions(valid);
 
-        if(null == valid.getPageNumber() || null == valid.getPageSize()) {
-            List<Products> list = services.selectByConditions(valid);
-            List<ProductsVo> voList = ProductsVo.transModelListToVoList(list);
+        List<ProductCategoryVo> voList = ProductCategoryVo.transModelListToVoList(list);
 
-            return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList, 0);
-        }
-
-        PageHelper.startPage(valid.getPageNumber(), valid.getPageSize());
-        List<Products> list = services.selectByConditions(valid);
-
-        PageInfo<Products> pageInfo = new PageInfo<>(list);
-
-        List<ProductsVo> voList = ProductsVo.transModelListToVoList(pageInfo.getList());
-
-        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList, (int) pageInfo.getTotal());
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList);
     }
 }

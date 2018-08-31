@@ -1,9 +1,15 @@
 package smile.wangsy.january.merchant.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
 import smile.wangsy.january.merchant.mapper.ProductsMapper;
+import smile.wangsy.january.merchant.model.Merchant;
 import smile.wangsy.january.merchant.model.Products;
+import smile.wangsy.january.merchant.service.MerchantService;
 import smile.wangsy.january.merchant.service.ProductsService;
 import smile.wangsy.january.merchant.dto.ProductsDto;
+import smile.wangsy.january.merchant.util.CommonUtil;
 import smile.wangsy.january.merchant.valid.ProductsValid;
 
 import wang.smile.common.base.BaseService;
@@ -25,12 +31,24 @@ import java.util.List;
 @Transactional(rollbackFor = {Exception.class})
 public class ProductsServiceImpl extends BaseService<Products> implements ProductsService {
 
+    @Autowired
+    private MerchantService merchantService;
+
     @Resource
     private ProductsMapper productsMapper;
 
     @Override
-    public void insertByDto(ProductsDto dto) {
+    public void insertByDto(ProductsDto dto) throws Exception {
         Products model = ProductsDto.transfer(dto);
+
+        Merchant currentLogin = CommonUtil.getCurrentLogin(merchantService);
+
+        if(null != currentLogin) {
+            model.setMerchantId(currentLogin.getId());
+            model.setMerchantName(currentLogin.getName());
+        } else {
+            throw new Exception("当前账号不存在");
+        }
 
         model.setBeenDeleted(false);
         model.setInsertTime(new Date());

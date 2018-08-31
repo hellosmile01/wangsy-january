@@ -17,7 +17,7 @@ public interface ProductsService extends Service<Products> {
      * 插入数据
      * @param dto
      */
-    void insertByDto(ProductsDto dto);
+    void insertByDto(ProductsDto dto) throws Exception;
 
     /**
      * 修改数据
