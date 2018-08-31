@@ -1,2 +1,9 @@
 <!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+<view class="container">
+  <view class="userinfo">
+    
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">订单管理</text>
+  </view>
+</view>

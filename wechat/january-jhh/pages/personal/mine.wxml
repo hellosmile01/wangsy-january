@@ -1,2 +1,9 @@
 <!--pages/personal/mine.wxml-->
-<text>pages/personal/mine.wxml</text>
+<view class="container">
+  <view class="userinfo">
+    
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">个人中心</text>
+  </view>
+</view>
