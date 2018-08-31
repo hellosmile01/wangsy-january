@@ -1,4 +1,4 @@
-package smile.wangsy.january.member.config;
+package smile.wangsy.january.order.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,15 +24,15 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("smile.wangsy.january.member.controller"))
+                .apis(RequestHandlerSelectors.basePackage("smile.wangsy.january.order.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("会员服务")
-                .description("会员管理")
+                .title("订单服务")
+                .description("订单管理")
                 .termsOfServiceUrl("website")
                 .contact(new Contact("name", "url", "email"))
                 .version("v1.0")

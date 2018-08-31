@@ -31,9 +31,9 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("TEST系统")
-                .description("TEST系统")
-                .termsOfServiceUrl("TEST_website")
+                .title("商户服务")
+                .description("商户管理")
+                .termsOfServiceUrl("website")
                 .contact(new Contact("name", "url", "email"))
                 .version("v1.0")
                 .build();
