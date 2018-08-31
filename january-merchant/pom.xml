@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>january-merchant</name>
-    <description>Demo project for Spring Boot</description>
+    <description>商户服务</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
 
     <name>wangsy-january</name>
-    <description>Demo project for Spring Boot</description>
+    <description></description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
