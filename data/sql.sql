@@ -138,4 +138,4 @@ CREATE TABLE `order_items` (
   `delete_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '删除时间',
   `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单详细信息表';
