@@ -16,6 +16,7 @@ import lombok.Data;
 @Data
 public class ProductCategoryVo implements Serializable {
 
+    private Long id;
     /**
      * 类别名称
      */
