@@ -2,6 +2,7 @@ package smile.wangsy.january.merchant.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import smile.wangsy.january.merchant.model.Merchant;
 import smile.wangsy.january.merchant.model.ProductCategory;
@@ -34,7 +35,7 @@ public class CommonApiController {
      * 类别下拉框数据
      * @return
      */
-    @RequestMapping("categoryDropDown")
+    @RequestMapping(value = "categoryDropDown", method = RequestMethod.GET)
     public BaseResult categoryDropDown() {
         Merchant currentLogin = CommonUtil.getCurrentLogin(merchantService);
 
