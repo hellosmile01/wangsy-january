@@ -16,6 +16,21 @@ import lombok.Data;
 @Data
 public class ProductCategoryVo implements Serializable {
 
+    /**
+     * 类别名称
+     */
+    private String name;
+
+    /**
+     * 描述
+     */
+    private String description;
+
+    /**
+     * 审核状态（0：未审核，1：通过；2：不通过）
+     */
+    private Integer state;
+
     public static ProductCategoryVo transModelToVo(ProductCategory model) {
         ProductCategoryVo vo = new ProductCategoryVo();
         BeanUtils.copyProperties(model, vo);

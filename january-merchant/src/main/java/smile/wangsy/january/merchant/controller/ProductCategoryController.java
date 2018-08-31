@@ -1,5 +1,7 @@
 package smile.wangsy.january.merchant.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import smile.wangsy.january.merchant.model.ProductCategory;
 import smile.wangsy.january.merchant.dto.ProductCategoryDto;
 import smile.wangsy.january.merchant.vo.ProductCategoryVo;
@@ -97,10 +99,21 @@ public class ProductCategoryController {
         if(null == valid) {
             return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");
         }
+
+        if(null == valid.getPageNumber() || null == valid.getPageSize()) {
+            List<ProductCategory> list = services.selectByConditions(valid);
+            List<ProductCategoryVo> voList = ProductCategoryVo.transModelListToVoList(list);
+
+            return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList, 0);
+        }
+
+        PageHelper.startPage(valid.getPageNumber(), valid.getPageSize());
         List<ProductCategory> list = services.selectByConditions(valid);
 
-        List<ProductCategoryVo> voList = ProductCategoryVo.transModelListToVoList(list);
+        PageInfo<ProductCategory> pageInfo = new PageInfo<>(list);
 
-        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList);
+        List<ProductCategoryVo> voList = ProductCategoryVo.transModelListToVoList(pageInfo.getList());
+
+        return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, voList, (int) pageInfo.getTotal());
     }
 }

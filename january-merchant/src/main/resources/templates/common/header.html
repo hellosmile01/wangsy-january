@@ -1,24 +1,39 @@
-<div class="col-xs-12 col-md-12" style="padding: 0px;">
-    <nav class="navbar navbar-default"
-         style="padding: 0px 16.66666667% 0px 16.66666667%;border-radius:0px;background: #545c64;">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/index">Dashboard<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li>
-                        <a href="/product_list">商品列表<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li>
-                        <a href="/ddzx">订单中心<span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/personalCenter">个人中心</a></li>
-                    <li><a href="/logout">退出</a></li>
-                </ul>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8"/>
+    <title>NavigationBar</title>
+</head>
+<body>
+<div id="head_nav" th:fragment="navbar" class="row header">
+    <div class="col-xs-12 col-md-12" style="padding: 0px;">
+        <nav class="navbar navbar-default"
+             style="padding: 0px 16.66666667% 0px 16.66666667%;border-radius:0px;background: #545c64;">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="/index">Dashboard<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li>
+                            <a href="/product_list">商品管理<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li>
+                            <a href="/category_list">类别管理<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li>
+                            <a href="/order_list">订单管理<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/personalCenter">本店信息</a></li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 </div>
+</body>
+</html>

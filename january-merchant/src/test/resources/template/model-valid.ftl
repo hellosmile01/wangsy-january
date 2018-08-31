@@ -10,4 +10,14 @@ import lombok.Data;
 @Data
 public class ${modelValidNameUpperCamel} implements Serializable {
 
+    /**
+     * 当前页号
+     */
+    private Integer pageNumber;
+
+    /**
+     * 总页数
+     */
+    private Integer pageSize;
+
 }

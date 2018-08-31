@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 <head>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
@@ -10,7 +11,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div id="head_nav" class="row header"></div>
+    <div th:replace="common/header::navbar"></div>
     <div class="row body">
         <div class="col-xs-2 col-md-2"></div>
         <div class="col-xs-8 col-md-8">
@@ -29,9 +30,7 @@
         </div>
         <div class="col-xs-2 col-md-2"></div>
     </div>
-    <div class="row footer">
-        <div class="col-xs-12 col-md-12"></div>
-    </div>
+    <div th:replace="common/footer::footer"></div>
 </div>
 
 <div id="add_product_modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="添加商品" aria-hidden="false">

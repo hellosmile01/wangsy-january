@@ -32,4 +32,9 @@ public class WebMerchantController {
         return new ModelAndView("product/product_list.html");
     }
 
+    @RequestMapping("/category_list")
+    public ModelAndView category_list() {
+        return new ModelAndView("product/category_list.html");
+    }
+
 }

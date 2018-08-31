@@ -1,6 +1,4 @@
 $(function () {
-    $("#head_nav").load("common/header.html");
-
     $("#add_product").ajaxForm(function(data){
         if(data.code==200) {
             $('#add_product_modal').modal('hide');

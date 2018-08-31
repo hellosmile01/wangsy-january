@@ -14,6 +14,17 @@ import lombok.Data;
 @Data
 public class ProductCategoryDto implements Serializable {
 
+    /**
+     * 类别名称
+     */
+    private String name;
+
+    /**
+     * 描述
+     */
+    private String description;
+
+
     public static ProductCategory transfer(ProductCategoryDto dto) {
 
         ProductCategory model = new ProductCategory();
