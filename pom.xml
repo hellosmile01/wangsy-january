@@ -68,5 +68,7 @@
     <modules>
         <module>january-merchant</module>
         <module>january-member</module>
+        <module>january-order</module>
     </modules>
+
 </project>
