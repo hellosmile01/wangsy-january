@@ -55,6 +55,11 @@ public class OrderItems {
     private String description;
 
     /**
+     * 图片
+     */
+    private String image;
+
+    /**
      * 数据入库时间(订单时间)
      */
     @Column(name = "insert_time")
@@ -220,6 +225,24 @@ public class OrderItems {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * 获取图片
+     *
+     * @return image - 图片
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * 设置图片
+     *
+     * @param image 图片
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
 
     /**

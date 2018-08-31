@@ -132,6 +132,7 @@ CREATE TABLE `order_items` (
   `product_price` decimal(10,2) DEFAULT NULL COMMENT '商品价格(原价)',
   `product_discount` decimal(10,2) DEFAULT NULL COMMENT '商品优惠金额',
   `description` varchar(255) DEFAULT NULL COMMENT '描述',
+  `image` varchar(500) DEFAULT NULL COMMENT '图片',
   `insert_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据入库时间(订单时间)',
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据最后一次更新时间',
   `delete_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '删除时间',

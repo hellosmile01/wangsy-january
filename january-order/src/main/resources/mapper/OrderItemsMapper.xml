@@ -13,6 +13,7 @@
     <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
     <result column="product_discount" jdbcType="DECIMAL" property="productDiscount" />
     <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
     <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />

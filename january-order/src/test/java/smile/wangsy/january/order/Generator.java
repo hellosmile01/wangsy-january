@@ -44,7 +44,7 @@ public class Generator {
             MODULE,
             PACKAGE_NAME,
             null,
-            "",
+            "order_items",
             TEMPLATE_FILE_PATH,
             true,
             true

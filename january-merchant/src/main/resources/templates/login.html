@@ -12,7 +12,7 @@
             <div class="col-xs-2 col-md-2"></div>
             <div class="col-xs-8 col-md-8">
                 <form class="form-signin" method="post" th:action="@{/authentication/form}" style="padding: 0px 500px 0 500px;">
-                    <h2 class="form-signin-heading">登录</h2>
+                    <h2 class="form-signin-heading">商户登录</h2>
                     <label for="inputMobile" class="sr-only">手机号码</label>
                     <input style="margin-bottom: 10px;"
                            type="mobile" id="inputMobile" class="form-control" name="username"
@@ -31,9 +31,7 @@
             </div>
             <div class="col-xs-2 col-md-2"></div>
         </div>
-        <div class="row footer">
-            <div class="col-xs-12 col-md-12"></div>
-        </div>
+        <div th:replace="common/footer::footer"></div>
     </div>
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
