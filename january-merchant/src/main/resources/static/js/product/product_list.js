@@ -71,7 +71,7 @@ $(function () {
     $.ajax({
         url: '/v1/common/api/categoryDropDown',
         dataType: 'json',
-        type: 'POST',
+        type: 'GET',
         data:{},
         xhrFields: {
             withCredentials: true

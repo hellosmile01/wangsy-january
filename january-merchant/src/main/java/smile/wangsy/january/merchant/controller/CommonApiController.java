@@ -43,11 +43,11 @@ public class CommonApiController {
             return new BaseResult(BaseConstants.SUCCESS_CODE, BaseConstants.SUCCESS_MSG, new ArrayList<>());
         }
 
-        ProductCategoryValid valid = new ProductCategoryValid();
+        ProductCategoryValid productCategoryValid = new ProductCategoryValid();
 
-        valid.setMerchantId(currentLogin.getId());
+        productCategoryValid.setMerchantId(currentLogin.getId());
 
-        List<ProductCategory> productCategories = productCategoryService.selectByConditions(valid);
+        List<ProductCategory> productCategories = productCategoryService.selectByConditions(productCategoryValid);
 
         List<ProductCategoryVo> productCategoryVos = ProductCategoryVo.transModelListToVoList(productCategories);
 

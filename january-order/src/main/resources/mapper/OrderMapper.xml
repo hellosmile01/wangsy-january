@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smile.wangsy.january.order.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="smile.wangsy.january.order.model.Order">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="order_state" jdbcType="INTEGER" property="orderState" />
+    <result column="distribute_address" jdbcType="VARCHAR" property="distributeAddress" />
+    <result column="merchant_name" jdbcType="VARCHAR" property="merchantName" />
+    <result column="merchant_id" jdbcType="BIGINT" property="merchantId" />
+    <result column="member_name" jdbcType="VARCHAR" property="memberName" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="member_mobile" jdbcType="VARCHAR" property="memberMobile" />
+    <result column="distribute_price" jdbcType="DECIMAL" property="distributePrice" />
+    <result column="discount" jdbcType="DECIMAL" property="discount" />
+    <result column="pack_price" jdbcType="DECIMAL" property="packPrice" />
+    <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+    <result column="distributer_name" jdbcType="VARCHAR" property="distributerName" />
+    <result column="distributer_id" jdbcType="BIGINT" property="distributerId" />
+    <result column="distributer_mobile" jdbcType="VARCHAR" property="distributerMobile" />
+    <result column="distribution_name" jdbcType="VARCHAR" property="distributionName" />
+    <result column="distribution_id" jdbcType="BIGINT" property="distributionId" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
+    <result column="been_deleted" jdbcType="BIT" property="beenDeleted" />
+  </resultMap>
+</mapper>

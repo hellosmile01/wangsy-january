@@ -34,4 +34,6 @@ public class ProductCategoryValid implements Serializable {
      * 总页数
      */
     private Integer pageSize;
+
+
 }

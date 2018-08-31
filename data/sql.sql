@@ -93,3 +93,48 @@ CREATE TABLE `product_category` (
   `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品分类表';
+
+
+CREATE TABLE `order` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `order_number` varchar(30) DEFAULT NULL COMMENT '订单号',
+  `description` varchar(255) DEFAULT NULL COMMENT '描述',
+  `order_state` int(1) DEFAULT NULL COMMENT '订单状态（-1：已取消, 0：未支付，1：已支付；2：已接单，3: 配送中，4: 已完成）',
+  `distribute_address` varchar(500) DEFAULT NULL COMMENT '配送地址',
+  `merchant_name` varchar(30) DEFAULT NULL COMMENT '商户名称',
+  `merchant_id` bigint(20) DEFAULT NULL COMMENT '商户id',
+  `member_name` varchar(30) DEFAULT NULL COMMENT '会员名称',
+  `member_id` bigint(20) DEFAULT NULL COMMENT '会员id',
+  `member_mobile` varchar(16) DEFAULT NULL COMMENT '联系电话',
+  `distribute_price` decimal(10,2) DEFAULT NULL COMMENT '配送费',
+  `discount` decimal(10,2) DEFAULT NULL COMMENT '优惠金额',
+  `pack_price` decimal(10,2) DEFAULT NULL COMMENT '打包费',
+  `total_amount` decimal(10,2) DEFAULT NULL COMMENT '合计金额',
+  `distributer_name` varchar(30) DEFAULT NULL COMMENT '配送员名称',
+  `distributer_id` bigint(20) DEFAULT NULL COMMENT '配送员id',
+  `distributer_mobile` varchar(16) DEFAULT NULL COMMENT '配送员联系电话',
+  `distribution_name` varchar(30) DEFAULT NULL COMMENT '配送单位名称',
+  `distribution_id` bigint(20) DEFAULT NULL COMMENT '配送单位id',
+  `insert_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据入库时间(订单时间)',
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据最后一次更新时间',
+  `delete_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '删除时间',
+  `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单信息表';
+
+
+CREATE TABLE `order_items` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `order_number` varchar(30) DEFAULT NULL COMMENT '订单号',
+  `order_id` bigint(20) DEFAULT NULL COMMENT '订单id',
+  `product_name` varchar(30) DEFAULT NULL COMMENT '商品名称',
+  `product_id` bigint(20) DEFAULT NULL COMMENT '商品id',
+  `product_price` decimal(10,2) DEFAULT NULL COMMENT '商品价格(原价)',
+  `product_discount` decimal(10,2) DEFAULT NULL COMMENT '商品优惠金额',
+  `description` varchar(255) DEFAULT NULL COMMENT '描述',
+  `insert_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据入库时间(订单时间)',
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据最后一次更新时间',
+  `delete_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '删除时间',
+  `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单信息表';

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smile.wangsy.january.order.mapper.OrderItemsMapper">
+  <resultMap id="BaseResultMap" type="smile.wangsy.january.order.model.OrderItems">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
+    <result column="product_discount" jdbcType="DECIMAL" property="productDiscount" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
+    <result column="been_deleted" jdbcType="BIT" property="beenDeleted" />
+  </resultMap>
+</mapper>
