@@ -11,7 +11,19 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+		/**
+		 * wx.setStorageSync('memberInfo', data.data.data[0])
+		 */
+		var memberInfo = wx.getStorageSync('memberInfo');
+		var userInfo = wx.getStorageSync('userInfo');
 		
+		if(memberInfo === null) {
+			// 显示登录按钮
+
+		} 
+		else {
+			// 显示会员信息
+		}
 	},
 
 	/**

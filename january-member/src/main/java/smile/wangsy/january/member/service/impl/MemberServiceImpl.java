@@ -1,5 +1,6 @@
 package smile.wangsy.january.member.service.impl;
 
+import org.springframework.util.StringUtils;
 import smile.wangsy.january.member.mapper.MemberMapper;
 import smile.wangsy.january.member.model.Member;
 import smile.wangsy.january.member.service.MemberService;
@@ -19,7 +20,7 @@ import java.util.List;
 
 /**
  * @author wangsy
- * @date 2018/08/27.
+ * @date 2018/09/01.
  */
 @Service
 @Transactional(rollbackFor = {Exception.class})
@@ -69,6 +70,10 @@ public class MemberServiceImpl extends BaseService<Member> implements MemberServ
          * 查询未被删除的数据
          */
         criteria.andEqualTo("beenDeleted", false);
+
+        if (StringUtils.isEmpty(valid.getOpenid())) {
+           criteria.andEqualTo("openid", valid.getOpenid());
+        }
         return memberMapper.selectByCondition(example);
     }
 

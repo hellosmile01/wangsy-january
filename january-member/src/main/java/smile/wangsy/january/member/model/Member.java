@@ -80,6 +80,17 @@ public class Member {
     private Boolean beenDeleted;
 
     /**
+     * 用户的微笑openid
+     */
+    private String openid;
+
+    /**
+     * wxUserInfo表中的id
+     */
+    @Column(name = "wx_info_id")
+    private Long wxInfoId;
+
+    /**
      * 获取主键id
      *
      * @return id - 主键id
@@ -311,5 +322,41 @@ public class Member {
      */
     public void setBeenDeleted(Boolean beenDeleted) {
         this.beenDeleted = beenDeleted;
+    }
+
+    /**
+     * 获取用户的微笑openid
+     *
+     * @return openid - 用户的微笑openid
+     */
+    public String getOpenid() {
+        return openid;
+    }
+
+    /**
+     * 设置用户的微笑openid
+     *
+     * @param openid 用户的微笑openid
+     */
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+
+    /**
+     * 获取wxUserInfo表中的id
+     *
+     * @return wx_info_id - wxUserInfo表中的id
+     */
+    public Long getWxInfoId() {
+        return wxInfoId;
+    }
+
+    /**
+     * 设置wxUserInfo表中的id
+     *
+     * @param wxInfoId wxUserInfo表中的id
+     */
+    public void setWxInfoId(Long wxInfoId) {
+        this.wxInfoId = wxInfoId;
     }
 }

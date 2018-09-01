@@ -17,10 +17,6 @@ App({
 		wx.login({
 			success: res => {
 				// 发送 res.code 到后台换取 openId, sessionKey, unionId
-				wx.showModal({
-					title: '提示0',
-					content: res.code,
-				});
 				wx.request({
 					url: 'http://likeyou.nat300.top/v1/wechat/api/getOpenId',
 					data: {
@@ -33,7 +29,7 @@ App({
 							total = data.data.total;
 							wx.setStorageSync('openid', openid);
 							that.getWxUserInfo(openid, session_key, total);
-
+							that.getMemberInfo(openid);
 						}
 					}
 				})
@@ -50,14 +46,7 @@ App({
 						success: res => {
 							// 可以将 res 发送给后台解码出 unionId
 							this.globalData.userInfo = res.userInfo
-							wx.showModal({
-								title: '提示1',
-								content: openid,
-							});
-							wx.showModal({
-								title: '提示2',
-								content: session_key,
-							});
+							
 							// 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
 							// 所以此处加入 callback 以防止这种情况
 							if (this.userInfoReadyCallback) {
@@ -66,6 +55,9 @@ App({
 								var userInfo = this.globalData.userInfo;
 								userInfo.openid = openid;
 								userInfo.sessionKey = session_key;
+
+								wx.setStorageSync('userInfo', userInfo)
+
 								// 如果后台不存在该用户，将用户信息保存到后台
 								if (total != 1) {
 									wx.request({
@@ -98,22 +90,30 @@ App({
 	/**
 	 * 根据openid获取用户是否存在member表中
 	 */
-	getMemberInfo: function() {
+	getMemberInfo: function (openid) {
 		/**
 		 * 根据openid请求后台查询，是否已绑定手机号码，即是否已注册系统账号
 		 */
 		wx.request({
-			url: 'http://likeyou.nat300.top/v1/member/user/info',
+			url: 'http://likeyou.nat300.top/v1/member',
 			method: 'GET',
-			// data: userInfo,
+			data: {
+				openid: openid
+			},
 			header: {
-				//设置参数内容类型为x-www-form-urlencoded
 				'content-type': 'application/x-www-form-urlencoded',
 				'Accept': 'application/json'
 			},
 			success: function (data) {
-				if (data.statusCode === 200) {
-
+				console.log(data);
+				debugger;
+				/**
+				 * member表中存在该用户
+				 */
+				if (data.statusCode === 200 && data.data.code==200 && data.data.data.length===1) {
+					wx.setStorageSync('memberInfo', data.data.data[0])
+				} else {
+					// 不存在该用户
 				}
 			}
 		})

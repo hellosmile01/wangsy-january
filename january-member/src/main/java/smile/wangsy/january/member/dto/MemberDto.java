@@ -9,7 +9,7 @@ import lombok.Data;
 
 /**
  * @author wangsy
- * @date 2018/08/27
+ * @date 2018/09/01
  */
 @Data
 public class MemberDto implements Serializable {

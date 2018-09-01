@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author wangsy
- * @date 2018/08/27
+ * @date 2018/09/01
  */
 public interface MemberService extends Service<Member> {
 
