@@ -8,7 +8,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "DEMO",
+    "navigationBarTitleText": "DEMO小程序",
     "navigationBarTextStyle":"white"
   },
   "tabBar": {
