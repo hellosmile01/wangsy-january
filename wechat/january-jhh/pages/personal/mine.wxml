@@ -1,5 +1,14 @@
 <!--pages/personal/mine.wxml-->
 <view class="personal-center">
-  <button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
-		disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
+	<view class="section flex-wrp bc_blue" style="flex-direction:column;">
+		<navigator url="{{personal_center_url}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+			<view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+				<image class="weui-media-box__thumb" src="{{login_logo}}" />
+			</view>
+			<view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+				<view class="weui-media-box__title">{{wx_user_name}}</view>
+				<view class="weui-media-box__desc">{{wx_user_desc}}</view>
+			</view>
+		</navigator>
+	</view>
 </view>

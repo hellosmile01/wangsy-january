@@ -1,10 +1,11 @@
 package smile.wangsy.january.wechat.dto;
 
-import lombok.Data;
 import org.springframework.beans.BeanUtils;
 import smile.wangsy.january.wechat.model.WechatUserInfo;
 
 import java.io.Serializable;
+
+import lombok.Data;
 
 /**
  * @author wangsy

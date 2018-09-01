@@ -85,6 +85,11 @@ public class WechatUserInfo {
     private Boolean beenDeleted;
 
     /**
+     * 绑定的手机号码
+     */
+    private String mobile;
+
+    /**
      * 获取主键id
      *
      * @return id - 主键id
@@ -334,5 +339,23 @@ public class WechatUserInfo {
      */
     public void setBeenDeleted(Boolean beenDeleted) {
         this.beenDeleted = beenDeleted;
+    }
+
+    /**
+     * 获取绑定的手机号码
+     *
+     * @return mobile - 绑定的手机号码
+     */
+    public String getMobile() {
+        return mobile;
+    }
+
+    /**
+     * 设置绑定的手机号码
+     *
+     * @param mobile 绑定的手机号码
+     */
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }

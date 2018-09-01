@@ -1,1 +1,11 @@
 /* pages/personal/mine.wxss */
+@import "../../lib/weui.wxss";
+
+.flex-wrp {
+	display: flex;
+}
+.bc_blue {
+	background: #d4d4d4;
+	width:100%; 
+	/* height: 100px; */
+}

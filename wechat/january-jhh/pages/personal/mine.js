@@ -4,7 +4,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-	
+		
 	},
 
 	/**
@@ -16,13 +16,38 @@ Page({
 		 */
 		var memberInfo = wx.getStorageSync('memberInfo');
 		var userInfo = wx.getStorageSync('userInfo');
-		
-		if(memberInfo === null) {
-			// 显示登录按钮
 
+		/**
+		 * 没有微信用户信息，需要微信登录
+		 */
+		if(userInfo === null || userInfo === "") {
+			this.setData({
+				login_logo: "../../images/login_logo.png",
+				wx_user_name: "点击登录",
+				wx_user_desc: "独乐乐不如众乐乐！",
+				personal_center_url: ""
+			});
+		}
+		/**
+		 * 没有用户信息，需要绑定手机
+		 */
+		else if (memberInfo === null || memberInfo === "") {
+			// 显示登录按钮
+			this.setData({
+				login_logo: userInfo.avatarUrl,
+				wx_user_name: userInfo.nickName,
+				wx_user_desc: "点击绑定手机",
+				personal_center_url: "bindMobile/bindMobile"
+			});
 		} 
 		else {
 			// 显示会员信息
+			this.setData({
+				login_logo: userInfo.avatarUrl,
+				wx_user_name: userInfo.nickName,
+				wx_user_desc: "独乐乐不如众乐乐！",
+				personal_center_url: ""
+			});
 		}
 	},
 
