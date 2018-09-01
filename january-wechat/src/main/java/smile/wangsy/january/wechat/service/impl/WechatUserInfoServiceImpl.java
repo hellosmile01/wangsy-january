@@ -1,5 +1,6 @@
 package smile.wangsy.january.wechat.service.impl;
 
+import org.springframework.util.StringUtils;
 import smile.wangsy.january.wechat.mapper.WechatUserInfoMapper;
 import smile.wangsy.january.wechat.model.WechatUserInfo;
 import smile.wangsy.january.wechat.service.WechatUserInfoService;
@@ -69,6 +70,9 @@ public class WechatUserInfoServiceImpl extends BaseService<WechatUserInfo> imple
          * 查询未被删除的数据
          */
         criteria.andEqualTo("beenDeleted", false);
+        if(!StringUtils.isEmpty(valid.getOpenid())) {
+            criteria.andEqualTo("openid", valid.getOpenid());
+        }
         return wechatUserInfoMapper.selectByCondition(example);
     }
 

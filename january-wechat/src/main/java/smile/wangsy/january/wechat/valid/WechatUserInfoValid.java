@@ -11,6 +11,11 @@ import lombok.Data;
 public class WechatUserInfoValid implements Serializable {
 
     /**
+     * openid
+     */
+    private String openid;
+
+    /**
      * 当前页号
      */
     private Integer pageNumber;

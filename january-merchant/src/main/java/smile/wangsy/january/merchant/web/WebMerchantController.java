@@ -37,4 +37,14 @@ public class WebMerchantController {
         return new ModelAndView("product/category_list.html");
     }
 
+    @RequestMapping("/order_list")
+    public ModelAndView order_list() {
+        return new ModelAndView("order/order_list.html");
+    }
+
+    @RequestMapping("/about")
+    public ModelAndView about() {
+        return new ModelAndView("about/about.html");
+    }
+
 }
