@@ -105,8 +105,6 @@ App({
 				'Accept': 'application/json'
 			},
 			success: function (data) {
-				console.log(data);
-				debugger;
 				/**
 				 * member表中存在该用户
 				 */

@@ -1,9 +1,5 @@
 <!--pages/personal/mine.wxml-->
-<view class="container">
-  <view class="userinfo">
-    
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">个人中心</text>
-  </view>
+<view class="personal-center">
+  <button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
+		disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
 </view>
