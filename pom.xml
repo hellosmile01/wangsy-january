@@ -69,6 +69,7 @@
         <module>january-merchant</module>
         <module>january-member</module>
         <module>january-order</module>
+        <module>january-wechat</module>
     </modules>
 
 </project>

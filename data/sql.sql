@@ -139,3 +139,22 @@ CREATE TABLE `order_items` (
   `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单详细信息表';
+
+
+CREATE TABLE `wechat_user_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `openid` varchar(30) DEFAULT NULL COMMENT 'openid',
+  `session_key` varchar(30) DEFAULT NULL COMMENT 'session_key',
+  `nick_name` varchar(50) DEFAULT NULL COMMENT 'nickName',
+  `avatar_url` varchar(500) DEFAULT NULL COMMENT '头像',
+  `country` varchar(30) DEFAULT NULL COMMENT 'country',
+  `city` varchar(30) DEFAULT NULL COMMENT 'city',
+  `province` varchar(30) DEFAULT NULL COMMENT 'province',
+  `gender` int(1) DEFAULT NULL COMMENT 'gender',
+  `language` varchar(20) DEFAULT NULL COMMENT 'language',
+  `insert_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据入库时间',
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据最后一次更新时间',
+  `delete_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '删除时间',
+  `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='微信用户信息表';

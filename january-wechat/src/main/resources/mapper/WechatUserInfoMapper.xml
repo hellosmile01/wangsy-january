@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smile.wangsy.january.wechat.mapper.WechatUserInfoMapper">
+  <resultMap id="BaseResultMap" type="smile.wangsy.january.wechat.model.WechatUserInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="openid" jdbcType="VARCHAR" property="openid" />
+    <result column="session_key" jdbcType="VARCHAR" property="sessionKey" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
+    <result column="been_deleted" jdbcType="BIT" property="beenDeleted" />
+  </resultMap>
+</mapper>
