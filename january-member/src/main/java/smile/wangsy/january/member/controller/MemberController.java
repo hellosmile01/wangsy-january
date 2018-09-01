@@ -93,7 +93,7 @@ public class MemberController {
      */
     @GetMapping
     @ApiOperation(value = "根据condition查询", httpMethod = "GET", response = MemberController.class, notes = "根据条件查询")
-    public BaseResult getById(MemberValid valid) {
+    public BaseResult getByCondition(MemberValid valid) {
         if(null == valid) {
             return new BaseResult(BaseConstants.FAILED_CODE, BaseConstants.FAILED_MSG, "请求参数错误");
         }

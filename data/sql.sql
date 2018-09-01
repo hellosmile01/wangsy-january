@@ -51,8 +51,10 @@ CREATE TABLE `member` (
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '数据最后一次更新时间',
   `delete_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '删除时间',
   `been_deleted` tinyint(1) DEFAULT NULL COMMENT '是否已删除',
+  `openid` varchar(20) DEFAULT NULL COMMENT '用户的微笑openid',
+  `wx_info_id` bigint(20) DEFAULT NULL COMMENT 'wxUserInfo表中的id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='会员信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员信息表';
 
 /*
   商品信息表

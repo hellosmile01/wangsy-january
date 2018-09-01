@@ -11,25 +11,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		/**
-		 * 根据openid请求后台查询，是否已绑定手机号码，即是否已注册系统账号
-		 */
-		console.log('openid==============================' + wx.getStorageSync('openid'));
-		wx.request({
-			url: 'http://likeyou.nat300.top/v1/wechat/user/info',
-			method: 'POST',
-			// data: userInfo,
-			header: {
-				//设置参数内容类型为x-www-form-urlencoded
-				'content-type': 'application/x-www-form-urlencoded',
-				'Accept': 'application/json'
-			},
-			success: function (data) {
-				if (data.statusCode === 200) {
-
-				}
-			}
-		})
+		
 	},
 
 	/**
