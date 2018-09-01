@@ -1,6 +1,10 @@
 //app.js
 App({
 	onLaunch: function () {
+		wx.showModal({
+			title: "title01",
+			content: "content01"
+		});
 		// 展示本地存储能力
 		var logs = wx.getStorageSync('logs') || []
 		logs.unshift(Date.now())
@@ -16,6 +20,11 @@ App({
 		// 登录
 		wx.login({
 			success: res => {
+
+				wx.showModal({
+					title: "title00",
+					content: res.code
+				});
 				// 发送 res.code 到后台换取 openId, sessionKey, unionId
 				wx.request({
 					url: 'http://likeyou.nat300.top/v1/wechat/api/getOpenId',
@@ -23,14 +32,31 @@ App({
 						code: res.code
 					},
 					success: function (data) {
+
+						wx.showModal({
+							title: "title02",
+							content: res.code
+						});
+
 						if (data.statusCode===200) {
 							openid = data.data.rows.openid;
 							session_key = data.data.rows.session_key;
 							total = data.data.total;
 							wx.setStorageSync('openid', openid);
+
+							wx.showModal({
+								title: "title03",
+								content: openid
+							});
 							that.getWxUserInfo(openid, session_key, total);
 							that.getMemberInfo(openid);
 						}
+					},
+					fail: function(error) {
+						wx.showModal({
+							title: "error",
+							content: error
+						});
 					}
 				})
 			}
