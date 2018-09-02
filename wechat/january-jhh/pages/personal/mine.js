@@ -4,7 +4,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		
+		hasOauth: false
 	},
 
 	/**
@@ -23,9 +23,10 @@ Page({
 		if(userInfo === null || userInfo === "") {
 			this.setData({
 				login_logo: "../../images/login_logo.png",
-				wx_user_name: "点击登录",
+				// wx_user_name: "点击登录",
 				wx_user_desc: "独乐乐不如众乐乐！",
-				personal_center_url: ""
+				personal_center_url: "",
+				hasOauth: false
 			});
 		}
 		/**
@@ -37,8 +38,10 @@ Page({
 				login_logo: userInfo.avatarUrl,
 				wx_user_name: userInfo.nickName,
 				wx_user_desc: "点击绑定手机",
-				personal_center_url: "bindMobile/bindMobile"
+				personal_center_url: "bindMobile/bindMobile",
+				hasOauth: true
 			});
+
 		} 
 		else {
 			// 显示会员信息
@@ -98,5 +101,16 @@ Page({
 	 */
 	onShareAppMessage: function () {
 	
+	},
+	getUserInfo: function (e) {
+		console.log(e)
+		app.globalData.userInfo = e.detail.userInfo
+		this.setData({
+			login_logo: userInfo.avatarUrl,
+			wx_user_name: userInfo.nickName,
+			wx_user_desc: "点击绑定手机",
+			personal_center_url: "bindMobile/bindMobile",
+			hasOauth: true
+		});
 	}
 })

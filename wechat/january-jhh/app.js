@@ -1,17 +1,28 @@
 //app.js
 App({
 	onLaunch: function () {
-		wx.showModal({
-			title: "title01",
-			content: "content01"
-		});
 		// 展示本地存储能力
 		var logs = wx.getStorageSync('logs') || []
 		logs.unshift(Date.now())
 		wx.setStorageSync('logs', logs)
-
+		
+		wx.getSetting({
+			success(res) {
+				if (!res.authSetting['scope.record']) {
+					wx.authorize({
+						scope: 'scope.record',
+						success() {
+							// 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+							this.wxLogin();
+						}
+					})
+				}
+			}
+		})
+		this.wxLogin();
+	},
+	wxLogin: function() {
 		var that = this;
-
 		var openid = '';
 		var session_key = '';
 		// 如果total大于0表示后台数据以保存，则不需要再次请求保存数据
@@ -20,11 +31,6 @@ App({
 		// 登录
 		wx.login({
 			success: res => {
-
-				wx.showModal({
-					title: "title00",
-					content: res.code
-				});
 				// 发送 res.code 到后台换取 openId, sessionKey, unionId
 				wx.request({
 					url: 'http://likeyou.nat300.top/v1/wechat/api/getOpenId',
@@ -32,27 +38,17 @@ App({
 						code: res.code
 					},
 					success: function (data) {
-
-						wx.showModal({
-							title: "title02",
-							content: res.code
-						});
-
-						if (data.statusCode===200) {
+						if (data.statusCode === 200) {
 							openid = data.data.rows.openid;
 							session_key = data.data.rows.session_key;
 							total = data.data.total;
 							wx.setStorageSync('openid', openid);
 
-							wx.showModal({
-								title: "title03",
-								content: openid
-							});
 							that.getWxUserInfo(openid, session_key, total);
 							that.getMemberInfo(openid);
 						}
 					},
-					fail: function(error) {
+					fail: function (error) {
 						wx.showModal({
 							title: "error",
 							content: error
@@ -142,7 +138,6 @@ App({
 			}
 		})
 	},
-
 	globalData: {
 		userInfo: null
 	}
