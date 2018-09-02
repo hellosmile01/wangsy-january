@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 127.0.0.1
+ Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 50638
- Source Host           : 127.0.0.1:3306
+ Source Server Version : 80012
+ Source Host           : localhost:3306
  Source Schema         : january
 
  Target Server Type    : MySQL
- Target Server Version : 50638
+ Target Server Version : 80012
  File Encoding         : 65001
 
- Date: 01/09/2018 16:46:47
+ Date: 03/09/2018 00:27:49
 */
 
 SET NAMES utf8mb4;
@@ -111,7 +111,7 @@ CREATE TABLE `order`  (
   `delete_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '删除时间',
   `been_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '是否已删除',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单信息表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单信息表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for order_items
@@ -132,7 +132,7 @@ CREATE TABLE `order_items`  (
   `delete_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '删除时间',
   `been_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '是否已删除',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单详细信息表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单详细信息表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for product_category
@@ -209,12 +209,13 @@ CREATE TABLE `wechat_user_info`  (
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '数据最后一次更新时间',
   `delete_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '删除时间',
   `been_deleted` tinyint(1) NULL DEFAULT NULL COMMENT '是否已删除',
+  `mobile` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '绑定的手机号码',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '微信用户信息表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '微信用户信息表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of wechat_user_info
 -- ----------------------------
-INSERT INTO `wechat_user_info` VALUES (32, 'oLzso47yztiO-0eWdw3ByTzZrjUA', 'dxGWBLLMD/I+CTtBdG6w6w==', 'ㄝ界D盡頭', 'https://wx.qlogo.cn/mmopen/vi_32/ubZvc67Z8xmPZV4LPe0xAw9mhM5cqKB3MdyAtstsvYWa3nwQujY61c2CfbibLgEB3icaKicBhQeAHabrpSKic55w8w/132', 'China', 'Lianyungang', 'Jiangsu', 1, 'zh_CN', '2018-09-01 15:20:06', NULL, NULL, 0);
+INSERT INTO `wechat_user_info` VALUES (35, 'oLzso4yIlRSDR5NxYk17v8pwXb9Y', 'Rjzj/BhDYiAuD2GCjsok5Q==', '零尘', 'https://wx.qlogo.cn/mmopen/vi_32/UWP0Af4z3ic1gEAodt3G2IMMAcy2WYZxRbWPMc6QP1tfbPiaAZAfg92txofyAriacRKHicv8ibJT37m0Ytiboq3Rmemw/132', 'China', 'Lianyungang', 'Jiangsu', 1, 'zh_CN', '2018-09-03 00:24:59', NULL, NULL, 0, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
