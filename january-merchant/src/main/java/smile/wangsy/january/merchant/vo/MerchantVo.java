@@ -31,6 +31,10 @@ public class MerchantVo implements Serializable {
     @ApiParam(value = "負責人電話")
     private String principalMobile;
 
+    private String logo;
+
+    private String description;
+
     public static MerchantVo transModelToVo(Merchant model) {
         MerchantVo vo = new MerchantVo();
         BeanUtils.copyProperties(model, vo);

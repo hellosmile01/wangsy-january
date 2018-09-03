@@ -7,7 +7,7 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-	merchantList: [],
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,8 +16,6 @@ Page({
     })
   },
   onLoad: function () {
-	var that = this;
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -44,27 +42,6 @@ Page({
         }
       })
     }
-
-	/**
-	 * 加载商户列表
-	 */
-	  wx.request({
-		  url: 'http://likeyou.nat300.top/v1/merchant',
-		  method: 'GET',
-		  header: {
-			  //设置参数内容类型为x-www-form-urlencoded
-			  'content-type': 'application/x-www-form-urlencoded',
-			  'Accept': 'application/json'
-		  },
-		  success: function (data) {
-			  debugger;
-			  if (data.statusCode === 200) {
-				  that.setData({
-					  merchantList: data.data.data
-				  });
-			  }
-		  }
-	  })
   },
   getUserInfo: function(e) {
     console.log(e)

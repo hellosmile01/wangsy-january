@@ -7,9 +7,15 @@
 			</view>
 			<view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
 				<view class="weui-media-box__title">{{wx_user_name}}</view>
-				<button wx:if="{{!hasOauth}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击授权 </button>
+				<button wx:if="{{!hasOauth}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登录 </button>
 				<view class="weui-media-box__desc">{{wx_user_desc}}</view>
 			</view>
 		</navigator>
 	</view>
 </view>
+
+    
+
+
+
+	

@@ -14,6 +14,12 @@ import lombok.Data;
 @Data
 public class MemberDto implements Serializable {
 
+    private String mobile;
+
+    private String password;
+
+    private String openid;
+
     public static Member transfer(MemberDto dto) {
 
         Member model = new Member();

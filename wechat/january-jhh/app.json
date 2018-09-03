@@ -4,8 +4,7 @@
     "pages/logs/logs",
     "pages/order/order",
     "pages/personal/mine",
-	"pages/personal/bindMobile/bindMobile",
-	"pages/personal/wxlogin/wxlogin"
+	"pages/personal/bindMobile/bindMobile"
   ],
   "window":{
     "backgroundTextStyle":"light",

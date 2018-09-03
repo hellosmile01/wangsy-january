@@ -1,22 +1,29 @@
 // pages/personal/mine.js
+
+const app = getApp()
+
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
+		login_logo: "",
+		wx_user_name: "",
+		wx_user_desc: "",
+		personal_center_url: "",
 		hasOauth: false
 	},
-
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+		
 		/**
 		 * wx.setStorageSync('memberInfo', data.data.data[0])
 		 */
-		var memberInfo = wx.getStorageSync('memberInfo');
-		var userInfo = wx.getStorageSync('userInfo');
-
+		var memberInfo = app.globalData.memberInfo;
+		var userInfo = app.globalData.userInfo;
+		debugger;
 		/**
 		 * 没有微信用户信息，需要微信登录
 		 */
@@ -49,7 +56,8 @@ Page({
 				login_logo: userInfo.avatarUrl,
 				wx_user_name: userInfo.nickName,
 				wx_user_desc: "独乐乐不如众乐乐！",
-				personal_center_url: ""
+				personal_center_url: "",
+				hasOauth: true
 			});
 		}
 	},
@@ -104,7 +112,10 @@ Page({
 	},
 	getUserInfo: function (e) {
 		console.log(e)
-		app.globalData.userInfo = e.detail.userInfo
+		// var userInfo = wx.getStorageSync('userInfo');
+		app.globalData.userInfo = e.detail.userInfo;
+		
+		var userInfo = e.detail.userInfo;
 		this.setData({
 			login_logo: userInfo.avatarUrl,
 			wx_user_name: userInfo.nickName,

@@ -5,22 +5,50 @@ App({
 		var logs = wx.getStorageSync('logs') || []
 		logs.unshift(Date.now())
 		wx.setStorageSync('logs', logs)
+
+		var hasOauth = false;
+		debugger;
+		/**
+		 * 获取用户权限
+		 */
+		var that = this;
+
+		that.wxLogin();
 		
+		this.getWxSetting(that);
+	},
+	getWxSetting: function (that) {
 		wx.getSetting({
 			success(res) {
+				/**
+				 * 未授权
+				 */
 				if (!res.authSetting['scope.record']) {
 					wx.authorize({
 						scope: 'scope.record',
 						success() {
 							// 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-							this.wxLogin();
+							that.wxLogin();
+						},
+						fail(msg) {
+							that.wxLogin();
+							debugger;
 						}
 					})
 				}
+				/**
+				 * 已授权
+				 */
+				else {
+					that.wxLogin();
+				}
 			}
-		})
-		this.wxLogin();
+		});
+		//this.wxLogin();
 	},
+	/**
+	 * 微信登录
+	 */
 	wxLogin: function() {
 		var that = this;
 		var openid = '';
@@ -38,6 +66,7 @@ App({
 						code: res.code
 					},
 					success: function (data) {
+						debugger;
 						if (data.statusCode === 200) {
 							openid = data.data.rows.openid;
 							session_key = data.data.rows.session_key;
@@ -78,8 +107,6 @@ App({
 								userInfo.openid = openid;
 								userInfo.sessionKey = session_key;
 
-								wx.setStorageSync('userInfo', userInfo)
-
 								// 如果后台不存在该用户，将用户信息保存到后台
 								if (total != 1) {
 									wx.request({
@@ -113,6 +140,7 @@ App({
 	 * 根据openid获取用户是否存在member表中
 	 */
 	getMemberInfo: function (openid) {
+		var that = this;
 		/**
 		 * 根据openid请求后台查询，是否已绑定手机号码，即是否已注册系统账号
 		 */
@@ -131,7 +159,7 @@ App({
 				 * member表中存在该用户
 				 */
 				if (data.statusCode === 200 && data.data.code==200 && data.data.data.length===1) {
-					wx.setStorageSync('memberInfo', data.data.data[0])
+					that.globalData.memberInfo = data.data.data[0];
 				} else {
 					// 不存在该用户
 				}
@@ -139,6 +167,7 @@ App({
 		})
 	},
 	globalData: {
-		userInfo: null
+		userInfo: null,
+		memberInfo: null
 	}
 })
