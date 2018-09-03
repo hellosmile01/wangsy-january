@@ -1,4 +1,8 @@
 //app.js
+/**
+ * https://zhuanlan.zhihu.com/p/36749429
+ * 
+ */
 App({
 	onLaunch: function () {
 		// 展示本地存储能力
@@ -7,7 +11,7 @@ App({
 		wx.setStorageSync('logs', logs)
 
 		var hasOauth = false;
-		debugger;
+		
 		/**
 		 * 获取用户权限
 		 */
@@ -32,7 +36,6 @@ App({
 						},
 						fail(msg) {
 							that.wxLogin();
-							debugger;
 						}
 					})
 				}
@@ -66,7 +69,6 @@ App({
 						code: res.code
 					},
 					success: function (data) {
-						debugger;
 						if (data.statusCode === 200) {
 							openid = data.data.rows.openid;
 							session_key = data.data.rows.session_key;

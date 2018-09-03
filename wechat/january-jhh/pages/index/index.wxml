@@ -10,7 +10,7 @@
 				<view class="weui-media-box__desc">{{item.description}}</view>
 			</view>
 			<view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-				<image class="weui-media-box__thumb" src="{{item.description}}" />
+				<image class="weui-media-box__thumb" src="{{item.logo}}" />
 			</view>
 		</navigator>
 	</view>

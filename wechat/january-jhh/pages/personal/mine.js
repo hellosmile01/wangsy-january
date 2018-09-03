@@ -23,7 +23,6 @@ Page({
 		 */
 		var memberInfo = app.globalData.memberInfo;
 		var userInfo = app.globalData.userInfo;
-		debugger;
 		/**
 		 * 没有微信用户信息，需要微信登录
 		 */

@@ -77,7 +77,6 @@ Page({
 			method: "POST",
 			header: { 'content-type': 'application/x-www-form-urlencoded' },
 			success: function (data) {
-				debugger;
 				if (data.statusCode === 200) {
 					wx.showToast({
 						title: '绑定成功',
