@@ -1,10 +1,23 @@
 {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "个人中心",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false,
+    
     "usingComponents": {
         "van-row": "/dist/row/index",
         "van-col": "/dist/col/index",
         "van-badge": "/dist/badge/index",
         "van-badge-group": "/dist/badge-group/index",
         "van-panel": "/dist/panel/index",
-        "van-card": "/dist/card/index"
+        "van-card": "/dist/card/index",
+        "van-button": "/dist/button/index",
+        "van-tabbar": "/dist/tabbar/index",
+        "van-tabbar-item": "/dist/tabbar-item/index",
+        "van-tag": "/dist/tag/index",
+        "van-icon": "/dist/icon/index",
+        "van-cell": "../../dist/cell/index",
+        "van-cell-group": "../../dist/cell-group/index"
     }
 }

@@ -1,4 +1,10 @@
 {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+
 	"usingComponents": {
 		"van-button": "/dist/button/index",
         "van-tabbar": "/dist/tabbar/index",
@@ -7,6 +13,8 @@
         "van-col": "/dist/col/index",
         "van-card": "/dist/card/index",
         "van-tag": "/dist/tag/index",
-        "van-icon": "/dist/icon/index"
+        "van-icon": "/dist/icon/index",
+        "van-cell": "../../dist/cell/index",
+        "van-cell-group": "../../dist/cell-group/index"
 	}
 }

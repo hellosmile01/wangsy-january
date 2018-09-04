@@ -21,13 +21,14 @@
         </navigator>
     </van-col>
 </van-row>
-<van-row class="custom-class" gutter="10">
+<van-row class="custom-class" gutter="10" class="row-cell">
     <van-col span="24">
-        <van-badge-group :active="active" bind:change="onChange">
-            <van-badge title="标签名称" />
-            <van-badge title="标签名称" info="8" />
-            <van-badge title="标签名称" info="99" />
-            <van-badge title="标签名称" info="199" />
-          </van-badge-group>
+        <van-cell-group border="{{false}}">
+            <van-cell title="我的地址" icon="location" is-link />
+            <van-cell title="我的红包" icon="location" is-link />
+            <van-cell title="客服中心" icon="location" is-link />
+            <van-cell title="帮助和反馈" icon="location" is-link />
+            <van-cell title="协议说明" icon="location" is-link />
+        </van-cell-group>
     </van-col>
 </van-row>
