@@ -6,6 +6,7 @@
         "van-row": "/dist/row/index",
         "van-col": "/dist/col/index",
         "van-card": "/dist/card/index",
-        "van-tag": "/dist/tag/index"
+        "van-tag": "/dist/tag/index",
+        "van-icon": "/dist/icon/index"
 	}
 }

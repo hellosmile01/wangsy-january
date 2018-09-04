@@ -20,7 +20,7 @@
     </van-row>
     <van-row gutter="2">
         <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}">
+            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
                 <view slot="tags">
                     <van-tag>标签</van-tag>
                     <van-tag type="danger">标签</van-tag>
@@ -28,24 +28,74 @@
                     <van-tag type="primary">标签</van-tag>
                 </view>
                 <view slot="footer">
-                    footer
+                    footer1
                 </view>
             </van-card>
         </van-col>
         <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}" />
+            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+                <view slot="tags">
+                    <van-tag>标签</van-tag>
+                    <van-tag type="danger">标签</van-tag>
+                    <van-tag type="success">标签</van-tag>
+                    <van-tag type="primary">标签</van-tag>
+                </view>
+                <view slot="footer">
+                    footer1
+                </view>
+            </van-card>
         </van-col>
         <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}" />
+            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+                <view slot="tags">
+                    <van-tag>标签</van-tag>
+                    <van-tag type="danger">标签</van-tag>
+                    <van-tag type="success">标签</van-tag>
+                    <van-tag type="primary">标签</van-tag>
+                </view>
+                <view slot="footer">
+                    footer1
+                </view>
+            </van-card>
         </van-col>
         <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}" />
+            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+                <view slot="tags">
+                    <van-tag>标签</van-tag>
+                    <van-tag type="danger">标签</van-tag>
+                    <van-tag type="success">标签</van-tag>
+                    <van-tag type="primary">标签</van-tag>
+                </view>
+                <view slot="footer">
+                    footer1
+                </view>
+            </van-card>
         </van-col>
         <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}" />
+            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+                <view slot="tags">
+                    <van-tag>标签</van-tag>
+                    <van-tag type="danger">标签</van-tag>
+                    <van-tag type="success">标签</van-tag>
+                    <van-tag type="primary">标签</van-tag>
+                </view>
+                <view slot="footer">
+                    footer1
+                </view>
+            </van-card>
         </van-col>
         <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}" />
+            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+                <view slot="tags">
+                    <van-tag>标签</van-tag>
+                    <van-tag type="danger">标签</van-tag>
+                    <van-tag type="success">标签</van-tag>
+                    <van-tag type="primary">标签</van-tag>
+                </view>
+                <view slot="footer">
+                    footer1
+                </view>
+            </van-card>
         </van-col>
     </van-row>
 </view>

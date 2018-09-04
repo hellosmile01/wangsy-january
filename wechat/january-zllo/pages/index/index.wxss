@@ -9,7 +9,7 @@
 .light {
   color: #fff;
   font-size: 13px;
-  line-height: 30px;
+  line-height: 60px;
   text-align: center;
   margin-bottom: 10px;
   background-clip: content-box;
