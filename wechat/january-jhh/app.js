@@ -1,7 +1,8 @@
 //app.js
 /**
  * https://zhuanlan.zhihu.com/p/36749429
- * 
+ * https://youzan.github.io/vant-weapp/#/quickstart
+ * wx84a84789d6490d68
  */
 App({
 	onLaunch: function () {
@@ -64,7 +65,7 @@ App({
 			success: res => {
 				// 发送 res.code 到后台换取 openId, sessionKey, unionId
 				wx.request({
-					url: 'http://likeyou.nat300.top/v1/wechat/api/getOpenId',
+					url: that.globalData.baseUrl+'/v1/wechat/api/getOpenId',
 					data: {
 						code: res.code
 					},
@@ -90,6 +91,7 @@ App({
 		});
 	},
 	getWxUserInfo: function (openid, session_key, total) {
+		var that = this;
 		// 获取用户信息
 		wx.getSetting({
 			success: res => {
@@ -112,7 +114,7 @@ App({
 								// 如果后台不存在该用户，将用户信息保存到后台
 								if (total != 1) {
 									wx.request({
-										url: 'http://likeyou.nat300.top/v1/wechat/user/info',
+										url: that.globalData.baseUrl+'/v1/wechat/user/info',
 										method: 'POST',
 										data: userInfo,
 										header: {
@@ -147,7 +149,7 @@ App({
 		 * 根据openid请求后台查询，是否已绑定手机号码，即是否已注册系统账号
 		 */
 		wx.request({
-			url: 'http://likeyou.nat300.top/v1/member',
+			url: that.globalData.baseUrl+'/v1/member',
 			method: 'GET',
 			data: {
 				openid: openid
@@ -170,6 +172,7 @@ App({
 	},
 	globalData: {
 		userInfo: null,
-		memberInfo: null
+		memberInfo: null,
+		baseUrl: "http://likeyou.nat300.top"
 	}
 })

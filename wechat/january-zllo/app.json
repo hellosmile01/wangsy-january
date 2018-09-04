@@ -1,0 +1,41 @@
+{
+    "pages":[
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/order/order",
+        "pages/personal/mine",
+        "pages/personal/bindMobile/bindMobile"
+    ],
+    "window":{
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#000",
+        "navigationBarTitleText": "DEMO小程序",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "backgroundColor": "#000",
+        "color": "#fff",
+        "selectedColor": "#17abe3",
+
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "/images/icon/home.png",
+                "selectedIconPath": "/images/icon/home0.png"
+            },
+            {
+                "pagePath": "pages/order/order",
+                "text": "订单",
+                "iconPath": "/images/icon/order.png",
+                "selectedIconPath": "/images/icon/order0.png"
+            },
+            {
+                "pagePath": "pages/personal/mine",
+                "text": "我的",
+                "iconPath": "/images/icon/my.png",
+                "selectedIconPath": "/images/icon/my0.png"
+            }
+        ]
+    }
+}

@@ -72,7 +72,7 @@ Page({
 		console.log('form发生了submit事件，携带数据为：', e.detail.value)
 
 		wx.request({
-			url: 'http://likeyou.nat300.top/v1/member',
+			url: app.globalData.baseUrl+'/v1/member',
 			data: e.detail.value,
 			method: "POST",
 			header: { 'content-type': 'application/x-www-form-urlencoded' },

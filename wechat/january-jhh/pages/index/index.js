@@ -61,7 +61,7 @@ Page({
 	 	* 加载商户列表
 		*/
 	  	wx.request({
-			url: 'http://likeyou.nat300.top/v1/merchant',
+			url: app.globalData.baseUrl+'/v1/merchant',
 			method: 'GET',
 			header: {
 				//设置参数内容类型为x-www-form-urlencoded

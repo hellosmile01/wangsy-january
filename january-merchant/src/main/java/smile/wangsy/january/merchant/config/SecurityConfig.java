@@ -51,9 +51,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.formLogin()                            // 当需要用户登录是使用表单提交
-                .loginPage("/login")                // 跳转到登录页面
-                .loginProcessingUrl("/authentication/form")       // 自定义的登录接口
+        http.formLogin()                                            // 当需要用户登录是使用表单提交
+                .loginPage("/login")                                // 跳转到登录页面
+                .loginProcessingUrl("/authentication/form")         // 自定义的登录接口
                 .successHandler(theAuthenticationSuccessHandler)
                 .failureHandler(theAuthenticationFailureHandler)
                 .and()
