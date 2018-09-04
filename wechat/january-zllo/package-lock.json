@@ -1,0 +1,11 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "vant-weapp": {
+      "version": "0.2.1",
+      "resolved": "http://registry.npm.taobao.org/vant-weapp/download/vant-weapp-0.2.1.tgz",
+      "integrity": "sha1-tncAldJHb7DZ4ZE7OHkx8QT8YD0="
+    }
+  }
+}

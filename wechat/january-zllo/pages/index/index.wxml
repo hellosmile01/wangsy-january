@@ -1,99 +1,115 @@
 <!--index.wxml-->
 <!-- 顶部的定位 以及搜索框 -->
 <view>
-    <van-row gutter="2">
-        <van-col span="8" custom-class="dark">location</van-col>
+    <!-- <van-row gutter="2">
+        <van-col span="8" custom-class="dark">
+			杭州市
+		</van-col>
         <van-col span="16" custom-class="dark">search</van-col>
-    </van-row>
+    </van-row> -->
     <!-- 类别 -->
-    <van-row gutter="2">
-        <van-col span="6" custom-class="dark">1</van-col>
-        <van-col span="6" custom-class="dark">2</van-col>
-        <van-col span="6" custom-class="dark">3</van-col>
-        <van-col span="6" custom-class="dark">4</van-col>
+    <van-row gutter="2" class="index-top">
+        <van-col span="6" custom-class="dark">
+			<image class="type_logo" src="{{zc}}" />
+    		<view class="text">早餐</view>
+		</van-col>
+        <van-col span="6" custom-class="dark">
+			<image class="type_logo" src="{{wc}}" />
+    		<view class="text">午餐</view>
+		</van-col>
+        <van-col span="6" custom-class="dark">
+			<image class="type_logo" src="{{zhc}}" />
+    		<view class="text">中餐</view>
+		</van-col>
+        <van-col span="6" custom-class="dark">
+			<image class="type_logo" src="{{xc}}" />
+    		<view class="text">西餐</view>
+		</van-col>
     </van-row>
     <van-row gutter="2">
-        <van-col span="6" custom-class="dark">1</van-col>
-        <van-col span="6" custom-class="dark">2</van-col>
-        <van-col span="6" custom-class="dark">3</van-col>
-        <van-col span="6" custom-class="dark">4</van-col>
+        <van-col span="6" custom-class="dark">
+			<image class="type_logo" src="{{ms}}" />
+    		<view class="text">美食</view>
+		</van-col>
+        <van-col span="6" custom-class="dark">
+			<image class="type_logo" src="{{sg}}" />
+    		<view class="text">水果</view>
+		</van-col>
+        <van-col span="6" custom-class="dark">
+			<image class="type_logo" src="{{xwc}}" />
+    		<view class="text">下午茶</view>
+		</van-col>
+        <van-col span="6" custom-class="dark">
+			<image class="type_logo" src="{{bld}}" />
+    		<view class="text">超市便利</view>
+		</van-col>
     </van-row>
+	<van-row gutter="2" class="index-shop-title">
+		<van-col span="24" custom-class="fjsj">
+			<view class="text">———— <text>附近商家</text> ————</view>
+		</van-col>
+	</van-row>
     <van-row gutter="2">
-        <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+		<van-col span="24" custom-class="">
+            <van-card title="青花椒（砂锅🐟）" desc="起送￥20 | 配送￥6" num="35min" price="1.3km" thumb="{{ imageUrl0 }}">
                 <view slot="tags">
-                    <van-tag>标签</van-tag>
-                    <van-tag type="danger">标签</van-tag>
-                    <van-tag type="success">标签</van-tag>
-                    <van-tag type="primary">标签</van-tag>
-                </view>
-                <view slot="footer">
-                    footer1
+                    <van-tag type="danger">满20减5</van-tag>
+                    <van-tag type="danger">满40减20</van-tag>
+					<van-tag type="primary">高分商家</van-tag>
                 </view>
             </van-card>
         </van-col>
-        <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+        <van-col span="24" custom-class="">
+            <van-card title="绿茶餐厅(杭州拱墅区城西银泰店)" desc="起送￥20 | 配送￥6" num="35min" price="1.3km" thumb="{{ imageUrl }}">
                 <view slot="tags">
-                    <van-tag>标签</van-tag>
-                    <van-tag type="danger">标签</van-tag>
-                    <van-tag type="success">标签</van-tag>
-                    <van-tag type="primary">标签</van-tag>
-                </view>
-                <view slot="footer">
-                    footer1
+                    <van-tag type="danger">满20减5</van-tag>
+                    <van-tag type="danger">满40减20</van-tag>
+					<van-tag type="primary">高分商家</van-tag>
                 </view>
             </van-card>
         </van-col>
-        <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+        <van-col span="24" custom-class="">
+            <van-card title="厘约RIO COFFEE（捷瑞达店）" desc="起送￥20 | 配送￥6" num="30min" price="2.3km" thumb="{{ imageUrl }}">
                 <view slot="tags">
-                    <van-tag>标签</van-tag>
-                    <van-tag type="danger">标签</van-tag>
-                    <van-tag type="success">标签</van-tag>
-                    <van-tag type="primary">标签</van-tag>
-                </view>
-                <view slot="footer">
-                    footer1
+                    <van-tag type="danger">满20减5</van-tag>
+                    <van-tag type="danger">满40减20</van-tag>
+					<van-tag type="primary">高分商家</van-tag>
                 </view>
             </van-card>
         </van-col>
-        <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+        <van-col span="24" custom-class="">
+            <van-card title="山葵家精致料理寿司吧（湖滨银泰in77店）" desc="起送￥20 | 配送￥6" num="30min" price="2.3km" thumb="{{ imageUrl }}">
                 <view slot="tags">
-                    <van-tag>标签</van-tag>
-                    <van-tag type="danger">标签</van-tag>
-                    <van-tag type="success">标签</van-tag>
-                    <van-tag type="primary">标签</van-tag>
-                </view>
-                <view slot="footer">
-                    footer1
+                    <van-tag type="danger">满20减5</van-tag>
+                    <van-tag type="danger">满40减20</van-tag>
+					<van-tag type="primary">高分商家</van-tag>
                 </view>
             </van-card>
         </van-col>
-        <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+        <van-col span="24" custom-class="">
+            <van-card title="川味观·毛肚火锅（景芳水湘店）" desc="起送￥20 | 配送￥6" num="30min" price="2.3km" thumb="{{ imageUrl }}">
                 <view slot="tags">
-                    <van-tag>标签</van-tag>
-                    <van-tag type="danger">标签</van-tag>
-                    <van-tag type="success">标签</van-tag>
-                    <van-tag type="primary">标签</van-tag>
-                </view>
-                <view slot="footer">
-                    footer1
+                    <van-tag type="danger">满20减5</van-tag>
+                    <van-tag type="danger">满40减20</van-tag>
+					<van-tag type="primary">高分商家</van-tag>
                 </view>
             </van-card>
         </van-col>
-        <van-col span="24" custom-class="dark">
-            <van-card title="标题" desc="描述信息" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+        <van-col span="24" custom-class="">
+            <van-card title="美拉牛排（和达城店）" desc="起送￥20 | 配送￥6" num="30min" price="2.3km" thumb="{{ imageUrl }}">
                 <view slot="tags">
-                    <van-tag>标签</van-tag>
-                    <van-tag type="danger">标签</van-tag>
-                    <van-tag type="success">标签</van-tag>
-                    <van-tag type="primary">标签</van-tag>
+                    <van-tag type="danger">满20减5</van-tag>
+                    <van-tag type="danger">满40减20</van-tag>
+					<van-tag type="primary">高分商家</van-tag>
                 </view>
-                <view slot="footer">
-                    footer1
+            </van-card>
+        </van-col>
+        <van-col span="24" custom-class="">
+            <van-card title="咖巴伊牛排（丁桥店）" desc="起送￥20 | 配送￥6" num="30min" price="2.3km" thumb="{{ imageUrl }}">
+                <view slot="tags">
+                    <van-tag type="danger">满20减5</van-tag>
+                    <van-tag type="danger">满40减20</van-tag>
+					<van-tag type="primary">高分商家</van-tag>
                 </view>
             </van-card>
         </van-col>

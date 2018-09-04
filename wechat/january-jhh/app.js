@@ -12,7 +12,7 @@ App({
 		wx.setStorageSync('logs', logs)
 
 		var hasOauth = false;
-		
+        login_logo.png
 		/**
 		 * 获取用户权限
 		 */

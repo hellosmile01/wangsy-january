@@ -8,7 +8,17 @@ Page({
 		userInfo: {},
 		hasUserInfo: false,
 		canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        imageUrl: '/images/login_logo.png',
+        imageUrl: '/images/logo.jpg',
+		imageUrl0: '/images/logo0.jpg',
+		bld: '/images/category/bld.png',
+		ms: '/images/category/ms.png',
+		sg: '/images/category/sg.png',
+		wc: '/images/category/wc.png',
+		xc: '/images/category/xc.png',
+		xwc: '/images/category/xwc.png',
+		zc: '/images/category/zc.png',
+		zhc: '/images/category/zhc.png',
+
 	},
 	//事件处理函数
 	bindViewTap: function() {
