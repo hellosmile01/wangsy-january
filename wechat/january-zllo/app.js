@@ -7,6 +7,28 @@ App({
         wx.setStorageSync('logs', logs)
 
         var that = this;
+
+        wx.getLocation({
+            type: 'wgs84',
+            success: function (res) {
+                debugger;
+                var latitude = res.latitude
+                var longitude = res.longitude
+                var speed = res.speed
+                var accuracy = res.accuracy
+                wx.showToast({
+                    title: accuracy,
+                    icon: 'success',
+                    duration: 2000
+                })
+            },
+            fail: function(error) {
+                wx.showModal({
+                    title: "location_error",
+                    content: error
+                });
+            }
+        })
         
         this.getWxSetting();
     },
