@@ -1,1 +1,10 @@
-{}
+{
+    "usingComponents": {
+        "van-row": "/dist/row/index",
+        "van-col": "/dist/col/index",
+        "van-badge": "/dist/badge/index",
+        "van-badge-group": "/dist/badge-group/index",
+        "van-panel": "/dist/panel/index",
+        "van-card": "/dist/card/index"
+    }
+}

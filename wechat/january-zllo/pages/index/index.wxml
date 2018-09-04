@@ -1,13 +1,51 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-	<van-button type="primary" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称</van-button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<!-- 顶部的定位 以及搜索框 -->
+<view>
+    <van-row gutter="2">
+        <van-col span="8" custom-class="dark">location</van-col>
+        <van-col span="16" custom-class="dark">search</van-col>
+    </van-row>
+    <!-- 类别 -->
+    <van-row gutter="2">
+        <van-col span="6" custom-class="dark">1</van-col>
+        <van-col span="6" custom-class="dark">2</van-col>
+        <van-col span="6" custom-class="dark">3</van-col>
+        <van-col span="6" custom-class="dark">4</van-col>
+    </van-row>
+    <van-row gutter="2">
+        <van-col span="6" custom-class="dark">1</van-col>
+        <van-col span="6" custom-class="dark">2</van-col>
+        <van-col span="6" custom-class="dark">3</van-col>
+        <van-col span="6" custom-class="dark">4</van-col>
+    </van-row>
+    <van-row gutter="2">
+        <van-col span="24" custom-class="dark">
+            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}">
+                <view slot="tags">
+                    <van-tag>标签</van-tag>
+                    <van-tag type="danger">标签</van-tag>
+                    <van-tag type="success">标签</van-tag>
+                    <van-tag type="primary">标签</van-tag>
+                </view>
+                <view slot="footer">
+                    footer
+                </view>
+            </van-card>
+        </van-col>
+        <van-col span="24" custom-class="dark">
+            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}" />
+        </van-col>
+        <van-col span="24" custom-class="dark">
+            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}" />
+        </van-col>
+        <van-col span="24" custom-class="dark">
+            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}" />
+        </van-col>
+        <van-col span="24" custom-class="dark">
+            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}" />
+        </van-col>
+        <van-col span="24" custom-class="dark">
+            <van-card title="标题" desc="描述信息" num="2" price="2.00" thumb="{{ imageUrl }}" />
+        </van-col>
+    </van-row>
 </view>

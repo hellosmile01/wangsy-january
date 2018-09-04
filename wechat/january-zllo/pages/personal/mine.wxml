@@ -1,2 +1,33 @@
 <!--pages/personal/mine.wxml-->
-<text>pages/personal/mine.wxml</text>
+<van-row class="custom-class" gutter="2">
+    <van-col span="24">
+        <!-- 用户为授权 -->
+        <button wx:if="{{!hasAuthorize}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 
+            <van-card title="未登录，点击登录" desc="独乐了不如众乐乐" thumb="{{ imageUrl }}">
+
+            </van-card>
+        </button>
+        <!-- 已授权，未绑定手机 -->
+        <navigator wx:if="{{hasAuthorize && !hasMobile}}" url="{{toBindMobile}}">
+            <van-card title="{{wxNickName}}" desc="已授权, 点击绑定手机" thumb="{{ imageUrl }}">
+
+            </van-card>
+        </navigator>
+        <!-- 已授权，已绑定手机 -->
+        <navigator wx:if="{{hasAuthorize && hasMobile}}">
+            <van-card title="{{wxNickName}}" desc="{{mobile}}" thumb="{{ imageUrl }}">
+
+            </van-card>
+        </navigator>
+    </van-col>
+</van-row>
+<van-row class="custom-class" gutter="10">
+    <van-col span="24">
+        <van-badge-group :active="active" bind:change="onChange">
+            <van-badge title="标签名称" />
+            <van-badge title="标签名称" info="8" />
+            <van-badge title="标签名称" info="99" />
+            <van-badge title="标签名称" info="199" />
+          </van-badge-group>
+    </van-col>
+</van-row>

@@ -1,1 +1,4 @@
-/* pages/personal/mine.wxss */
+
+.van-card__content {
+    padding: 10%;
+}
