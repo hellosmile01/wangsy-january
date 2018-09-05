@@ -1,0 +1,14 @@
+<!--pages/index/detail/merchantDetail.wxml-->
+<view>
+    <!-- 顶部商户信息 -->
+    <van-row gutter="2" class="index-top">
+        <van-col span="24" custom-class="fjsj">
+			<van-card title="标题" desc="描述" num="2" price="2.00" thumb="{{ imageURL }}">
+                <view slot="footer">
+                    <van-button size="mini">按钮</van-button>
+                    <van-button size="mini">按钮</van-button>
+                </view>
+            </van-card>
+		</van-col>
+    </van-row>
+</view>

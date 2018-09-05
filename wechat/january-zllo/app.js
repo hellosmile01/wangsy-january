@@ -19,10 +19,7 @@ App({
 				
             },
             fail: function(error) {
-                wx.showModal({
-                    title: "location_error",
-                    content: error
-                });
+                console.log("location_error : "+error);
             }
         })
         
@@ -106,10 +103,7 @@ App({
                         }
                     },
                     fail: function (error) {
-                        wx.showModal({
-                            title: "error",
-                            content: error
-                        });
+                        console.log("location_error : " + error);
                     }
                 })
             }

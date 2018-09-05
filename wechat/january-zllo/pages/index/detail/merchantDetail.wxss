@@ -1,0 +1,15 @@
+/* pages/index/detail/merchantDetail.wxss */
+
+.index-top {
+	margin-top: 20px;
+}
+
+van-card__title {
+    max-height:14px !important;
+    font-size: 12px !important;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+}

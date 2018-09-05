@@ -51,20 +51,22 @@
 	</van-row>
     <van-row gutter="2">
 		<van-col span="24" custom-class="">
-            <van-card title="青花椒（砂锅鱼）" desc="起送￥20 | 配送￥6 | 35分钟" num="" price="1.3km" thumb="{{ imageUrl0 }}">
-                <view slot="tags">
-                    <van-tag plain type="danger">满20减5</van-tag>
-                    <van-tag plain type="danger">满30减8</van-tag>
-                    <van-tag plain type="danger">满40减15</van-tag>
-                    <van-tag plain type="danger">满50减20</van-tag>
-					<van-tag mark type="primary">高分商家</van-tag>
-					<van-tag mark type="success">蜂鸟专送</van-tag>
-					<van-tag mark>极速退款</van-tag>
-                </view>
-            </van-card>
+            <navigator url="{{merchantDetailUrl}}?merchantId=123&merchantName=青花椒（砂锅鱼）">
+                <van-card title="青花椒（砂锅鱼）" desc="起送￥20 | 配送￥6 | 35分钟" num="" price="1.3km" thumb="{{ imageUrl0 }}">
+                    <view slot="tags">
+                        <van-tag plain type="danger">满20减5</van-tag>
+                        <van-tag plain type="danger">满30减8</van-tag>
+                        <van-tag plain type="danger">满40减15</van-tag>
+                        <van-tag plain type="danger">满50减20</van-tag>
+                        <van-tag mark type="primary">高分商家</van-tag>
+                        <van-tag mark type="success">蜂鸟专送</van-tag>
+                        <van-tag mark>极速退款</van-tag>
+                    </view>
+                </van-card>
+            </navigator>
         </van-col>
         <van-col span="24" custom-class="">
-            <navigator wx:if="{{hasAuthorize && !hasMobile}}" url="{{merchantDetailUrl}}">
+            <navigator url="{{merchantDetailUrl}}?merchantId=123&merchantName=绿茶餐厅(杭州拱墅区城西银泰店)">
                 <van-card title="绿茶餐厅(杭州拱墅区城西银泰店)" desc="起送￥20 | 配送￥6 | 35分钟" num="" price="1.3km" thumb="{{ imageUrl }}">
                     <view slot="tags">
                         <van-tag plain type="danger">满20减5</van-tag>
