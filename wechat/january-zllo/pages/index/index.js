@@ -7,6 +7,7 @@ Page({
 		motto: 'Hello World',
 		userInfo: {},
 		hasUserInfo: false,
+        merchantDetailUrl: "",
 		canIUse: wx.canIUse('button.open-type.getUserInfo'),
         imageUrl: '/images/logo.jpg',
 		imageUrl0: '/images/logo0.jpg',

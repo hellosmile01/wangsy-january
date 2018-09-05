@@ -16,10 +16,7 @@ App({
                 var longitude = res.longitude
                 var speed = res.speed
                 var accuracy = res.accuracy
-				wx.showModal({
-					title: "location",
-					content: accuracy
-				});
+				
             },
             fail: function(error) {
                 wx.showModal({

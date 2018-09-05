@@ -10,9 +10,13 @@
 }
 
 .type_logo {
-	width: 24px;
-	height: 24px;
+	width: 45px;
+	height: 45px;
 }
+
+.van-card {
+    height: 100% !important;
+} 
 
 .index-shop-title {
 	width: 100%;
@@ -30,8 +34,7 @@
 	font-weight: 700;
 }
 
-.dark,
-.light {
+.dark, .light {
   /* color: #fff; */
   font-size: 13px;
   /* line-height: 60px; */
@@ -40,13 +43,6 @@
   /* background-clip: content-box; */
 }
 
-.dark {
-  /* background-color: #39a9ed; */
-}
-
-.light {
-  /* background-color: #66c6f2; */
-}
 
 .van-col--24 {
 	text-align:left;
