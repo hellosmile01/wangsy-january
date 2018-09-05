@@ -8,7 +8,7 @@
         "pages/personal/bindMobile/bindMobile"
     ],
     "window":{
-        "backgroundTextStyle": "light",
+        "backgroundTextStyle": "dark",
         "navigationBarBackgroundColor": "#000",
         "navigationBarTitleText": "DEMO小程序",
         "navigationBarTextStyle": "white"

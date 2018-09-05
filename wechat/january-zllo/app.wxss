@@ -1,6 +1,10 @@
 /**app.wxss**/
 @import "/dist/common/index.wxss";
 
+page{
+    background-color: #E6E6E6;
+}
+
 .container {
     height: 100%;
     display: flex;
