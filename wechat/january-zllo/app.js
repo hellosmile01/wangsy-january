@@ -1,4 +1,4 @@
-//app.js
+//app.js   https://zhuanlan.zhihu.com/p/24776703
 App({
     onLaunch: function () {
         // 展示本地存储能力
