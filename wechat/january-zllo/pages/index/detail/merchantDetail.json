@@ -3,7 +3,6 @@
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true,
 
     "usingComponents": {
         "van-button": "/dist/button/index",
@@ -15,6 +14,8 @@
         "van-tag": "/dist/tag/index",
         "van-icon": "/dist/icon/index",
         "van-cell": "/dist/cell/index",
-        "van-cell-group": "/dist/cell-group/index"
+        "van-cell-group": "/dist/cell-group/index",
+		"van-badge": "/dist/badge/index",
+		"van-badge-group": "/dist/badge-group/index"
     }
 }

@@ -1,9 +1,9 @@
 {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
+	"backgroundTextStyle": "dark",
 
 	"usingComponents": {
 		"van-button": "/dist/button/index",

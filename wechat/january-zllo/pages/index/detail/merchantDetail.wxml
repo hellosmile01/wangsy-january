@@ -2,13 +2,38 @@
 <view>
     <!-- 顶部商户信息 -->
     <van-row gutter="2" class="index-top">
-        <van-col span="24" custom-class="fjsj">
-			<van-card title="标题" desc="描述" num="2" price="2.00" thumb="{{ imageURL }}">
-                <view slot="footer">
-                    <van-button size="mini">按钮</van-button>
-                    <van-button size="mini">按钮</van-button>
-                </view>
-            </van-card>
-		</van-col>
+        <van-col span="24" custom-class="">
+            <navigator url="{{merchantDetailUrl}}?merchantId=123&merchantName=绿茶餐厅(杭州拱墅区城西银泰店)">
+                <van-card desc="起送￥20 | 配送￥6 | 35分钟 | 1.2km" thumb="{{ imageUrl }}">
+                    <view slot="tags">
+                        <van-tag plain type="danger">满20减5</van-tag>
+                        <van-tag plain type="danger">满30减8</van-tag>
+                        <van-tag plain type="danger">满40减15</van-tag>
+                        <van-tag plain type="danger">满50减20</van-tag>
+                    </view>
+					<view slot="tags">
+                        <van-tag mark type="primary">高分商家</van-tag>
+                        <van-tag mark type="success">蜂鸟专送</van-tag>
+                        <van-tag mark>极速退款</van-tag>
+                    </view>
+                </van-card>
+            </navigator>
+        </van-col>
     </van-row>
+
+	<van-row gutter="2" class="index-top">
+		<scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+			<van-badge-group :active="active" bind:change="onChange">
+			<van-badge title="热销" />
+			<van-badge title="折扣" info="8" />
+			<van-badge title="招牌菜" info="99" />
+			<van-badge title="江浙菜" info="199" />
+			<van-badge title="川菜" info="199" />
+			<van-badge title="湘菜" info="199" />
+			<van-badge title="饮品" info="199" />
+			<van-badge title="干粮" info="199" />
+			<van-badge title="赠送" info="199" />
+		</van-badge-group>
+		</scroll-view>
+	</van-row>
 </view>
