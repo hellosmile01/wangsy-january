@@ -1,39 +1,74 @@
 <!--pages/index/detail/merchantDetail.wxml-->
 <view>
     <!-- 顶部商户信息 -->
-    <van-row gutter="2" class="index-top">
-        <van-col span="24" custom-class="">
-            <navigator url="{{merchantDetailUrl}}?merchantId=123&merchantName=绿茶餐厅(杭州拱墅区城西银泰店)">
-                <van-card desc="起送￥20 | 配送￥6 | 35分钟 | 1.2km" thumb="{{ imageUrl }}">
-                    <view slot="tags">
-                        <van-tag plain type="danger">满20减5</van-tag>
-                        <van-tag plain type="danger">满30减8</van-tag>
-                        <van-tag plain type="danger">满40减15</van-tag>
-                        <van-tag plain type="danger">满50减20</van-tag>
-                    </view>
-					<view slot="tags">
-                        <van-tag mark type="primary">高分商家</van-tag>
-                        <van-tag mark type="success">蜂鸟专送</van-tag>
-                        <van-tag mark>极速退款</van-tag>
-                    </view>
-                </van-card>
-            </navigator>
-        </van-col>
-    </van-row>
-
-	<van-row gutter="2" class="index-top">
-		<scroll-view class="scroll-view_H" scroll-x style="width: 100%">
-			<van-badge-group :active="active" bind:change="onChange">
-			<van-badge title="热销" />
-			<van-badge title="折扣" info="8" />
-			<van-badge title="招牌菜" info="99" />
-			<van-badge title="江浙菜" info="199" />
-			<van-badge title="川菜" info="199" />
-			<van-badge title="湘菜" info="199" />
-			<van-badge title="饮品" info="199" />
-			<van-badge title="干粮" info="199" />
-			<van-badge title="赠送" info="199" />
-		</van-badge-group>
-		</scroll-view>
-	</van-row>
+	<view class="page__hd" style="position:fixed; top:0;width: 750rpx;z-index:100;">
+		<van-row gutter="2" class="index-top">
+			<van-col span="24" custom-class="">
+				<navigator url="{{merchantDetailUrl}}?merchantId=123&merchantName=绿茶餐厅(杭州拱墅区城西银泰店)">
+					<van-card desc="起送￥20 | 配送￥6 | 35分钟 | 1.2km" thumb="{{ imageUrl }}">
+						<view slot="tags">
+							<van-tag plain type="danger">满20减5</van-tag>
+							<van-tag plain type="danger">满30减8</van-tag>
+							<van-tag plain type="danger">满40减15</van-tag>
+							<van-tag plain type="danger">满50减20</van-tag>
+						</view>
+						<view slot="tags">
+							<van-tag mark type="primary">高分商家</van-tag>
+							<van-tag mark type="success">蜂鸟专送</van-tag>
+							<van-tag mark>极速退款</van-tag>
+						</view>
+					</van-card>
+				</navigator>
+			</van-col>
+		</van-row>
+		<van-row gutter="2" class="index-top">
+			<!-- <van-tabbar active="{{ active }}" bind:change="onChange" fixed="{{false}}">
+				<van-tabbar-item>菜单</van-tabbar-item>
+				<van-tabbar-item>评价</van-tabbar-item>
+				<van-tabbar-item>商家</van-tabbar-item>
+			</van-tabbar> -->
+			<view class="swiper-tab">
+				<view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">菜单</view>
+				<view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">评价</view>
+				<view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">商家</view>
+			</view>
+			<swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab">
+				<swiper-item >
+					<scroll-view class="scroll-view_H" scroll-x style="width: 100%;">
+						<van-row gutter="2" >
+							<van-badge-group :active="active" bind:change="onChange">
+								<van-badge title="热销" />
+								<van-badge title="折扣" info="8" />
+								<van-badge title="招牌菜" info="99" />
+								<van-badge title="江浙菜" info="199" />
+								<van-badge title="川菜" info="199" />
+								<van-badge title="湘菜" info="199" />
+								<van-badge title="饮品" info="199" />
+								<van-badge title="狗粮" info="199" />
+								<van-badge title="赠送" info="199" />
+							</van-badge-group>
+						</van-row>
+					</scroll-view>
+				</swiper-item>
+				<swiper-item><view>评价</view></swiper-item>
+				<swiper-item><view>商家</view></swiper-item>
+			</swiper>
+		</van-row>
+	</view>
+	
+	<!-- <scroll-view class="scroll-view_H" scroll-x style="width: 100%;padding-top:100px;">
+		<van-row gutter="2" >
+				<van-badge-group :active="active" bind:change="onChange">
+				<van-badge title="热销" />
+				<van-badge title="折扣" info="8" />
+				<van-badge title="招牌菜" info="99" />
+				<van-badge title="江浙菜" info="199" />
+				<van-badge title="川菜" info="199" />
+				<van-badge title="湘菜" info="199" />
+				<van-badge title="饮品" info="199" />
+				<van-badge title="狗粮" info="199" />
+				<van-badge title="赠送" info="199" />
+			</van-badge-group>
+		</van-row>
+	</scroll-view> -->
 </view>

@@ -11,7 +11,6 @@ App({
         wx.getLocation({
             type: 'wgs84',
             success: function (res) {
-                debugger;
                 var latitude = res.latitude
                 var longitude = res.longitude
                 var speed = res.speed
@@ -129,7 +128,6 @@ App({
 				 * member表中存在该用户
 				 */
                 if (data.statusCode === 200 && data.data.code == 200 && data.data.data.length === 1) {
-                    debugger;
                     that.globalData.memberInfo = data.data.data[0];
                 } else {
                     // 不存在该用户

@@ -5,7 +5,10 @@
         "pages/logs/logs",
         "pages/order/order",
         "pages/personal/mine",
-        "pages/personal/bindMobile/bindMobile"
+        "pages/personal/bindMobile/bindMobile",
+		"pages/menu/menu",
+		"pages/evaluation/evaluation",
+		"pages/merchant/merchant"
     ],
     "window":{
         "backgroundTextStyle": "light",

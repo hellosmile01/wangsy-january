@@ -24,7 +24,6 @@ Page({
         // 会员信息（判断是否已绑定手机）
         var memberInfo = app.globalData.memberInfo;
         
-        debugger;
         // 微信用户数据（判断是否已授权）
         var userInfo = app.globalData.userInfo;
 

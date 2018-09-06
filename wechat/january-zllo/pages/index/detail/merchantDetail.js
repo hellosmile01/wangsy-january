@@ -5,7 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-		imageUrl: '/images/logo0.jpg'
+		imageUrl: '/images/logo0.jpg',
+		currentTab: "0"
     },
 
     /**
@@ -25,12 +26,47 @@ Page({
             }
         });
     },
-
+	onChange: function(event) {
+		console.log(event);
+		if(event.detail===0) {
+			wx.switchTab({
+				url: '../../menu/menu'
+			})
+		} 
+		else if(event.detail===1) {
+			wx.switchTab({
+				url: '../../evaluation/evaluation'
+			})
+		}
+		else if(event.detail===2) {
+			wx.switchTab({
+				url: '../../merchant/merchant'
+			})
+		}
+	},
+	//滑动切换
+	swiperTab: function (e) {
+		var that = this;
+		that.setData({
+			currentTab: e.detail.current
+		});
+	},
+	//点击切换
+	clickTab: function (e) {
+		var that = this;
+		if (this.data.currentTab === e.target.dataset.current) {
+			return false;
+		} else {
+			that.setData({
+				currentTab: e.target.dataset.current
+			})
+		}
+	},
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+		
     },
 
     /**
