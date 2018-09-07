@@ -21,7 +21,7 @@
 				</navigator>
 			</van-col>
 		</van-row>
-		<van-row gutter="2" class="index-top">
+		<van-row>
 			<van-tabs active="{{ active }}" bind:change="onChange">
 				<van-tab title="菜单">
 					<scroll-view class='body-v' scroll-y>
