@@ -1,4 +1,4 @@
-import { isObj } from '../utils/index';
+import { isObj } from '../common/utils';
 
 const defaultOptions = {
   type: 'text',
@@ -11,10 +11,13 @@ const defaultOptions = {
   loadingType: 'circular',
   selector: '#van-toast'
 };
-const parseOptions = message => isObj(message) ? message : { message };
 
 let queue = [];
 let currentOptions = { ...defaultOptions };
+
+function parseOptions(message) {
+  return isObj(message) ? message : { message };
+}
 
 function Toast(options = {}) {
   options = {
