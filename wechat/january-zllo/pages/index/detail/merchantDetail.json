@@ -16,6 +16,9 @@
         "van-cell": "/dist/cell/index",
         "van-cell-group": "/dist/cell-group/index",
 		"van-badge": "/dist/badge/index",
-		"van-badge-group": "/dist/badge-group/index"
+		"van-badge-group": "/dist/badge-group/index",
+		"van-tab": "/dist/tab/index",
+		"van-tabs": "/dist/tabs/index",
+		"van-panel": "/dist/panel/index"
     }
 }
