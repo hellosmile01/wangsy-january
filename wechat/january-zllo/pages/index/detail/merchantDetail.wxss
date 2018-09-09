@@ -1,8 +1,8 @@
 /* pages/index/detail/merchantDetail.wxss */
-
+/* 
 .index-top {
 	margin-top: 20px;
-}
+} */
 
 van-card__title {
     max-height:14px !important;
@@ -13,7 +13,7 @@ van-card__title {
     -webkit-line-clamp:2;
     -webkit-box-orient:vertical;
 }
-
+/* 
 .van-badge {
 	padding:15px 12px 15px 9px !important;
 	border-left:5px solid transparent;
@@ -33,12 +33,12 @@ van-card__title {
   color:#fff;
   background-color: cornflowerblue;
   text-align: center;
-}
-
+} */
+/* 
 .body-v{
   position: fixed;
   z-index: -1;
-  top:27.5%;
+  top: 44px;
   bottom: 7%;
 }
  
@@ -60,4 +60,81 @@ van-card__title {
 
 .van-col--24 {
 	text-align:left;
+} */
+
+.head{
+  z-index: 1;
+  position: fixed;
+  top: 0rpx;
+  width:100%;
+  /* height:70rpx; */
+  color:#fff;
+  text-align: center;
+}
+
+.footer{
+  z-index: 1;
+  position: fixed;
+  bottom: 0rpx;
+  width:100%;
+}
+
+/* *************************** */
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.menuPage {
+  display: flex;
+  font-size: 14px;
+}
+
+.index-top {
+  height: 200px;
+}
+
+.index-left {
+  flex: 1;
+  background: #f5f7f9;
+}
+
+.index-right {
+  flex: 3;
+}
+
+.index-left-text {
+  padding: 0 10rpx;
+  height: 50px;
+  line-height: 50px;
+}
+
+.index-right-text {
+  box-sizing: border-box;
+  padding: 40rpx 10rpx;
+  height: 60px;
+}
+
+.index-right-text-top {
+  height: 40rpx;
+  background: #f5f7f9;
+}
+/* 
+.mark {
+  position: absolute;
+  top: 200px;
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+} */
+
+.index-right-text-top {
+  height: 20px;
+}
+
+.swiper swiper-item {
+	top:44px;
+	bottom: 44px;
 }

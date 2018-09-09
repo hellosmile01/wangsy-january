@@ -1,48 +1,36 @@
+<import src = "../../common/menuPage.wxml"/>
 <!--pages/index/detail/merchantDetail.wxml-->
-<view class="merchant_detail_container">
-    <!-- 顶部商户信息 -->
-	<view class='head'>
-		<van-row gutter="2" class="index-top">
-			<van-col span="24" custom-class="">
-				<navigator url="{{merchantDetailUrl}}?merchantId=123&merchantName=绿茶餐厅(杭州拱墅区城西银泰店)">
-					<van-card desc="起送￥20 | 配送￥6 | 35分钟 | 1.2km" thumb="{{ imageUrl }}">
-						<view slot="tags">
-							<van-tag plain type="danger">满20减5</van-tag>
-							<van-tag plain type="danger">满30减8</van-tag>
-							<van-tag plain type="danger">满40减15</van-tag>
-							<van-tag plain type="danger">满50减20</van-tag>
-						</view>
-						<view slot="tags">
-							<van-tag mark type="primary">高分商家</van-tag>
-							<van-tag mark type="success">蜂鸟专送</van-tag>
-							<van-tag mark>极速退款</van-tag>
-						</view>
-					</van-card>
-				</navigator>
-			</van-col>
-		</van-row>
-		<van-row>
-			<van-tabs active="{{ active }}" bind:change="onChange">
-				<van-tab title="菜单">
-					<scroll-view class='body-v' scroll-y>
-						<van-badge-group :active="active" bind:change="onChange">
-							<van-badge title="热销" />
-							<van-badge title="折扣" info="8" />
-							<van-badge title="招牌菜" info="99" />
-							<van-badge title="江浙菜" info="199" />
-							<van-badge title="川菜" info="199" />
-							<van-badge title="湘菜" info="199" />
-							<van-badge title="饮品" info="199" />
-							<van-badge title="狗粮" info="199" />
-							<van-badge title="赠送" info="199" />
-						</van-badge-group>
-					</scroll-view>
-				</van-tab>
-				<van-tab title="评价">评价</van-tab>
-				<van-tab title="商家">商家</van-tab>
+<!-- <view class="merchant_detail_container">
+    
+</view> -->
+<!-- 顶部商户信息 -->
+	<van-row>
+		<van-col span="24">
+			<van-tabs active="{{ tab_active }}" bind:change="onChange" class="head">
+				<van-tab title="菜单"></van-tab>
+				<van-tab title="评价"></van-tab>
+				<van-tab title="商家"></van-tab>
 			</van-tabs>
-		</van-row>
-	</view>
+		</van-col>
+	</van-row>
+	<van-row>
+		<van-col span="24">
+			<swiper class="swiper" style='height:{{leftHeight}}px' current="{{ tab_active }}">
+				<!-- 菜单页面 -->
+				<swiper-item id="menuPage">
+					<template is="menuPage" data="{{leftToTop, currentLeftSelect, toView, constants}}"/>
+				</swiper-item>
+				<!-- 评价页面 -->
+				<swiper-item id="commonPage">2
+					<!-- <template is="commonPage" data="{{menu,selected,howMuch,cost,pullBar}}"/> -->
+				</swiper-item>
+				<!-- 商户页面 -->
+				<swiper-item id="merchantPage">3
+					<!-- <template is="merchantPage" data="{{menu,selected,howMuch,cost,pullBar}}"/> -->
+				</swiper-item>
+			</swiper>
+		</van-col>
+	</van-row>
 	<view class="footer">
 		<van-cell-group>
 			<van-cell value="20元起送" icon="shop">
@@ -54,4 +42,3 @@
 			</van-cell>
 		</van-cell-group>
 	</view>
-</view>
