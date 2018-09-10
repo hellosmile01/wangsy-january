@@ -18,7 +18,7 @@
 			<swiper class="swiper" style='height:{{leftHeight}}px' current="{{ tab_active }}">
 				<!-- 菜单页面 -->
 				<swiper-item id="menuPage">
-					<template is="menuPage" data="{{leftToTop, currentLeftSelect, toView, constants}}"/>
+					<template is="menuPage" data="{{leftToTop, currentLeftSelect, toView, constants, imageUrl}}"/>
 				</swiper-item>
 				<!-- 评价页面 -->
 				<swiper-item id="commonPage">2

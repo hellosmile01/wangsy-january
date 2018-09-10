@@ -113,13 +113,14 @@ van-card__title {
 
 .index-right-text {
   box-sizing: border-box;
-  padding: 40rpx 10rpx;
-  height: 60px;
+  padding: 10rpx 10rpx;
+  /* height: 60px; */
 }
 
 .index-right-text-top {
   height: 40rpx;
-  background: #f5f7f9;
+  padding-left: 15rpx;
+  /* background: #f5f7f9; */
 }
 /* 
 .mark {
@@ -130,11 +131,22 @@ van-card__title {
   z-index: 10;
 } */
 
-.index-right-text-top {
-  height: 20px;
-}
-
 .swiper swiper-item {
 	top:44px;
 	bottom: 44px;
+}
+
+.index-right-text .van-card {
+	padding:5px 5px 5px 80px;
+}
+
+.index-right-text .van-card__thumb {
+	width:70px;
+	height:70px;
+	top:5px;
+	left:5px;
+}
+
+.index-right-text .van-card__footer {
+	right: 0rpx;
 }

@@ -1,23 +1,27 @@
 <template name="menuPage">
 <view class="menuPage">
     <view class="index-left" style='height:{{leftHeight}}px'>
-      <scroll-view scroll-with-animation="true" scroll-y style="height:100vh;" scroll-top="{{leftToTop}}">
-        <view wx:for="{{constants}}" wx:key="id" bindtap="jumpTo" data-id="{{item.id}}" 
-				style="background: {{item.id === currentLeftSelect ? 'red' : ''}}" class="index-left-text">
-          <view id="{{item.id}}">{{item.name}}</view>
-        </view>
-      </scroll-view>
+		<scroll-view scroll-with-animation="true" scroll-y style="height:100vh;" scroll-top="{{leftToTop}}">
+			<view wx:for="{{constants}}" wx:key="id" bindtap="jumpTo" data-id="{{item.id}}" 
+					style="background: {{item.id === currentLeftSelect ? '#969799' : ''}}" class="index-left-text">
+				<view id="{{item.id}}">{{item.name}}</view>
+			</view>
+		</scroll-view>
     </view>
     <view class="index-right">
-      <scroll-view scroll-with-animation="true" scroll-y 
-	  			style="height: 100vh;" bindscroll="rightScroll" scroll-into-view="{{toView}}" bindscrolltolower="lower">
-        <view wx:for="{{constants}}" wx:key="id" id="{{item.id}}">
-          <view class="index-right-text-top">{{item.name}}</view>
-          <view class="index-right-text" wx:for="{{item.category}}" wx:key="category_id">
-            {{item.category_name}}
-          </view>
-        </view>
-      </scroll-view>
+		<scroll-view scroll-with-animation="true" scroll-y 
+					style="height: 100vh;" bindscroll="rightScroll" scroll-into-view="{{toView}}" bindscrolltolower="lower">
+				<view wx:for="{{constants}}" wx:key="id" id="{{item.id}}">
+					<view class="index-right-text-top">{{item.name}}</view>
+					<view class="index-right-text" wx:for="{{item.category}}" wx:key="category_id">
+						<van-card title="{{item.category_name}}" desc="月销9999" price="2.00" thumb="{{ imageUrl }}">
+							<view slot="footer">
+								<van-stepper min="{{0}}" value="{{ 0 }}" bind:change="onChangeFoodNum" />
+							</view>
+						</van-card>
+					</view>
+				</view>
+		</scroll-view>
     </view>
 </view>
 </template>

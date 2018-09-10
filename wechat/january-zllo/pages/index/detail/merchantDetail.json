@@ -19,6 +19,7 @@
 		"van-badge-group": "/dist/badge-group/index",
 		"van-tab": "/dist/tab/index",
 		"van-tabs": "/dist/tabs/index",
-		"van-panel": "/dist/panel/index"
+		"van-panel": "/dist/panel/index",
+		"van-stepper": "/dist/stepper/index"
     }
 }

@@ -115,7 +115,7 @@ Page({
 		currentLeftSelect: null,      // 当前左侧选择的
 		eachRightItemToTop: [],       // 右侧每类数据到顶部的距离（用来与 右 => 左 联动时监听右侧滚动到顶部的距离比较）
 		leftToTop: 0,
-		leftHeight:0
+		leftHeight:0,
     },
 
     /**
@@ -127,8 +127,9 @@ Page({
 
 		let lh = windowHeight;
 
-debugger;
-		if ((constants.length - 1) * LEFT_ITEM_HEIGHT>lh) {
+		debugger;
+
+		if (((constants.length - 1) * LEFT_ITEM_HEIGHT) > lh) {
 			lh = (constants.length - 1) * LEFT_ITEM_HEIGHT;
 		}
 
@@ -136,7 +137,7 @@ debugger;
 			constants: constants,
 			currentLeftSelect: constants[0].id,
 			eachRightItemToTop: this.getEachRightItemToTop(),
-			leftHeight: lh
+			leftHeight: lh+90
 		})
 
         wx.setNavigationBarTitle({
@@ -159,7 +160,9 @@ debugger;
 			title: `Tab切换至第${event.detail.index}项`
 		});
 	},
-
+	onChangeFoodNum: function(e) {
+		console.log(e);
+	},
 	onBadgeChange: function (event) {
 		console.log(event);
 		wx.showToast({
@@ -216,11 +219,14 @@ debugger;
     onShareAppMessage: function () {
 
     },
-	getEachRightItemToTop: function () {  // 获取每个右侧的 bar 到顶部的距离，用来做后面的计算。
+	 // 获取每个右侧的 bar 到顶部的距离，用来做后面的计算。
+	getEachRightItemToTop: function () { 
 		var obj = {};
 		var totop = 0;
-		obj[constants[0].id] = totop      // 右侧第一类肯定是到顶部的距离为 0
-		for (let i = 1; i < (constants.length + 1); i++) {  // 循环来计算每个子类到顶部的高度
+		// 右侧第一类肯定是到顶部的距离为 0
+		obj[constants[0].id] = totop
+		// 循环来计算每个子类到顶部的高度
+		for (let i = 1; i < (constants.length + 1); i++) {  
 			totop += (RIGHT_BAR_HEIGHT + constants[i - 1].category.length * RIGHT_ITEM_HEIGHT)
 			// 这个的目的是 例如有两类，最后需要 0-1 1-2 2-3 的数据，所以需要一个不存在的 'last' 项，此项即为第一类加上第二类的高度。
 			obj[constants[i] ? constants[i].id : 'last'] = totop    
