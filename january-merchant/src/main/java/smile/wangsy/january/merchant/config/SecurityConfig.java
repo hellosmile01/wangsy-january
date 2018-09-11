@@ -18,6 +18,7 @@ import smile.wangsy.january.merchant.service.impl.MyUserDetailsService;
  */
 @Configuration
 @EnableWebSecurity
+@EnableOAuth2Sso
 @SuppressWarnings("all")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
