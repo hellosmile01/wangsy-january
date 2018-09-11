@@ -1,4 +1,4 @@
-package smile.wangsy.january.merchant.config;
+package smile.wangsy.january.auth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -7,10 +7,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import smile.wangsy.january.merchant.authentication.TheAuthenticationFailureHandler;
-import smile.wangsy.january.merchant.authentication.TheAuthenticationSuccessHandler;
-import smile.wangsy.january.merchant.service.impl.MyUserDetailsService;
 
 /**
  * @author wangsy
@@ -21,19 +19,6 @@ import smile.wangsy.january.merchant.service.impl.MyUserDetailsService;
 @SuppressWarnings("all")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private MyUserDetailsService myUserDetailsService;
-
-    @Autowired
-    private TheAuthenticationSuccessHandler theAuthenticationSuccessHandler;
-
-    @Autowired
-    private TheAuthenticationFailureHandler theAuthenticationFailureHandler;
-
-    @Bean
-    public static NoOpPasswordEncoder passwordEncoder() {
-        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
-    }
 
     private static final String[] AUTH_WHITELIST = {
             "/login",
@@ -45,7 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/swagger-ui.html",
             "/v2/api-docs",
             "/webjars/**",
-            "/v1/merchant"
+            "/v1/merchant",
+            "/oauth/authorize"
     };
 
     @Override
@@ -54,8 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()                                            // 当需要用户登录是使用表单提交
                 .loginPage("/login")                                // 跳转到登录页面
                 .loginProcessingUrl("/authentication/form")         // 自定义的登录接口
-                .successHandler(theAuthenticationSuccessHandler)
-                .failureHandler(theAuthenticationFailureHandler)
+//                .successHandler(theAuthenticationSuccessHandler)
+//                .failureHandler(theAuthenticationFailureHandler)
                 .and()
                 .authorizeRequests()
                 .antMatchers(AUTH_WHITELIST).permitAll()
@@ -67,7 +53,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(this.myUserDetailsService);
+        auth.inMemoryAuthentication()
+                .withUser("wangsy")
+                .password(passwordEncoder().encode("123"))
+                .roles("USER");
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 
 }

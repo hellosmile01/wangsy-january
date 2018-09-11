@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * https://www.jianshu.com/p/d94bb118aa43
  * https://github.com/eugenp/tutorials/tree/master/spring-security-sso
+ * https://blog.csdn.net/huhanguang89/article/details/62045095
  */
 @SpringBootApplication
 public class JanuaryAuthApplication {
