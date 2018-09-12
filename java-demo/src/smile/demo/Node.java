@@ -1,7 +1,7 @@
 package smile.demo;
 
 /**
- * @author Juzi
+ * @author wangsy
  * @Date 2018/9/8.
  */
 public class Node {

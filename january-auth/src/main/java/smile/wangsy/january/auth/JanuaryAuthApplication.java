@@ -3,6 +3,7 @@ package smile.wangsy.january.auth;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
  * https://www.jianshu.com/p/d94bb118aa43
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth
  * https://www.cnblogs.com/cjsblog/p/9296361.html
  */
 @SpringBootApplication
+@EnableResourceServer
 public class JanuaryAuthApplication {
 
 	public static void main(String[] args) {

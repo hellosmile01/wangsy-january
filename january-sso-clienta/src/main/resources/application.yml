@@ -1,0 +1,15 @@
+server:
+  port: 18090
+  servlet:
+    session:
+      cookie:
+        name: UISESSION
+security:
+  oauth2:
+    client:
+      client-id: SampleClientId
+      client-secret: secret
+      access-token-uri: http://localhost:18089/auth/oauth/token
+      user-authorization-uri: http://localhost:18089/auth/oauth/authorize
+    resource:
+      user-info-uri: http://localhost:18089/auth/user/me

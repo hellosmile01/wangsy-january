@@ -1,32 +1,21 @@
-package smile.wangsy.january.auth.config;
+package smile.wang.sso.server.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * @author wangsy
- * @Date 2018/8/29.
+ * @author Juzi
+ * @Date 2018/9/12.
  */
-
 @Configuration
-//@EnableWebSecurity
 @Order(1)
-@SuppressWarnings("all")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Autowired
-    private MyUserDetailsService myUserDetailsService;
 
     private static final String[] AUTH_WHITELIST = {
             "/login",
@@ -38,48 +27,49 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/swagger-ui.html",
             "/v2/api-docs",
             "/webjars/**",
-            "/v1/merchant",
-            "/oauth/authorize"
+            "/v1/merchant"
     };
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception { // @formatter:off
+//        http.requestMatchers()
+//                .antMatchers("/login", "/oauth/authorize")
+//                .and()
+//                .authorizeRequests()
+//                .anyRequest()
+//                .authenticated()
+//                .and()
+//                .formLogin()
+//                .permitAll();
 
-        http.authorizeRequests()
-                .antMatchers("/oauth/**", "/login/**", "/logout").permitAll() // 无需授权的路径
-                .anyRequest().authenticated()       // 其他的访问都需要授权
+        http.formLogin()                                            // 当需要用户登录是使用表单提交
+                .loginPage("/login")                                // 跳转到登录页面
+                .loginProcessingUrl("/authentication/form")         // 自定义的登录接口
                 .and()
-                .formLogin()
-                .loginPage("/login")
+                .authorizeRequests()
+                .antMatchers(AUTH_WHITELIST).permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
-                .logout()
-                .logoutSuccessUrl("/");
-    }
+                .csrf().disable();
+    } // @formatter:on
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/assets/**");
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception { // @formatter:off
         auth.inMemoryAuthentication()
                 .withUser("john")
                 .password(passwordEncoder().encode("123"))
                 .roles("USER");
-
-//        auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
-    }
+    } // @formatter:on
 
     @Bean
     @Override
     public AuthenticationManager authenticationManager() throws Exception {
-        return super.authenticationManager();
+        return super.authenticationManagerBean();
     }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
 }
