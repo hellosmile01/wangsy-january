@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <meta charset="UTF-8">
+    <title>类别管理</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div th:replace="common/header::navbar"></div>
+    <div class="row body">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-8 col-md-8">
+            <div id="toolbar">
+                <button id="new_category" class="btn btn-primary" type="button" data-toggle="modal" data-target=".bs-example-modal-lg">
+                    <i class="glyphicon glyphicon-plus"></i> 新增
+                </button>
+                <button id="update_category" class="btn btn-success" disabled>
+                    <i class="glyphicon glyphicon-circle-arrow-up"></i> 修改
+                </button>
+                <button id="remove_category" class="btn btn-danger" disabled>
+                    <i class="glyphicon glyphicon-remove"></i> 删除
+                </button>
+            </div>
+            <table id="category_list"></table>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+    </div>
+    <div th:replace="common/footer::footer"></div>
+</div>
+
+<div id="add_category_modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="添加商品" aria-hidden="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form class="form-horizontal" id="add_category" role="form" method="post" th:action="@{/v1/product/category}" style="padding: 0px 50px 0 10px;">
+                <div class="modal-header">
+                    <h3 class="form-signin-heading" style="padding-left:200px;">添加类别</h3>
+                </div>
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">类别名称</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="category_name" name="name" type="text"  placeholder="商品名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">描述</label>
+                            <div class="col-sm-10">
+                                <textarea id="category_description" name="description"  class="form-control" rows="3"  placeholder="描述"></textarea>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                    <button type="reset" class="btn btn-warning">清空</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<script th:src="@{/js/common.js}"></script>
+<script th:src="@{/js/product/category_list.js}"></script>
+
+</body>
+</html>
