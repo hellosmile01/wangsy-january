@@ -1,0 +1,5 @@
+server:
+  port: 19999
+  servlet:
+    # 请求本应用时，需要在端口后面接上`/sso-auth`
+    context-path: /sso-auth
