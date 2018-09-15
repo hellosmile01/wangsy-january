@@ -33,7 +33,7 @@ public class SsoAuthConfig extends AuthorizationServerConfigurerAdapter {
                 // 授权方式只有下面两种
                 .authorizedGrantTypes("authorization_code", "refresh_token")
                 .scopes("all")
-                .redirectUris("http://127.0.0.1:19997/client2/index.html", "http://127.0.0.1:19997/client2/login")
+                .redirectUris("http://127.0.0.1:19992/login")
                 .autoApprove(true)
 
 

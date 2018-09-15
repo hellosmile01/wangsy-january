@@ -28,12 +28,10 @@ public class SsoSecurityConfig extends WebSecurityConfigurerAdapter {
             "/**/*.css",
             "/**/*.js",
             "/authentication/form",
-            // -- swagger ui
             "/swagger-resources/**",
             "/swagger-ui.html",
             "/v2/api-docs",
-            "/webjars/**",
-            "/v1/merchant"
+            "/webjars/**"
     };
 
     @Override
