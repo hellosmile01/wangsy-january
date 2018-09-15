@@ -37,6 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] AUTH_WHITELIST = {
             "/login",
+            "/register",
+            "/img/**",
             "/**/*.css",
             "/**/*.js",
             "/authentication/form",

@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import smile.wangsy.january.merchant.valid.MerchantValid;
+import wang.smile.common.base.BaseResult;
 
 import javax.jws.WebParam;
 
@@ -22,6 +23,13 @@ public class WebMerchantController {
     @RequestMapping("/login")
     public ModelAndView login() {
         return new ModelAndView("login.html");
+    }
+
+    @RequestMapping("/register")
+    public ModelAndView register() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("register.html");
+        return mv;
     }
 
     /**
