@@ -27,15 +27,6 @@ public class SsoAuthConfig extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                // *************************************************`商户应用(卖家)`****************************************************
-                .withClient("merchant_client")
-                .secret(passwordEncoder.encode("merchant_client_secret"))
-                // 授权方式只有下面两种
-                .authorizedGrantTypes("authorization_code", "refresh_token")
-                .scopes("all")
-                .redirectUris("http://127.0.0.1:19998/client1/index.html", "http://127.0.0.1:19998/client1/login")
-                .autoApprove(true)
-                .and()
                 // *************************************************`会员用户(买家)`****************************************************
                 .withClient("member_client")
                 .secret(passwordEncoder.encode("member_client_secret"))

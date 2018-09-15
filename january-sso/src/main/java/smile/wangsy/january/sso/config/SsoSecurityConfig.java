@@ -22,6 +22,9 @@ public class SsoSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] AUTH_WHITELIST = {
             "/login",
+            "/user/login",
+            "/user/register",
+            "/img/**",
             "/**/*.css",
             "/**/*.js",
             "/authentication/form",
