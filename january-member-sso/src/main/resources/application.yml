@@ -19,3 +19,6 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: smile.wangsy.january.sso.model
+
+smile:
+  security:

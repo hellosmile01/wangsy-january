@@ -35,9 +35,8 @@ public class SsoAuthConfig extends AuthorizationServerConfigurerAdapter {
                 .scopes("all")
                 .redirectUris("http://127.0.0.1:19992/login")
                 .autoApprove(true)
-
-
         ;
+
 
     }
 
