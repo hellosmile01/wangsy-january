@@ -43,10 +43,12 @@ App({
                             // 所以此处加入 callback 以防止这种情况
                             if (this.userInfoReadyCallback) {
                                 this.userInfoReadyCallback(res)
+								that.wxLogin();
                             }
+
                         }
                     });
-                    that.wxLogin();
+                    
                 } 
                 // 如果为授权，每次进入小程序都要询问是否授权
                 else {
@@ -102,6 +104,10 @@ App({
                         }
                     },
                     fail: function (error) {
+						wx.showModal({
+							title: "登录fail",
+							content: error
+						});
                         console.log("location_error : " + error);
                     }
                 })
