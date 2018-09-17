@@ -90,7 +90,8 @@
         <module>january-member</module>
         <module>january-order</module>
         <module>january-wechat</module>
-        <module>january-sso</module>
+        <module>january-member-sso</module>
+
     </modules>
 
 </project>
