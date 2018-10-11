@@ -6,7 +6,7 @@
 
 - `spring-cloud`
 - `spring-security-oauth2`
-- `MyBatis代码生成工具`：![GitHub](https://github.com/smilewangsy/wang-smile-common)
+- `MyBatis代码生成工具`：[GitHub](https://github.com/smilewangsy/wang-smile-common)
 
 移动端：
 
