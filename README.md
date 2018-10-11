@@ -1,6 +1,28 @@
 # Introduction
 
-> 外卖（Java后台+小程序）
+> 一步步搭建外卖平台
+
+后台：
+
+- `spring-cloud`
+- `spring-security-oauth2`
+- `MyBatis代码生成工具`：![GitHub](https://github.com/smilewangsy/wang-smile-common)
+
+移动端：
+
+- `微信小程序`
+
+前台：
+
+- `BootStrap`
+- `thymeleaf`
+
+文档生成工具：
+
+- `swagger2`
+
+
+
 
 > `january-member:`用户会员服务，端口: `18080`
 >
